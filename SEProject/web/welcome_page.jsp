@@ -57,7 +57,7 @@
                 </div>
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
 
                         <!-- Modal content-->
                         <div class="modal-content">
@@ -66,11 +66,27 @@
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
-                                <p>Some text in the modal.</p>
+                                <div class="row">
+                                    <div class="col-4">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Username:</label>
+                                        <input type="text" class="form-control" id="username" placeholder="exemple@mail.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Password:</label>
+                                        <input type="password" class="form-control" id="password" placeholder="password">
+                                    </div>
+                                    <p><a href="#" class="text-primary">Sign Up</a></p>
+                                    <button type="button" class="float-right btn btn-primary btn-lg">Sign In</button>
+<!--                                    <button type="button" class="btn btn-secondary">Sign Up</button>-->
+                                </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
+<!--                            <div class="modal-footer">
+                                    
+                            </div>-->
                         </div>
 
                     </div>

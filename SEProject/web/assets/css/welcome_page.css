@@ -29,6 +29,7 @@ html, body{
 #action{
     background: dimgray;
     height: 100vh;
+    font-family: K2D;
 }
 .welcome-text{
     font-size: 3em;
