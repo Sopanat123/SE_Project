@@ -39,9 +39,9 @@ html, body{
     background-color: #4dc0b5;
     transform: rotate(-13deg);
 }
-.fas-magin{
-	margin-top: 1em;
+fmargin{
+    margin-top: 1em !important;
 }
 .model-center{
-	margin: 0 auto;
+    margin: 0 auto;
 }

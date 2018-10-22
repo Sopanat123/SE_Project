@@ -25,23 +25,21 @@
                 <div class="col-9" id="intro">
                     <div class="h-100 row align-items-center">
                         <div class="col">
-                            <div class="col-4 offset-1 rounded-circle text-center lable" style="font-size: 3em;
-                                 background-color: #4dc0b5;
-                                 transform: rotate(-13deg);">Welcome</div>
+                            <div class="col-4 offset-1 rounded-circle text-center label" >Welcome</div>
                             <div class="col-8 offset-2 text-center welcome-text">ตลาด(นัด)นักแปล</div>
                             <div class="col-8 offset-2 text-center welcome-text">แหล่งรวมพลนักแปลรอรับงาน</div>
-                            <div class="row">
+                            <div class="row mt-5">
                                 <div class="col-2 offset-2">
-                                    <i class="fas fa-users fa-5x fas-magin" style="margin-top: 1em;"></i>
+                                    <i class="fas fa-users fa-5x"></i>
                                 </div>
                                 <div class="col-2">
-                                    <i class="fas fa-handshake fa-5x fas-magin" style="margin-top: 1em;"></i>
+                                    <i class="fas fa-handshake fa-5x"></i>
                                 </div>
                                 <div class="col-2">
-                                    <i class="fas fa-file-alt fa-5x fas-magin" style="margin-top: 1em;"></i>
+                                    <i class="fas fa-file-alt fa-5x"></i>
                                 </div>
                                 <div class="col-2">
-                                    <i class="fas fa-lock fa-5x fas-magin" style="margin-top: 1em;"></i>
+                                    <i class="fas fa-lock fa-5x"></i>
                                 </div>
                             </div>
                         </div>
@@ -68,25 +66,53 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-4">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="recipient-name" class="col-form-label">Username:</label>
-                                        <input type="text" class="form-control" id="username" placeholder="exemple@mail.com">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">Username:</label>
+                                                <input type="text" class="form-control" id="username" placeholder="exemple@mail.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="col-form-label">Password:</label>
+                                                <input type="password" class="form-control" id="password" placeholder="password">
+                                            </div>
+                                            <p><a href="#" class="text-primary">Sign Up</a></p>
+                                            <button type="button" class="float-right btn btn-primary btn-lg">Sign In</button>
+                                            <!--                                    <button type="button" class="btn btn-secondary">Sign Up</button>-->
+                                        </form>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="message-text" class="col-form-label">Password:</label>
-                                        <input type="password" class="form-control" id="password" placeholder="password">
-                                    </div>
-                                    <p><a href="#" class="text-primary">Sign Up</a></p>
-                                    <button type="button" class="float-right btn btn-primary btn-lg">Sign In</button>
-<!--                                    <button type="button" class="btn btn-secondary">Sign Up</button>-->
-                                </form>
+                                    <div class="col-8">
+                                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                            <ol class="carousel-indicators">
+                                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                            </ol>
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img class="d-block w-100" src="assets/promotion.jpg" alt="First slide">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="d-block w-100" src="assets/promotion.jpg" alt="Second slide">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="d-block w-100" src="assets/promotion.jpg" alt="Third slide">
+                                                </div>
+                                            </div>
+                                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-<!--                            <div class="modal-footer">
-                                    
-                            </div>-->
+                            <!--                            <div class="modal-footer">
+                                                                
+                                                        </div>-->
                         </div>
 
                     </div>
