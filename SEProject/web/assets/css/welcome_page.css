@@ -45,3 +45,6 @@ fmargin{
 .model-center{
     margin: 0 auto;
 }
+.no-margin-left{
+	margin-left: 0 !important;
+}

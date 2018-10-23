@@ -48,20 +48,20 @@
                 <div class="col-3" id="action">
                     <div class="h-100 row align-items-center">
                         <div class="col">
-                            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal">Sign In</button>
-                            <button type="button" class="btn btn-secondary btn-lg btn-block">Sign Up</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#signIn">Sign In</button>
+                            <button type="button" class="btn btn-secondary btn-lg btn-block" data-toggle="modal" data-target="#signUp">Sign Up</button>
                         </div>
                     </div>
                 </div>
                 <!-- Modal -->
-                <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal fade" id="signIn" role="dialog">
                     <div class="modal-dialog modal-lg">
 
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h4 class="modal-title model-center welcome-text">Sign In</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <button type="button" class="close no-margin-left" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
@@ -75,9 +75,8 @@
                                                 <label for="message-text" class="col-form-label">Password:</label>
                                                 <input type="password" class="form-control" id="password" placeholder="password">
                                             </div>
-                                            <p><a href="#" class="text-primary">Sign Up</a></p>
                                             <button type="button" class="float-right btn btn-primary btn-lg">Sign In</button>
-                                            <!--                                    <button type="button" class="btn btn-secondary">Sign Up</button>-->
+                                            <p><a href="#" class="text-primary" data-dismiss="modal" data-toggle="modal" data-target="#signUp">Sign Up</a></p>
                                         </form>
                                     </div>
                                     <div class="col-8">
@@ -110,11 +109,37 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--                            <div class="modal-footer">
-                                                                
-                                                        </div>-->
                         </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="signUp" role="dialog">
+                    <div class="modal-dialog modal-lg">
 
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title model-center welcome-text">Sign Up</h4>
+                                <button type="button" class="close no-margin-left" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">Username:</label>
+                                                <input type="text" class="form-control" id="username" placeholder="exemple@mail.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="col-form-label">Password:</label>
+                                                <input type="password" class="form-control" id="password" placeholder="password">
+                                            </div>
+                                            <button type="button" class="float-right btn btn-primary btn-lg">Sign Up</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
