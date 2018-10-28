@@ -136,6 +136,13 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
+                                                <label for="lastname" class="col-form-label">Lastname:</label>
+                                                <div class="row pl-3 pr-3">
+                                                    <input type="text" class="col-11 form-control" id="out-lastname" placeholder="exemple" autocomplete="off" pattern="[A-Za-z0-9]+" minlength="1" required/>
+                                                    <span class="col-1 text-center validity"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="username" class="col-form-label">Username:</label>
                                                 <div class="row pl-3 pr-3">
                                                     <input type="text" class="col-11 form-control" id="out-username" placeholder="username" autocomplete="off" pattern="[A-Za-z0-9]+" size="25" minlength="8" maxlength="25" required/>
