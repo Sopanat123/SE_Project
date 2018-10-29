@@ -38,4 +38,8 @@ body:after{
     max-height: 75vh;
     overflow-y: auto;
 }
+#user-pic{
+    word-wrap: break-word;
+    overflow: hidden;
+}
 font-family: 'K2D', sans-serif;

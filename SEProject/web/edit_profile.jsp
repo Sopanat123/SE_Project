@@ -29,8 +29,8 @@
                         <h6>Upload a different photo...</h6>
                         <div class="input-group mb-3">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputFile">
-                                <label class="custom-file-label text-center" for="inputFile">Choose file</label>
+                                <input type="file" class="custom-file-input" id="inputFile" onchange="myFunction()">
+                                <label class="custom-file-label text-center" id="user-pic" for="inputFile">Choose file</label>
                             </div>
 
                         </div>
@@ -114,16 +114,16 @@
                                         </div>
                                         <div class="form-check">
                                             <label for="tags" class="col-4 col-form-label">Tags</label>
-<!--                                            <div class="col-12">
-                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                                <label class="form-check-label" for="defaultCheck1">
-                                                    Novel
-                                                </label>
-                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                                <label class="form-check-label" for="defaultCheck1">
-                                                    Novel
-                                                </label>
-                                            </div>-->
+                                            <!--                                            <div class="col-12">
+                                                                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                                                            <label class="form-check-label" for="defaultCheck1">
+                                                                                                Novel
+                                                                                            </label>
+                                                                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                                                            <label class="form-check-label" for="defaultCheck1">
+                                                                                                Novel
+                                                                                            </label>
+                                                                                        </div>-->
                                         </div>
                                         <!--<div class="form-group row">
                                           <label for="newpass" class="col-4 col-form-label">New Password</label> 
@@ -144,5 +144,20 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("inputFile");
+                txt = "";
+                file = x.files[0];
+                if ('files' in x) {
+                    if ('name' in file) {
+                        txt += file.name;
+                    }
+                }
+                document.getElementById("user-pic").innerHTML = txt;
+            }
+        </script>
+
     </body>
 </html>
