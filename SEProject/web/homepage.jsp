@@ -53,7 +53,7 @@
         </nav>
         <div class="container-fluid">
             <div class="row height-100">
-                <div class="col-10 bg-danger pt-3 pl-3">
+                <div class="col-10 bg-danger pt-3 pl-3" id="post-zone">
 
                     <div class="card-columns">
                         <div class="card">
@@ -139,7 +139,25 @@
                     </div>
                 </div>
                 <div class="col-2 bg-info">
-                    <p>Hello</p>
+                    <div class="mt-3 pt-1 pb-3 border-top border-bottom">
+                        <h1>Filter Category</h1>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1" onclick="filterSelection('cars')">
+                            <label class="custom-control-label" for="customCheck1">Type 1</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck2" onclick="filterSelection('cars')">
+                            <label class="custom-control-label" for="customCheck2">Type 2</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck3" onclick="filterSelection('cars')">
+                            <label class="custom-control-label" for="customCheck3">Type 3</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck4" onclick="filterSelection('cars')">
+                            <label class="custom-control-label" for="customCheck4">Type 4</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal fade " id="model" role="dialog">
                     <div class="modal-dialog modal-lg">
@@ -169,7 +187,7 @@
                                         </div>
                                     </div>
                                     <div class="col-8">
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -178,5 +196,56 @@
                 </div>
             </div>
         </div>
+        <script>
+//            filterSelection("all")
+//            function filterSelection(c) {
+//                var x, i;
+//                x = document.getElementsByClassName("filterDiv");
+//                if (c == "all")
+//                    c = "";
+//                // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+//                for (i = 0; i < x.length; i++) {
+//                    w3RemoveClass(x[i], "show");
+//                    if (x[i].className.indexOf(c) > -1)
+//                        w3AddClass(x[i], "show");
+//                }
+//            }
+//
+//// Show filtered elements
+//            function w3AddClass(element, name) {
+//                var i, arr1, arr2;
+//                arr1 = element.className.split(" ");
+//                arr2 = name.split(" ");
+//                for (i = 0; i < arr2.length; i++) {
+//                    if (arr1.indexOf(arr2[i]) == -1) {
+//                        element.className += " " + arr2[i];
+//                    }
+//                }
+//            }
+//
+//// Hide elements that are not selected
+//            function w3RemoveClass(element, name) {
+//                var i, arr1, arr2;
+//                arr1 = element.className.split(" ");
+//                arr2 = name.split(" ");
+//                for (i = 0; i < arr2.length; i++) {
+//                    while (arr1.indexOf(arr2[i]) > -1) {
+//                        arr1.splice(arr1.indexOf(arr2[i]), 1);
+//                    }
+//                }
+//                element.className = arr1.join(" ");
+//            }
+//
+//// Add active class to the current control button (highlight it)
+//            var btnContainer = document.getElementById("myBtnContainer");
+//            var btns = btnContainer.getElementsByClassName("btn");
+//            for (var i = 0; i < btns.length; i++) {
+//                btns[i].addEventListener("click", function () {
+//                    var current = document.getElementsByClassName("active");
+//                    current[0].className = current[0].className.replace(" active", "");
+//                    this.className += " active";
+//                });
+//            }
+        </script>
     </body>
 </html>

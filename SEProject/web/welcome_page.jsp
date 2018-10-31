@@ -199,7 +199,6 @@
     function mouseDown() {
         document.getElementById("out-password").type = "text";
     }
-
     function mouseUp() {
         document.getElementById("out-password").type = "password";
     }
