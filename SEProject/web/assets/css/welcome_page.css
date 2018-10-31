@@ -14,7 +14,7 @@ html, body{
     /*opacity: 0.2;*/
     font-family: K2D;
 }
-.introafter {
+#intro:after {
     content: "";
     background-image: url("../welcome_bg.jpg");
     background-repeat: repeat-x;
