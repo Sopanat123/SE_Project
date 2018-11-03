@@ -139,6 +139,7 @@
                     </div>
                 </div>
                 <div class="col-2 bg-info">
+                    <button type="button" class="mt-3 btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#newPost">New Post</button>
                     <div class="mt-3 pt-1 pb-3 border-top border-bottom">
                         <h1>Filter Category</h1>
                         <div class="custom-control custom-checkbox">
@@ -188,6 +189,39 @@
                                     </div>
                                     <div class="col-8">
 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="newPost" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title model-center welcome-text">New Post</h4>
+                                <button type="button" class="close fmargin" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <form class="was-validated">
+                                            <div class="form-group">
+                                                <label for="title" class="col-form-label">Title:</label>
+                                                <input type="text" class="form-control" id="post-title" placeholder="exemple" autocomplete="off" pattern="[A-Za-z0-9]+" size="25" minlength="8" maxlength="25" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="description" class="col-4 no-pd-l col-form-label">Description:</label> 
+                                                <div class="col-12 no-pl">
+                                                    <textarea id="info" name="description" placeholder="exemple" cols="40" rows="4" class="form-control" minlength="1" required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="float-right">
+                                                <button type="button" class="btn btn-success btn-lg">Post</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
