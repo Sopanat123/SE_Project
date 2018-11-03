@@ -1,12 +1,12 @@
 font-family: 'K2D', sans-serif;
 
 @font-face {
-    font-family: iannnnnJPG;
-    src: url('../font/2005_iannnnnJPG.ttf') format('truetype');
+    font-family: can_Rukdeaw01;
+    src: url('../fonts/can_Rukdeaw01.ttf') format('truetype');
 }
 @font-face {
     font-family: iannnnnTKO;
-    src: url('../font/2005_iannnnnTKO.ttf') format('truetype');
+    src: url('../fonts/2005_iannnnnTKO.ttf') format('truetype');
 }
 
 html, body{
@@ -38,7 +38,7 @@ html, body{
     -webkit-animation: slide 5s linear infinite;
 }
 #action{
-    background: dimgray;
+    background: #B6C2D9;
     height: 100vh;
     font-family: K2D;
 }
@@ -47,7 +47,7 @@ html, body{
 }
 .label{
     font-size: 3em;
-    background-color: #4dc0b5;
+    background-color: #272932;
     transform: rotate(-13deg);
 }
 .fmargin{
@@ -74,17 +74,19 @@ input:valid + span:after {
 #welcome_text{
 	font-family: iannnnnTKO;
 	color: #F05D5E;
-	font-size: 10em;
+	/*font-size: 3em;*/
 }
 #intro_text{
-	font-family: iannnnnJPG;
+	font-family: can_Rukdeaw01;
 	font-size: 7em;
 }
 #signin_btn{
 	background-color: #272932;
+	color: #F0F3F7;
 }
 #signup_btn{
 	background-color: #4D7EA8;
+	color: #F0F3F7;
 }
 @-webkit-keyframes slide {
     from{

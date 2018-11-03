@@ -24,7 +24,9 @@
                 <div class="col-9" id="intro">
                     <div class="h-100 row align-items-center">
                         <div class="col">
-                            <div class="col-4 offset-1 rounded-circle text-center label" id="welcome_text" >Welcome</div>
+                            <div class="col-4 offset-1 rounded-circle text-center label">
+                                <div id="welcome_text">Welcome</div>
+                            </div>
                             <div class="col-8 offset-2 text-center welcome-text" id="intro_text">ตลาด(นัด)นักแปล</div>
                             <div class="col-8 offset-2 text-center welcome-text">แหล่งรวมพลนักแปลรอรับงาน</div>
                             <div class="row mt-5">
@@ -47,8 +49,8 @@
                 <div class="col-3" id="action">
                     <div class="h-100 row align-items-center">
                         <div class="col">
-                            <button type="button" id="signin-btn" class="btn btn-lg btn-block" data-toggle="modal" data-target="#signIn">Sign In</button>
-                            <button type="button" id="signup-btn" class="btn btn-lg btn-block" data-toggle="modal" data-target="#signUp">Sign Up</button>
+                            <button type="button" id="signin_btn" class="btn btn-lg btn-block" data-toggle="modal" data-target="#signIn">Sign In</button>
+                            <button type="button" id="signup_btn" class="btn btn-lg btn-block" data-toggle="modal" data-target="#signUp">Sign Up</button>
                         </div>
                     </div>
                 </div>
