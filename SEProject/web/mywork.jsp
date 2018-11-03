@@ -47,9 +47,9 @@
         </nav>
         <div class="container-fluid">
             <div class="row height-100">
-                <div class="col-10 bg-danger pt-3 pl-3">
+                <div class="col bg-danger pt-3 pl-3">
                     <div class="col pt-2 pb-2">
-                        <p class="text-white font-weight-bold">Requested Work</p>
+                        <p class="text-white font-weight-bold h2">Requested Work</p>
                     </div>
                     <div class="card-columns">
                         <div class="card">
@@ -105,7 +105,7 @@
                     
                     
                     <div class="col pt-2 pb-2">
-                        <p class="text-white font-weight-bold">Doing Work</p>
+                        <p class="text-white font-weight-bold h2">Doing Work</p>
                     </div>
                     
                     <div class="card-columns">
@@ -161,7 +161,7 @@
                     
                     
                     <div class="col pt-2 pb-2">
-                        <p class="text-white font-weight-bold">Completed Work</p>
+                        <p class="text-white font-weight-bold h2">Completed Work</p>
                     </div>
                     
                     <div class="card-columns">
@@ -213,19 +213,9 @@
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#model">View</button>
                             </div>
                         </div>
-                    </div>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    </div>     
                 </div>
-                <div class="col-2 bg-info">
-                    <p>Hello</p>
-                </div>
+                
                 <div class="modal fade " id="model" role="dialog">
                     <div class="modal-dialog modal-lg">
                         <!-- Modal content-->
