@@ -1,12 +1,24 @@
 font-family: 'K2D', sans-serif;
 
 @font-face {
-    font-family: can_Rukdeaw01;
-    src: url('../fonts/can_Rukdeaw01.ttf') format('truetype');
+    font-family: 'can_rukdeawregular';
+    src: url('can_rukdeaw01-webfont.woff2') format('woff2'),
+         url('can_rukdeaw01-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
+
+
+
+
 @font-face {
-    font-family: iannnnnTKO;
-    src: url('../fonts/2005_iannnnnTKO.ttf') format('truetype');
+    font-family: '2005_iannnnntkoregular';
+    src: url('2005_iannnnntko-webfont.woff2') format('woff2'),
+         url('2005_iannnnntko-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 html, body{
@@ -72,12 +84,12 @@ input:valid + span:after {
 	margin-top: 4em;
 }
 #welcome_text{
-	font-family: iannnnnTKO;
+	font-family: '2005_iannnnntkoregular';
 	color: #F05D5E;
 	/*font-size: 3em;*/
 }
 #intro_text{
-	font-family: can_Rukdeaw01;
+	font-family: 'can_rukdeawregular';
 	font-size: 7em;
 }
 #signin_btn{
