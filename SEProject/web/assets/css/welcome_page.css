@@ -20,8 +20,8 @@ font-family: 'K2D', sans-serif;
 
 @font-face {
     font-family: 'pahntoregular';
-    src: url('pahnto-webfont.woff2') format('woff2'),
-         url('pahnto-webfont.woff') format('woff');
+    src: url('../fonts/pahnto-webfont.woff2') format('woff2'),
+         url('../fonts/pahnto-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
