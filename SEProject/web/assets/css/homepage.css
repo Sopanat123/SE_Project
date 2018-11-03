@@ -32,5 +32,10 @@ body{
 .no-pl{
     padding: 0 !important;
 }
-
+.show {
+    display: block;
+}
+.no-pd-l{
+    padding-left: 0;
+}
 font-family: 'K2D', sans-serif;
