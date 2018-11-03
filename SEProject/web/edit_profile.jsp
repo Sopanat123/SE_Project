@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/homepage.css" rel="stylesheet">
         <link href="assets/css/edit_profile.css" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
         <!--<link href="assets/css/all.min.css" rel="stylesheet">-->
@@ -19,7 +20,38 @@
         <title>Edit Profile</title>
     </head>
     <body>
-        <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Title</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="homepage.jsp">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mywork.jsp">My Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="mywork.jsp" disabled>Doing Work</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="edit_profile.jsp">Edit Profile</a>
+                    </li>
+                    <!--                    <form class="form-inline my-2 my-lg-0">
+                                            <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                        </form>-->
+                </ul>
+
+                <form class="form-inline my-2 my-lg-0 ml-5">
+                    <button class="btn btn-danger my-2 my-sm-0" type="submit">Sign Out</button>
+                </form>
+            </div>
+        </nav>
+        <div class="container pt-5">
             <div class="row">
                 <div class="col-sm-3">
                     <div class="row text-center">
@@ -37,23 +69,6 @@
                         <!--<input type="file" class="text-center center-block file-upload">-->
                     </div></hr><br>
                 </div>
-                <!--                <div class="col-md-3 ">
-                                    <div class="list-group ">
-                                        <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
-                                        <a href="#" class="list-group-item list-group-item-action">User Management</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Used</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Enquiry</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Dealer</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Media</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Post</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Category</a>
-                                        <a href="#" class="list-group-item list-group-item-action">New</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Comments</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Appearance</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Reports</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Settings</a>
-                                    </div>
-                                </div>-->
                 <div class="col-md-9">
                     <div class="card no-border bg-transparent">
                         <div class="card-body">
@@ -112,7 +127,7 @@
                                                 <input id="pseudonym" name="pseudonym" placeholder="exemple" class="form-control here" type="text">
                                             </div>
                                         </div>
-                                        <div class="form-check">
+                                        <div class="form-group">
                                             <label for="tags" class="col-4 col-form-label">Tags</label>
                                             <!--                                            <div class="col-12">
                                                                                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
@@ -124,6 +139,13 @@
                                                                                                 Novel
                                                                                             </label>
                                                                                         </div>-->
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-file form-custom ml-3 col-12">
+                                                <input type="file" class="custom-file-input" id="inputFile" onchange="myFunction()">
+                                                <label class="custom-file-label text-center" id="user-pic" for="inputFile">Choose file</label>
+                                            </div>
+
                                         </div>
                                         <!--<div class="form-group row">
                                           <label for="newpass" class="col-4 col-form-label">New Password</label> 
