@@ -50,6 +50,7 @@
                     <div class="h-100 row align-items-center">
                         <div class="col">
                             <button type="button" id="signin_btn" class="btn btn-lg btn-block" data-toggle="modal" data-target="#signIn">Sign In</button>
+                            <div class="text-center font-size-1_5">or</div>
                             <button type="button" id="signup_btn" class="btn btn-lg btn-block" data-toggle="modal" data-target="#signUp">Sign Up</button>
                         </div>
                     </div>
