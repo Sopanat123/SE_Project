@@ -2,8 +2,8 @@ font-family: 'K2D', sans-serif;
 
 @font-face {
     font-family: 'can_rukdeawregular';
-    src: url('can_rukdeaw01-webfont.woff2') format('woff2'),
-         url('can_rukdeaw01-webfont.woff') format('woff');
+    src: url('../fonts/can_rukdeaw01-webfont.woff2') format('woff2'),
+         url('../fonts/can_rukdeaw01-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -14,8 +14,8 @@ font-family: 'K2D', sans-serif;
 
 @font-face {
     font-family: '2005_iannnnntkoregular';
-    src: url('2005_iannnnntko-webfont.woff2') format('woff2'),
-         url('2005_iannnnntko-webfont.woff') format('woff');
+    src: url('../fonts/2005_iannnnntko-webfont.woff2') format('woff2'),
+         url('../fonts/2005_iannnnntko-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
