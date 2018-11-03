@@ -32,10 +32,10 @@
                         <a class="nav-link" href="homepage.jsp">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">My Work</a>
+                        <a class="nav-link" href="mywork.jsp">My Work</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Doing Work</a>
+                        <a class="nav-link disabled" href="mywork.jsp" disabled>Doing Work</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="edit_profile.jsp">Edit Profile</a>
