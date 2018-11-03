@@ -9,13 +9,19 @@ font-family: 'K2D', sans-serif;
 
 }
 
-
-
-
 @font-face {
     font-family: '2005_iannnnntkoregular';
     src: url('../fonts/2005_iannnnntko-webfont.woff2') format('woff2'),
          url('../fonts/2005_iannnnntko-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'pahntoregular';
+    src: url('pahnto-webfont.woff2') format('woff2'),
+         url('pahnto-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -89,8 +95,8 @@ input:valid + span:after {
 	/*font-size: 3em;*/
 }
 #intro_text{
-	font-family: 'can_rukdeawregular';
-	font-size: 7em;
+	font-family: 'pahntoregular';
+	/*font-size: 7em;*/
 }
 #signin_btn{
 	background-color: #272932;

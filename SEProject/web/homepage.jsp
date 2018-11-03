@@ -62,8 +62,8 @@
                                     <img class="img-circle" src="http://semantic-ui.com/images/avatar/large/elliot.jpg"  width="40" height="40" alt="user img">
                                 </div>
                                 <div class="col-10">
-                                    <h3 class="car">Card title</h3>
-                                    <small class="text-muted">Last posted 3 mins ago</small>
+                                    <h3 class="car col-6">Card title</h3>
+                                    <small class="text-muted col-6">Last posted 3 mins ago</small>
                                 </div>
                             </div>
                             <img class="card-img-top" src="https://semantic-ui.com/images/wireframe/image.png" alt="Card image cap">

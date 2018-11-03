@@ -24,7 +24,7 @@
                 <div class="col-9" id="intro">
                     <div class="h-100 row align-items-center">
                         <div class="col">
-                            <div class="col-4 offset-1 rounded-circle text-center label">
+                            <div class="col-2 offset-3 rounded-circle text-center label">
                                 <div id="welcome_text">Welcome</div>
                             </div>
                             <div class="col-8 offset-2 text-center welcome-text" id="intro_text">ตลาด(นัด)นักแปล</div>
