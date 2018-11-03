@@ -6,7 +6,7 @@ font-family: 'K2D', sans-serif;
          url('../fonts/can_rukdeaw01-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
+    unicode-range: U+0E00–U+0E7F;
 }
 
 @font-face {
@@ -15,7 +15,7 @@ font-family: 'K2D', sans-serif;
          url('../fonts/2005_iannnnntko-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
+    unicode-range: U+0E00–U+0E7F;
 }
 
 @font-face {
@@ -24,7 +24,16 @@ font-family: 'K2D', sans-serif;
          url('../fonts/pahnto-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    unicode-range: U+0E00–U+0E7F;
+}
 
+@font-face {
+    font-family: 'edmuzazhiregular';
+    src: url('../fonts/edmuzazhi-webfont.woff2') format('woff2'),
+         url('../fonts/edmuzazhi-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: U+0E00–U+0E7F;
 }
 
 html, body{
@@ -95,7 +104,7 @@ input:valid + span:after {
 	/*font-size: 3em;*/
 }
 #intro_text{
-	font-family: 'pahntoregular';
+	font-family: 'edmuzazhiregular';
 	/*font-size: 7em;*/
 }
 #signin_btn{
