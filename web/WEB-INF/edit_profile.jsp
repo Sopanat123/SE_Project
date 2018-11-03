@@ -36,7 +36,7 @@
 
                         </div>
                         <!--<input type="file" class="text-center center-block file-upload">-->
-                    </div></hr><br>
+                    </div><br>
                 </div>
                 <!--                <div class="col-md-3 ">
                                     <div class="list-group ">
@@ -67,72 +67,57 @@
                             <div class="row">
                                 <div class="col-md-12 scroll">
                                     <c:set var="user" scope="session" value="${user}" />
+                                    <font color="red">${msg}</font>
 <%-- 'editprofile' HEAD --%>        <form action="editprofile" method="POST" class="was-validated">
                                         <div class="form-group">
-                                            <label for="name" class="col-4 col-form-label">First Name*</label> 
+                                            <label for="displayname" class="col-4 col-form-label">Display Name</label> 
                                             <div class="col-12">
-                                                <input id="name" name="firstname" value="${user.firstname}" class="form-control here" required="required" type="text" pattern="[A-Za-z0-9]+" minlength="1">
+                                                <input id="displayname" name="displayname" value="${user.displayname}" class="form-control here" type="text" pattern="[A-Za-z0-9]{8,25}" readonly />
+                                                <div class="invalid-feedback">Please enter the correct display name.</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="username" class="col-4 col-form-label">User Name</label> 
+                                            <div class="col-12">
+                                                <input id="username" name="username" value="${user.username}" class="form-control here" type="text" pattern="[A-Za-z0-9]{8,25}" />
+                                                <div class="invalid-feedback">Please enter the correct user name.</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" class="col-4 col-form-label">Password</label> 
+                                            <div class="col-12">
+                                                <input id="password" name="password" class="form-control here" type="password" pattern="[A-Za-z0-9]{8,25}" />
+                                                <div class="invalid-feedback">Please enter the correct password.</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="firstname" class="col-4 col-form-label">First Name</label> 
+                                            <div class="col-12">
+                                                <input id="firstname" name="firstname" value="${user.firstname}" class="form-control here" type="text" pattern="[A-Za-z0-9]{1,}" readonly />
                                                 <div class="invalid-feedback">Please choose a first name.</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="lastname" class="col-4 col-form-label">Last Name*</label> 
+                                            <label for="lastname" class="col-4 col-form-label">Last Name</label> 
                                             <div class="col-12">
-                                                <input id="lastname" name="lastname" value="${user.lastname}" class="form-control here" required="required" type="text" pattern="[A-Za-z0-9]+" minlength="1">
-                                                <div class="invalid-feedback">Please choose a first name.</div>
+                                                <input id="lastname" name="lastname" value="${user.lastname}" class="form-control here" type="text" pattern="[A-Za-z0-9]{1,}" readonly />
+                                                <div class="invalid-feedback">Please choose a last name.</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="text" class="col-4 col-form-label">Nick Name</label> 
+                                            <label for="email" class="col-4 col-form-label">Email</label> 
                                             <div class="col-12">
-                                                <input id="nickname" name="text" placeholder="exemple" class="form-control here" type="text" pattern="[A-Za-z0-9]+" minlength="1">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email" class="col-4 col-form-label">Email*</label> 
-                                            <div class="col-12">
-                                                <input id="email" name="email" class="form-control here" type="email" value="${user.email}" autocomplete="off" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required/>
+                                                <input id="email" name="email" class="form-control here" type="email" value="${user.email}" autocomplete="off" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
                                                 <div class="invalid-feedback">Please choose a email.</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="phone" class="col-4 col-form-label">Phone*</label> 
+                                            <label for="phone" class="col-4 col-form-label">Phone</label> 
                                             <div class="col-12">
-                                                <input id="phone" name="phone" class="form-control here" type="tel" value="${user.phone}" autocomplete="off" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" size="12" minlength="12" maxlength="12" required/>
+                                                <input id="phone" name="phone" class="form-control here" type="tel" value="${user.phone}" autocomplete="off" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
                                                 <div class="invalid-feedback">Please choose a phone number.</div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="publicinfo" class="col-4 col-form-label">Public Info</label> 
-                                            <div class="col-12">
-                                                <textarea id="info" name="publicinfo" placeholder="exemple" cols="40" rows="4" class="form-control" minlength="1"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="username" class="col-4 col-form-label">Pseudonym</label> 
-                                            <div class="col-12">
-                                                <input id="pseudonym" name="pseudonym" placeholder="exemple" class="form-control here" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="form-check">
-                                            <label for="tags" class="col-4 col-form-label">Tags</label>
-                                            <!--                                            <div class="col-12">
-                                                                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                                                                            <label class="form-check-label" for="defaultCheck1">
-                                                                                                Novel
-                                                                                            </label>
-                                                                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                                                                            <label class="form-check-label" for="defaultCheck1">
-                                                                                                Novel
-                                                                                            </label>
-                                                                                        </div>-->
-                                        </div>
-                                        <!--<div class="form-group row">
-                                          <label for="newpass" class="col-4 col-form-label">New Password</label> 
-                                          <div class="col-8">
-                                            <input id="newpass" name="newpass" placeholder="New Password" class="form-control here" type="text">
-                                          </div>
-                                        </div>  -->
                                         <div class="form-group text-center">
                                             <div class="mx-auto">
                                                 <button name="submit" type="submit" class="btn btn-primary">Update My Profile</button>

@@ -6,7 +6,7 @@ package se.model;
  */
 public class User {
 
-    private final String username;
+    private String username;
     private String email;
     private String phone;
     private String firstname;
@@ -31,6 +31,10 @@ public class User {
      */
     public String getUsername() {
         return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {

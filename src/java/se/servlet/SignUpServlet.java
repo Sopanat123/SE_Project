@@ -89,11 +89,11 @@ public class SignUpServlet extends HttpServlet {
         String phone = request.getParameter(PARAM_PHONE);
 
         // Check user input
-        if (username.isEmpty() || username.length() < 6) {
+        if (username.isEmpty() || username.length() < 8) {
             request.setAttribute(MESSAGE, "Invalid username");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
-        } else if (password.isEmpty() || password.length() < 6) {
+        } else if (password.isEmpty() || password.length() < 8) {
             request.setAttribute(MESSAGE, "Invalid password");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
@@ -118,7 +118,6 @@ public class SignUpServlet extends HttpServlet {
         try {
             // Get database
             Firestore db = (Firestore) request.getServletContext().getAttribute("db");
-            // Create DocRef for later operation
             DocumentReference docRef = db.collection("users").document(username);
             ApiFuture<DocumentSnapshot> future = docRef.get();
             DocumentSnapshot document = future.get();
@@ -144,6 +143,7 @@ public class SignUpServlet extends HttpServlet {
 
             // VALID email - create map to store into database
             Map<String, Object> map = new HashMap<>();
+            map.put("displayname", username);
             map.put("password", Sha2.sha256(password));
             map.put("email", email);
             map.put("firstname", firstname);
@@ -155,7 +155,7 @@ public class SignUpServlet extends HttpServlet {
 
             // Create user and store data in session
             User user = new User(username);
-            user.setDisplayname(firstname);
+            user.setDisplayname(username);
             user.setEmail(email);
             user.setFirstname(firstname);
             user.setImageUrl("assets/def_pro_img.png");
