@@ -1,6 +1,6 @@
 body{
-    padding-top: 50px;
-    padding-bottom: 20px;
+    /*padding-top: 50px;
+    padding-bottom: 20px;*/
     overflow: hidden;
     font-family: 'K2D';
 }
@@ -41,5 +41,8 @@ body:after{
 #user-pic{
     word-wrap: break-word;
     overflow: hidden;
+}
+.form-custom{
+	width: 738px !important;
 }
 font-family: 'K2D', sans-serif;

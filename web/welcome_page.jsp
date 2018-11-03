@@ -25,8 +25,10 @@
                 <div class="col-9" id="intro">
                     <div class="h-100 row align-items-center">
                         <div class="col">
-                            <div class="col-4 offset-1 rounded-circle text-center label" >Welcome</div>
-                            <div class="col-8 offset-2 text-center welcome-text">ตลาด(นัด)นักแปล</div>
+                            <div class="col-2 offset-3 rounded-circle text-center label">
+                                <div id="welcome_text">Welcome</div>
+                            </div>
+                            <div class="col-8 offset-2 text-center welcome-text" id="intro_text">ตลาด(นัด)นักแปล</div>
                             <div class="col-8 offset-2 text-center welcome-text">แหล่งรวมพลนักแปลรอรับงาน</div>
                             <div class="row mt-5">
                                 <div class="col-2 offset-2">
@@ -48,8 +50,9 @@
                 <div class="col-3" id="action">
                     <div class="h-100 row align-items-center">
                         <div class="col">
-                            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#signIn">Sign In</button>
-                            <button type="button" class="btn btn-secondary btn-lg btn-block" data-toggle="modal" data-target="#signUp">Sign Up</button>
+                            <button type="button" id="signin_btn" class="btn btn-lg btn-block" data-toggle="modal" data-target="#signIn">Sign In</button>
+                            <div class="text-center font-size-1_5">or</div>
+                            <button type="button" id="signup_btn" class="btn btn-lg btn-block" data-toggle="modal" data-target="#signUp">Sign Up</button>
                         </div>
                     </div>
                 </div>
@@ -65,26 +68,26 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-4">
-<%-- FORM 'Sign in' HEAD --%>           <form action="signin" method="POST">
+<%-- 'sign in' HEAD --%>                <form action="signin" method="POST">
                                             <div>
                                                 <font color="red">${msg}</font>
                                                 <c:remove var="msg" scope="request"/>
                                             </div>
                                             <div class="form-group">
                                                 <label for="username" class="col-form-label">Username:</label>
-                                                <input type="text" name="username" class="form-control" id="in-username" placeholder="username" autocomplete="off" pattern="[A-Za-z0-9]+" size="25" minlength="8" maxlength="25" required>
+                                                <input type="text" name="username" class="form-control" id="in-username" placeholder="username" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="password" class="col-form-label">Password:</label>
-                                                <input type="password" name="password" class="form-control" id="in-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]+" size="25" minlength="8" maxlength="25" required>
+                                                <input type="password" name="password" class="form-control" id="in-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required>
                                             </div>
                                             <div class="float-right">
                                                 <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
                                             </div>
-<%-- FORM 'Sign in' TAIL --%>           </form>
-                                        <div class="text-right btn-signup">
-                                            <p class="pull-right"><a href="#" class="text-primary" data-dismiss="modal" data-toggle="modal" data-target="#signUp" onmousedown="goSignUp()">Sign Up?</a></p>
-                                        </div>
+                                            <div class="text-right btn-signup">
+                                                <p class="pull-right"><a href="#" class="text-primary" data-dismiss="modal" data-toggle="modal" data-target="#signUp" onmousedown="goSignUp()">Sign Up?</a></p>
+                                            </div>
+<%-- 'sign in' TAIL --%>                </form>
                                     </div>
                                     <div class="col-8">
                                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -122,6 +125,7 @@
                 <!-- Modal -->
                 <div class="modal fade" id="signUp" role="dialog">
                     <div class="modal-dialog modal-lg">
+
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
@@ -131,25 +135,25 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col">
-<%-- FORM 'Sign up' HEAD --%>           <form action="signup" method="POST">
+<%-- 'sign up' HEAD --%>                <form action="signup" method="POST">
                                             <div class="form-group">
-                                                <label for="fullname" class="col-form-label">Firstname:</label>
+                                                <label for="firstname" class="col-form-label">First name:</label>
                                                 <div class="row pl-3 pr-3">
-                                                    <input type="text" name="firstname" class="col-11 form-control" id="out-fullname" placeholder="exemple" autocomplete="off" pattern="[A-Za-z0-9]+" minlength="1" required/>
+                                                    <input type="text" name="firstname" class="col-11 form-control" id="out-fullname" placeholder="firstname" autocomplete="off" pattern="[A-Za-z0-9]{1,}" required/>
                                                     <span class="col-1 text-center validity"></span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="lastname" class="col-form-label">Lastname:</label>
+                                                <label for="lastname" class="col-form-label">Last name:</label>
                                                 <div class="row pl-3 pr-3">
-                                                    <input type="text" name="lastname" class="col-11 form-control" id="out-lastname" placeholder="exemple" autocomplete="off" pattern="[A-Za-z0-9]+" minlength="1" required/>
+                                                    <input type="text" name="lastname" class="col-11 form-control" id="out-lastname" placeholder="lastname" autocomplete="off" pattern="[A-Za-z0-9]{1,}" required/>
                                                     <span class="col-1 text-center validity"></span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="username" class="col-form-label">Username:</label>
                                                 <div class="row pl-3 pr-3">
-                                                    <input type="text" name="username" class="col-11 form-control" id="out-username" placeholder="username" autocomplete="off" pattern="[A-Za-z0-9]+" size="25" minlength="8" maxlength="25" required/>
+                                                    <input type="text" name="username" class="col-11 form-control" id="out-username" placeholder="username" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
                                                     <span class="col-1 text-center validity"></span>
                                                     <small id="usernameHelpBlock" class="form-text text-muted">
                                                         Your username must be 8-25 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
@@ -162,7 +166,7 @@
                                                     <button class="col-1 btn btn-default" type="button" onmousedown="mouseDown()" onmouseup="mouseUp()">
                                                         <i class="far fa-eye"></i>
                                                     </button>
-                                                    <input type="password" name="password" class="col-10 form-control" id="out-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]+" size="25" minlength="8" maxlength="25" required/>
+                                                    <input type="password" name="password" class="col-10 form-control" id="out-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
                                                     <span class="col-1 text-center validity"></span>
                                                     <small id="passwordHelpBlock" class="form-text text-muted">
                                                         Your password must be 8-25 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
@@ -170,24 +174,24 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
+                                                <label for="email" class="col-form-label">Email:</label>
+                                                <div class="row pl-3 pr-3">
+                                                    <input type="email" name="email" class="col-11 form-control" id="out-email" placeholder="example@mail.com" autocomplete="off" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required/>
+                                                    <span class="col-1 text-center validity"></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="phonenumber" class="col-form-label">Phone:</label>
                                                 <div class="row pl-3 pr-3">
-                                                    <input type="tel" name="phone" class="col-11 form-control" id="out-phone" placeholder="099-999-9999" autocomplete="off" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" size="12" minlength="12" maxlength="12" required/>
+                                                    <input type="tel" name="phone" class="col-11 form-control" id="out-phone" placeholder="099-999-9999" autocomplete="off" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
                                                     <span class="col-1 text-center validity"></span>
                                                     <small id="phoneHelpBlock" class="form-text text-muted">
                                                         Your password must be 8-25 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
                                                     </small>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="email" class="col-form-label">Email:</label>
-                                                <div class="row pl-3 pr-3">
-                                                    <input type="email" name="email" class="col-11 form-control" id="out-email" placeholder="exemple@mail.com" autocomplete="off" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required/>
-                                                    <span class="col-1 text-center validity"></span>
-                                                </div>
-                                            </div>
                                             <button type="submit" class="float-right btn btn-primary btn-lg">Sign Up</button>
-<%-- FORM 'Sign up' TAIL --%>           </form>
+<%-- 'sign up' TAIL --%>                </form>
                                     </div>
                                 </div>
                             </div>
@@ -203,7 +207,6 @@
     function mouseDown() {
         document.getElementById("out-password").type = "text";
     }
-
     function mouseUp() {
         document.getElementById("out-password").type = "password";
     }
