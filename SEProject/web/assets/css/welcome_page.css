@@ -1,5 +1,14 @@
 font-family: 'K2D', sans-serif;
 
+@font-face {
+    font-family: iannnnnJPG;
+    src: url('../font/2005_iannnnnJPG.ttf') format('truetype');
+}
+@font-face {
+    font-family: iannnnnTKO;
+    src: url('../font/2005_iannnnnTKO.ttf') format('truetype');
+}
+
 html, body{
     overflow: hidden;
 }
@@ -61,6 +70,21 @@ input:valid + span:after {
 }
 .btn-signup{
 	margin-top: 4em;
+}
+#welcome_text{
+	font-family: iannnnnTKO;
+	color: #F05D5E;
+	font-size: 10em;
+}
+#intro_text{
+	font-family: iannnnnJPG;
+	font-size: 7em;
+}
+#signin_btn{
+	background-color: #272932;
+}
+#signup_btn{
+	background-color: #4D7EA8;
 }
 @-webkit-keyframes slide {
     from{
