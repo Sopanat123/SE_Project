@@ -14,6 +14,10 @@ public class User {
     private String displayname;
     private String imageUrl;
     private String privilege;
+    private String publicInfo;
+    private String tag;
+    private String idCardImg;
+    private String selfieImg;
 
     /**
      * Create user object, identify by username
@@ -91,5 +95,37 @@ public class User {
 
     public void setPrivilege(String privilege) {
         this.privilege = privilege;
+    }
+
+    public String getPublicInfo() {
+        return publicInfo;
+    }
+
+    public void setPublicInfo(String publicInfo) {
+        this.publicInfo = publicInfo;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public String getIdCardImg() {
+        return idCardImg;
+    }
+
+    public void setIdCardImg(String idCardImg) {
+        this.idCardImg = idCardImg;
+    }
+
+    public String getSelfieImg() {
+        return selfieImg;
+    }
+
+    public void setSelfieImg(String selfieImg) {
+        this.selfieImg = selfieImg;
     }
 }
