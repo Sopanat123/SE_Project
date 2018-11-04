@@ -19,6 +19,8 @@ public class Work {
     private Date createTime;
     private Date acceptTime;
     private Date finishTime;
+    private Double price; // full price
+    private String hidden; // confindential file
 
 //    public void setDate(String timestamp) {
 //        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy HH:mm:ss");
