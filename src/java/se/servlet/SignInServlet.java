@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import se.Variable;
 import se.crypto.Sha2;
 import se.model.User;
 
@@ -27,12 +28,7 @@ import se.model.User;
 public class SignInServlet extends HttpServlet {
 
     private static final String TAG = "SignInServlet";
-    private static final String MESSAGE = "msg";
     private static final String PAGE_JSP = "welcome_page.jsp";
-    private static final String PAGE_HOME = "home";
-    private static final String SESS_USER = "user";
-    private static final String PARAM_USERNAME = "username";
-    private static final String PARAM_PASSWORD = "password";
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -46,8 +42,8 @@ public class SignInServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Check if already signed in
-        if (request.getSession().getAttribute(SESS_USER) != null) {
-            response.sendRedirect(PAGE_HOME);
+        if (request.getSession().getAttribute(Variable.SES_CURRENT_USER) != null) {
+            response.sendRedirect(Variable.PAGE_HOME);
         } else {
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
         }
@@ -65,66 +61,69 @@ public class SignInServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Must has 'NO' user in session to continue
-        if (request.getSession().getAttribute(SESS_USER) != null) {
-            request.getRequestDispatcher(PAGE_HOME).forward(request, response);
+        if (request.getSession().getAttribute(Variable.SES_CURRENT_USER) != null) {
+            request.getRequestDispatcher(Variable.PAGE_HOME).forward(request, response);
             return;
         }
 
         // Get parameter from request
-        String username = request.getParameter(PARAM_USERNAME);
-        String password = request.getParameter(PARAM_PASSWORD);
+        String username = request.getParameter(Variable.WEB_USERNAME);
+        String password = request.getParameter(Variable.WEB_PASSWORD);
 
         //Check if input is empty
         if (username.isEmpty() && password.isEmpty()) {
-            request.setAttribute(MESSAGE, "Please enter your username and password.");
+            request.setAttribute(Variable.MESSAGE, "Please enter your username and password.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         } else if (username.isEmpty()) {
-            request.setAttribute(MESSAGE, "Please enter your username.");
+            request.setAttribute(Variable.MESSAGE, "Please enter your username.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         } else if (password.isEmpty()) {
-            request.setAttribute(MESSAGE, "Please enter your password.");
-            request.setAttribute(PARAM_USERNAME, username);
+            request.setAttribute(Variable.MESSAGE, "Please enter your password.");
+            request.setAttribute(Variable.WEB_USERNAME, username);
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
 
         try {
             // Get database
-            Firestore db = (Firestore) request.getServletContext().getAttribute("db");
+            Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.APP_DB_NAME);
             // Create a reference for fecthing matched data
-            DocumentReference docRef = db.collection("users").document(username);
+            DocumentReference docRef = db.collection(Variable.DB_COL_USER).document(username);
             ApiFuture<DocumentSnapshot> future = docRef.get();
             DocumentSnapshot doc = future.get();
 
             // Check if user exists in database
             if (doc.exists()) {
                 // Check password
-                if (Sha2.sha256(password).equals(doc.getString("password"))) {
+                if (Sha2.sha256(password).equals(doc.getString(Variable.DB_DOC_USER_PASSWORD))) {
                     User user = new User(username);
-                    user.setDisplayname(doc.getString("displayname"));
-                    user.setEmail(doc.getString("email"));
-                    user.setFirstname(doc.getString("firstname"));
-                    user.setImageUrl(doc.getString("imageurl"));
-                    user.setLastname(doc.getString("lastname"));
-                    user.setPhone(doc.getString("phone"));
-                    user.setPrivilege(doc.getString("privilege"));
-                    request.getSession().setAttribute(SESS_USER, user);
-                    response.sendRedirect(PAGE_HOME);
+                    // Get user data from database and store in session
+                    user.setDisplayname(doc.getString(Variable.DB_DOC_USER_DISPLAYNAME));
+                    user.setFirstname(doc.getString(Variable.DB_DOC_USER_FIRSTNAME));
+                    user.setLastname(doc.getString(Variable.DB_DOC_USER_LASTNAME));
+                    user.setEmail(doc.getString(Variable.DB_DOC_USER_EMAIL));
+                    user.setPhone(doc.getString(Variable.DB_DOC_USER_PHONE));
+                    user.setImageUrl(doc.getString(Variable.DB_DOC_USER_IMAGE));
+                    user.setPrivilege(doc.getString(Variable.DB_DOC_USER_PRIVILEGE));
+                    user.setPublicInfo(doc.getString(Variable.DB_DOC_USER_INFO));
+                    user.setTag(doc.getString(Variable.DB_DOC_USER_TAG));
+                    request.getSession().setAttribute(Variable.SES_CURRENT_USER, user);
+                    response.sendRedirect(Variable.PAGE_HOME);
                 } else {
-                    request.setAttribute(MESSAGE, "Wrong password.");
-                    request.setAttribute(PARAM_USERNAME, username);
+                    request.setAttribute(Variable.MESSAGE, "Wrong password.");
+                    request.setAttribute(Variable.WEB_USERNAME, username);
                     request.getRequestDispatcher(PAGE_JSP).forward(request, response);
                 }
             } else {
                 // No username in database
-                request.setAttribute(MESSAGE, "Unknown user.");
+                request.setAttribute(Variable.MESSAGE, "Unknown user.");
                 request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             }
         } catch (NoSuchAlgorithmException | InterruptedException | ExecutionException ex) {
             Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
-            request.setAttribute(MESSAGE, "Can't connect to database.");
+            request.setAttribute(Variable.MESSAGE, "Can't connect to database.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
         }
     }

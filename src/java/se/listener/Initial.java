@@ -44,8 +44,8 @@ public class Initial implements ServletContextListener {
             // Create and get connection to firebase
             initDatabase(sce.getServletContext());
             // Store instance in application context for the whole web usage
-            sce.getServletContext().setAttribute(Variable.DB_NAME, fs);
-            sce.getServletContext().setAttribute(Variable.DB_BUCKET, bk);
+            sce.getServletContext().setAttribute(Variable.APP_DB_NAME, fs);
+            sce.getServletContext().setAttribute(Variable.APP_DB_BUCKET, bk);
         } catch (IOException ex) {
             Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
         }

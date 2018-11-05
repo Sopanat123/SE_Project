@@ -14,12 +14,15 @@ package se;
  */
 public final class Variable {
 
-    public static final String DB_NAME = "db";
-    public static final String DB_BUCKET = "bk";
+    // Application scope
+    public static final String APP_DB_NAME = "db";
+    public static final String APP_DB_BUCKET = "bk";
 
+    // DB collection name
 //    public static final String DB_COL_WORK = "works";
     public static final String DB_COL_USER = "users";
 
+    // DB collection 'users', document values
     public static final String DB_DOC_USER_USERNAME = "username";
     public static final String DB_DOC_USER_PASSWORD = "password";
     public static final String DB_DOC_USER_DISPLAYNAME = "displayname";
@@ -35,16 +38,21 @@ public final class Variable {
     public static final String DB_DOC_USER_ID_IMAGE = "idcard";
     public static final String DB_DOC_USER_ID_SELFIE = "idselfie";
 
+    // Usally carry error message in request scope
     public static final String MESSAGE = "msg";
 
+    // Url for call servlet page to forward to associate jsp page
     public static final String PAGE_SIGN_IN = "signin";
 //    public static final String PAGE_SIGN_UP = "signup";
     public static final String PAGE_SIGN_OUT = "signout";
     public static final String PAGE_HOME = "home";
-    public static final String PAGE_EDIT_PROFILE = "editprofile";
+    public static final String PAGE_USER_PROFILE = "user";
+    public static final String PAGE_USER_EDIT_PROFILE = "editprofile";
 
+    // Session scope
     public static final String SES_CURRENT_USER = "cruser";
 
+    //  Web parameter name
     public static final String WEB_USERNAME = "username";
     public static final String WEB_PASSWORD = "password";
     public static final String WEB_DISPLAYNAME = "displayname";

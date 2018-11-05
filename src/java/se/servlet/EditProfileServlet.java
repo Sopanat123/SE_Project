@@ -115,7 +115,7 @@ public class EditProfileServlet extends HttpServlet {
 
         try {
             // Get database
-            Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.DB_NAME);
+            Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.APP_DB_NAME);
 
             // Check if user want to change username and/or email
             if (usernameFlag && emailFlag) {
@@ -240,7 +240,7 @@ public class EditProfileServlet extends HttpServlet {
                 user.setDisplayname(displayname);
                 user.setEmail(email);
                 user.setPhone(phone);
-                // TODO
+                // TODO - add more field
 
                 // Redirect to homepage
                 response.sendRedirect(Variable.PAGE_HOME);
@@ -253,11 +253,13 @@ public class EditProfileServlet extends HttpServlet {
                 if (passwordFlag) {
                     dr.update(Variable.DB_DOC_USER_PASSWORD, Sha2.sha256(password));
                 }
+                // TODO - add more field
 
                 // Update data in session
                 user.setDisplayname(displayname);
                 user.setEmail(email);
                 user.setPhone(phone);
+                // TODO - add more field
 
                 // Redirect to homepage
                 response.sendRedirect(Variable.PAGE_HOME);
