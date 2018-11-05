@@ -32,6 +32,10 @@
         <servlet-name>AddWorkServlet</servlet-name>
         <servlet-class>se.servlet.AddWorkServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MyWorkServlet</servlet-name>
+        <servlet-class>se.servlet.MyWorkServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/signin</url-pattern>
@@ -59,6 +63,10 @@
     <servlet-mapping>
         <servlet-name>AddWorkServlet</servlet-name>
         <url-pattern>/addwork</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyWorkServlet</servlet-name>
+        <url-pattern>/mywork</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

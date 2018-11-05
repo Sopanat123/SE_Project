@@ -33,10 +33,10 @@
                         <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="mywork.jsp">My Work</a>
+                        <a class="nav-link" href="mywork">My Work</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="mywork.jsp" disabled>Doing Work</a>
+                        <a class="nav-link disabled" href="mywork" disabled>Doing Work</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="editprofile">Edit Profile</a>
@@ -62,7 +62,7 @@
                         <h6>Upload a different photo...</h6>
                         <div class="input-group mb-3">
 <%-- IMG HEAD --%>          <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputFile" onchange="myFunction()">
+                                <input type="file" name="image" class="custom-file-input" id="inputFile" onchange="myFunction()">
                                 <label class="custom-file-label text-center" id="user-pic" for="inputFile">Choose file</label>
 <%-- IMG TAIL --%>          </div>
 
@@ -137,13 +137,7 @@
                                         <div class="form-group">
                                             <label for="publicinfo" class="col-4 col-form-label">Public Info</label> 
                                             <div class="col-12">
-                                                <textarea id="info" name="publicinfo" placeholder="exemple" cols="40" rows="4" class="form-control" minlength="1"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="username" class="col-4 col-form-label">Pseudonym</label> 
-                                            <div class="col-12">
-                                                <input id="pseudonym" name="pseudonym" placeholder="exemple" class="form-control here" type="text">
+                                                <textarea id="info" name="info" placeholder="example" cols="40" rows="4" class="form-control" ></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">

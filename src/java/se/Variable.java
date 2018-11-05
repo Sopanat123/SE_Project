@@ -51,6 +51,7 @@ public final class Variable {
     public static final String PAGE_HOME = "home";
     public static final String PAGE_USER_PROFILE = "user";
     public static final String PAGE_EDIT_PROFILE = "editprofile";
+    public static final String PAGE_MYWORK = "mywork";
     public static final String PAGE_ADD_WORK = "addwork";
 
     // Session scope
@@ -70,6 +71,7 @@ public final class Variable {
     public static final String WEB_LASTNAME = "lastname";
     public static final String WEB_EMAIL = "email";
     public static final String WEB_PHONE = "phone";
+    public static final String WEB_USER_TAG = "usertag";
     // Work
     public static final String WEB_TITLE = "title";
     public static final String WEB_DESC = "desc";

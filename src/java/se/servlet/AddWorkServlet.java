@@ -5,12 +5,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import se.Variable;
 
 /**
  *
  * @author Ben
  */
 public class AddWorkServlet extends HttpServlet {
+
+    private static final String PAGE_JSP = "WEB-INF/addwork.jsp";
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -23,7 +26,12 @@ public class AddWorkServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        // User must signed in
+        if (request.getSession().getAttribute(Variable.SES_CURRENT_USER) == null) {
+            response.sendRedirect(Variable.PAGE_SIGN_IN);
+            return;
+        }
+        request.getRequestDispatcher(PAGE_JSP).forward(request, response);
     }
 
     /**
@@ -37,7 +45,7 @@ public class AddWorkServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        // TODO
     }
 
     /**

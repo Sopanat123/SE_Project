@@ -62,7 +62,7 @@ public class SignInServlet extends HttpServlet {
             throws ServletException, IOException {
         // Must has 'NO' user in session to continue
         if (request.getSession().getAttribute(Variable.SES_CURRENT_USER) != null) {
-            request.getRequestDispatcher(Variable.PAGE_HOME).forward(request, response);
+            response.sendRedirect(Variable.PAGE_HOME);
             return;
         }
 
