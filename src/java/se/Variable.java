@@ -52,6 +52,9 @@ public final class Variable {
     // Session scope
     public static final String SES_CURRENT_USER = "cruser";
 
+    // User privilege
+    public static final String PRIVILEGE_MEMBER = "member";
+
     //  Web parameter name
     public static final String WEB_USERNAME = "username";
     public static final String WEB_PASSWORD = "password";

@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import se.Variable;
 import se.crypto.Sha2;
 import se.model.User;
 
@@ -33,16 +34,7 @@ import se.model.User;
 public class SignUpServlet extends HttpServlet {
 
     private static final String TAG = "SignUpServlet";
-    private static final String MESSAGE = "msg";
     private static final String PAGE_JSP = "welcome_page.jsp";
-    private static final String PAGE_HOME = "home";
-    private static final String SESS_USER = "user";
-    private static final String PARAM_USERNAME = "username";
-    private static final String PARAM_PASSWORD = "password";
-    private static final String PARAM_EMAIL = "email";
-    private static final String PARAM_FNAME = "firstname";
-    private static final String PARAM_LNAME = "lastname";
-    private static final String PARAM_PHONE = "phone";
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -56,8 +48,8 @@ public class SignUpServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Check if already signed in
-        if (request.getSession().getAttribute(SESS_USER) != null) {
-            response.sendRedirect(PAGE_HOME);
+        if (request.getSession().getAttribute(Variable.SES_CURRENT_USER) != null) {
+            response.sendRedirect(Variable.PAGE_HOME);
         } else {
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
         }
@@ -75,82 +67,84 @@ public class SignUpServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Must has 'NO' user in session to continue
-        if (request.getSession().getAttribute(SESS_USER) != null) {
-            request.getRequestDispatcher(PAGE_HOME).forward(request, response);
+        if (request.getSession().getAttribute(Variable.SES_CURRENT_USER) != null) {
+            response.sendRedirect(Variable.PAGE_HOME);
             return;
         }
 
         // Get parameter from request
-        String username = request.getParameter(PARAM_USERNAME);
-        String password = request.getParameter(PARAM_PASSWORD);
-        String email = request.getParameter(PARAM_EMAIL);
-        String firstname = request.getParameter(PARAM_FNAME);
-        String lastname = request.getParameter(PARAM_LNAME);
-        String phone = request.getParameter(PARAM_PHONE);
+        String username = request.getParameter(Variable.WEB_USERNAME);
+        String password = request.getParameter(Variable.WEB_PASSWORD);
+        String email = request.getParameter(Variable.WEB_EMAIL);
+        String firstname = request.getParameter(Variable.WEB_FIRSTNAME);
+        String lastname = request.getParameter(Variable.WEB_LASTNAME);
+        String phone = request.getParameter(Variable.WEB_PHONE);
 
         // Check user input
         if (username.isEmpty() || username.length() < 8) {
-            request.setAttribute(MESSAGE, "Invalid username");
+            request.setAttribute(Variable.MESSAGE, "Invalid username");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         } else if (password.isEmpty() || password.length() < 8) {
-            request.setAttribute(MESSAGE, "Invalid password");
+            request.setAttribute(Variable.MESSAGE, "Invalid password");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         } else if (email.isEmpty()) {
-            request.setAttribute(MESSAGE, "Invalid email");
+            request.setAttribute(Variable.MESSAGE, "Invalid email");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         } else if (firstname.isEmpty()) {
-            request.setAttribute(MESSAGE, "Invalid name");
+            request.setAttribute(Variable.MESSAGE, "Invalid name");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         } else if (lastname.isEmpty()) {
-            request.setAttribute(MESSAGE, "Invalid name");
+            request.setAttribute(Variable.MESSAGE, "Invalid name");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         } else if (phone.isEmpty()) {
-            request.setAttribute(MESSAGE, "Invalid phone number");
+            request.setAttribute(Variable.MESSAGE, "Invalid phone number");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
 
         try {
             // Get database
-            Firestore db = (Firestore) request.getServletContext().getAttribute("db");
-            DocumentReference docRef = db.collection("users").document(username);
+            Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.APP_DB_NAME);
+            DocumentReference docRef = db.collection(Variable.DB_COL_USER).document(username);
             ApiFuture<DocumentSnapshot> future = docRef.get();
             DocumentSnapshot document = future.get();
 
             // INVALID username - username is already taken
             if (document.exists()) {
-                request.setAttribute(MESSAGE, "This username is not available.");
+                request.setAttribute(Variable.MESSAGE, "This username is not available.");
                 request.getRequestDispatcher(PAGE_JSP).forward(request, response);
                 return;
             }
 
             // VALID username - performing email check
-            CollectionReference users = db.collection("users");
-            Query query = users.whereEqualTo("email", email);
+            CollectionReference users = db.collection(Variable.DB_COL_USER);
+            Query query = users.whereEqualTo(Variable.DB_DOC_USER_EMAIL, email);
             ApiFuture<QuerySnapshot> qs = query.get();
 
             // INVALID email - email is already taken
             if (qs.get().size() > 0) {
-                request.setAttribute(MESSAGE, "This email is already taken.");
+                request.setAttribute(Variable.MESSAGE, "This email is already taken.");
                 request.getRequestDispatcher(PAGE_JSP).forward(request, response);
                 return;
             }
 
             // VALID email - create map to store into database
             Map<String, Object> map = new HashMap<>();
-            map.put("displayname", username);
-            map.put("password", Sha2.sha256(password));
-            map.put("email", email);
-            map.put("firstname", firstname);
-            map.put("lastname", lastname);
-            map.put("phone", phone);
-            map.put("created", FieldValue.serverTimestamp());
+            map.put(Variable.DB_DOC_USER_PASSWORD, Sha2.sha256(password));
+            map.put(Variable.DB_DOC_USER_EMAIL, email);
+            map.put(Variable.DB_DOC_USER_FIRSTNAME, firstname);
+            map.put(Variable.DB_DOC_USER_LASTNAME, lastname);
+            map.put(Variable.DB_DOC_USER_PHONE, phone);
+            map.put(Variable.DB_DOC_USER_CREATE_TIME, FieldValue.serverTimestamp());
+            map.put(Variable.DB_DOC_USER_PRIVILEGE, Variable.PRIVILEGE_MEMBER);
+
             // Add map into users collection, using username as key value
+            // Username already set to be the document id
             docRef.set(map);
 
             // Create user and store data in session
@@ -158,15 +152,16 @@ public class SignUpServlet extends HttpServlet {
             user.setDisplayname(username);
             user.setEmail(email);
             user.setFirstname(firstname);
-            user.setImageUrl("assets/def_pro_img.png");
             user.setLastname(lastname);
             user.setPhone(phone);
-            user.setPrivilege("member");
-            request.getSession().setAttribute(SESS_USER, user);
-            response.sendRedirect(PAGE_HOME);
+            user.setPrivilege(Variable.PRIVILEGE_MEMBER);
+            request.getSession().setAttribute(Variable.SES_CURRENT_USER, user);
+
+            // Redirect to homepage when sign up process is done
+            response.sendRedirect(Variable.PAGE_HOME);
         } catch (NoSuchAlgorithmException | InterruptedException | ExecutionException ex) {
             Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
-            request.setAttribute(MESSAGE, "Can't connect to database.");
+            request.setAttribute(Variable.MESSAGE, "Can't connect to database.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
         }
     }
