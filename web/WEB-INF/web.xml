@@ -24,6 +24,10 @@
         <servlet-name>EditProfileServlet</servlet-name>
         <servlet-class>se.servlet.EditProfileServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <servlet-class>se.servlet.UserProfileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/signin</url-pattern>
@@ -43,6 +47,10 @@
     <servlet-mapping>
         <servlet-name>EditProfileServlet</servlet-name>
         <url-pattern>/editprofile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <url-pattern>/user/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
