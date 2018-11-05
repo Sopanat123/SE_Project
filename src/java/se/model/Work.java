@@ -11,6 +11,7 @@ public class Work {
 
     private String id;
     private String owner; // owner username
+    private String title;
     private String desc;
     private String tag; // separate by comma (,)
     private String srcUrl;
@@ -18,7 +19,8 @@ public class Work {
     private String status;
     private Date createTime;
     private Date acceptTime;
-    private Date finishTime;
+    private Date deadLine; // user define finish time
+    private Date finishTime; // actual deal closed time;
     private Double price; // full price
     private String hidden; // confindential file
 
