@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import se.Variable;
 
 import se.model.User;
 
@@ -22,12 +23,7 @@ import se.model.User;
 public class HomePageServlet extends HttpServlet {
 
     private static final String TAG = "HomePageServlet";
-    private static final String MESSAGE = "msg";
     private static final String PAGE_JSP = "WEB-INF/homepage.jsp";
-    private static final String PAGE_SIGNIN = "signin";
-    private static final String PAGE_SIGNOUT = "signout";
-    private static final String PAGE_EDITPROFILE = "editprofile";
-    private static final String SESS_USER = "user";
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -41,11 +37,11 @@ public class HomePageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Get user from session
-        User user = (User) request.getSession().getAttribute(SESS_USER);
+        User user = (User) request.getSession().getAttribute(Variable.SES_CURRENT_USER);
 
         // User 'MUST' logged in
         if (user == null) {
-            response.sendRedirect(PAGE_SIGNIN);
+            response.sendRedirect(Variable.PAGE_SIGN_IN);
             return;
         }
 
