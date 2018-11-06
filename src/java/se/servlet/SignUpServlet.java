@@ -138,6 +138,7 @@ public class SignUpServlet extends HttpServlet {
             map.put(Variable.DB_DOC_USER_LASTNAME, lastname);
             map.put(Variable.DB_DOC_USER_EMAIL, email);
             map.put(Variable.DB_DOC_USER_PHONE, phone);
+            map.put(Variable.DB_DOC_USER_IMAGE, "assets/def_pro_img.png");
             map.put(Variable.DB_DOC_USER_CREATE_TIME, FieldValue.serverTimestamp());
             map.put(Variable.DB_DOC_USER_PRIVILEGE, Variable.PRIVILEGE_MEMBER);
 
@@ -152,6 +153,7 @@ public class SignUpServlet extends HttpServlet {
             user.setLastname(lastname);
             user.setEmail(email);
             user.setPhone(phone);
+            user.setImage("assets/def_pro_img.png");
             user.setPrivilege(Variable.PRIVILEGE_MEMBER);
             request.getSession().setAttribute(Variable.SES_CURRENT_USER, user);
 
