@@ -1,6 +1,5 @@
 package se.servlet;
 
-import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
@@ -89,8 +88,7 @@ public class SignInServlet extends HttpServlet {
             Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.APP_DB_NAME);
             // Create a reference for fecthing matched data
             DocumentReference docRef = db.collection(Variable.DB_COL_USER).document(username);
-            ApiFuture<DocumentSnapshot> future = docRef.get();
-            DocumentSnapshot doc = future.get();
+            DocumentSnapshot doc = docRef.get().get();
 
             // Check if user exists in database
             if (doc.exists()) {
