@@ -8,7 +8,8 @@ import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.Query;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.storage.Acl;
-import com.google.cloud.storage.Acl.Role;
+//import com.google.cloud.storage.Acl.User;
+//import com.google.cloud.storage.Acl.Role;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Bucket;
 import com.google.cloud.storage.Storage;
@@ -32,7 +33,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import se.Variable;
-import se.model.User;
+//import se.model.User;
 import se.model.UserService;
 
 /**
