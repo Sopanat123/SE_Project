@@ -103,9 +103,9 @@ public class SignInServlet extends HttpServlet {
                     user.setLastname(doc.getString(Variable.DB_DOC_USER_LASTNAME));
                     user.setEmail(doc.getString(Variable.DB_DOC_USER_EMAIL));
                     user.setPhone(doc.getString(Variable.DB_DOC_USER_PHONE));
-                    user.setImageUrl(doc.getString(Variable.DB_DOC_USER_IMAGE));
+                    user.setImage(doc.getString(Variable.DB_DOC_USER_IMAGE));
                     user.setPrivilege(doc.getString(Variable.DB_DOC_USER_PRIVILEGE));
-                    user.setPublicInfo(doc.getString(Variable.DB_DOC_USER_INFO));
+                    user.setInfo(doc.getString(Variable.DB_DOC_USER_INFO));
                     user.setTag(doc.getString(Variable.DB_DOC_USER_TAG));
                     request.getSession().setAttribute(Variable.SES_CURRENT_USER, user);
                     response.sendRedirect(Variable.PAGE_HOME);

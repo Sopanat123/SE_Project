@@ -7,17 +7,15 @@ package se.model;
 public class User {
 
     private String username;
-    private String email;
-    private String phone;
+    private String displayname;
     private String firstname;
     private String lastname;
-    private String displayname;
-    private String imageUrl;
+    private String email;
+    private String phone;
     private String privilege;
-    private String publicInfo;
+    private String image;
+    private String info;
     private String tag;
-    private String idCardImg;
-    private String selfieImg;
 
     /**
      * Create user object, identify by username
@@ -28,11 +26,6 @@ public class User {
         this.username = username;
     }
 
-    /**
-     * return identifier of this user as String
-     *
-     * @return username
-     */
     public String getUsername() {
         return username;
     }
@@ -41,20 +34,12 @@ public class User {
         this.username = username;
     }
 
-    public String getEmail() {
-        return email;
+    public String getDisplayname() {
+        return displayname;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setDisplayname(String displayname) {
+        this.displayname = displayname;
     }
 
     public String getFirstname() {
@@ -73,20 +58,20 @@ public class User {
         this.lastname = lastname;
     }
 
-    public String getDisplayname() {
-        return displayname;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDisplayname(String displayname) {
-        this.displayname = displayname;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getPrivilege() {
@@ -97,12 +82,20 @@ public class User {
         this.privilege = privilege;
     }
 
-    public String getPublicInfo() {
-        return publicInfo;
+    public String getImage() {
+        return image;
     }
 
-    public void setPublicInfo(String publicInfo) {
-        this.publicInfo = publicInfo;
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 
     public String getTag() {
@@ -111,21 +104,5 @@ public class User {
 
     public void setTag(String tag) {
         this.tag = tag;
-    }
-
-    public String getIdCardImg() {
-        return idCardImg;
-    }
-
-    public void setIdCardImg(String idCardImg) {
-        this.idCardImg = idCardImg;
-    }
-
-    public String getSelfieImg() {
-        return selfieImg;
-    }
-
-    public void setSelfieImg(String selfieImg) {
-        this.selfieImg = selfieImg;
     }
 }

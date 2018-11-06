@@ -40,7 +40,7 @@ public final class Variable {
 
     // DB collection 'works', document values
 //    public static final String DB_DOC_WORK_ID = "id";
-
+    
     // Usally carry error message in request scope
     public static final String MESSAGE = "msg";
 
@@ -59,8 +59,8 @@ public final class Variable {
 
     // User privilege
     public static final String PRIVILEGE_MEMBER = "member";
-//    public static final String PRIVILEGE_TRANSLATOR = "translator";
-//    public static final String PRIVILEGE_ADMIN = "admin";
+    public static final String PRIVILEGE_TRANSLATOR = "translator";
+    public static final String PRIVILEGE_ADMIN = "admin";
 
     // Web parameter name
     // Share
@@ -85,4 +85,26 @@ public final class Variable {
     public static final String WEB_PRICE = "price";
     public static final String WEB_HIDDEN = "hidden";
     public static final String WEB_FILE = "file";
+
+    // MIN length
+    public static final int LEN_MIN_USERNAME = 8;
+    public static final int LEN_MIN_PASSWORD = 8;
+    public static final int LEN_MIN_DISPLAYNAME = 1;
+    public static final int LEN_MIN_FIRSTNAME = 1;
+    public static final int LEN_MIN_LASTNAME = 1;
+    public static final int LEN_MIN_EMAIL = 5;
+    public static final int LEN_MIN_PHONE = 10;
+    public static final int LEN_MIN_INFO = 1;
+    public static final int LEN_MIN_TAG = 3;
+
+    // MAX length
+    public static final int LEN_MAX_USERNAME = 25;
+    public static final int LEN_MAX_PASSWORD = 25;
+    public static final int LEN_MAX_DISPLAYNAME = 25;
+//    public static final int LEN_MAX_FIRSTNAME = inf;
+//    public static final int LEN_MAX_LASTNAME = inf;
+    public static final int LEN_MAX_EMAIL = 5;
+    public static final int LEN_MAX_PHONE = 10;
+    public static final int LEN_MAX_INFO = 999;
+    public static final int LEN_MAX_TAG = 9;
 }

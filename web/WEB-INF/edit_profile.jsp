@@ -8,6 +8,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+    <c:set var="user" scope="session" value="${cruser}" />
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +57,8 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="row text-center">
-                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-profile-circle img-thumbnail mx-auto" alt="avatar">
+                        <img src="${user.image}" class="avatar img-profile-circle img-thumbnail mx-auto" alt="avatar">
+                        <!--<img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-profile-circle img-thumbnail mx-auto" alt="avatar">-->
                     </div>
                     <div class="text-center">
                         <h6>Upload a different photo...</h6>
@@ -78,7 +80,7 @@
                                     <h4>Your Profile</h4>
                                     <hr>
                                 </div>
-                                <c:set var="user" scope="session" value="${user}" />
+<%-- ERROR --%>
                                 <font color="red">${msg}</font>
                             </div>
                             <div class="row">
