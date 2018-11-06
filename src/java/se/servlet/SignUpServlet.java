@@ -10,7 +10,6 @@ import com.google.cloud.firestore.Query;
 import com.google.cloud.firestore.QuerySnapshot;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -23,7 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import se.Variable;
-import se.crypto.Sha2;
 import se.model.User;
 
 /**
@@ -75,9 +73,9 @@ public class SignUpServlet extends HttpServlet {
         // Get parameter from request
         String username = request.getParameter(Variable.WEB_USERNAME);
         String password = request.getParameter(Variable.WEB_PASSWORD);
-        String email = request.getParameter(Variable.WEB_EMAIL);
         String firstname = request.getParameter(Variable.WEB_FIRSTNAME);
         String lastname = request.getParameter(Variable.WEB_LASTNAME);
+        String email = request.getParameter(Variable.WEB_EMAIL);
         String phone = request.getParameter(Variable.WEB_PHONE);
 
         // Check user input
@@ -111,8 +109,7 @@ public class SignUpServlet extends HttpServlet {
             // Get database
             Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.APP_DB_NAME);
             DocumentReference docRef = db.collection(Variable.DB_COL_USER).document(username);
-            ApiFuture<DocumentSnapshot> future = docRef.get();
-            DocumentSnapshot document = future.get();
+            DocumentSnapshot document = docRef.get().get();
 
             // INVALID username - username is already taken
             if (document.exists()) {
@@ -135,10 +132,11 @@ public class SignUpServlet extends HttpServlet {
 
             // VALID email - create map to store into database
             Map<String, Object> map = new HashMap<>();
-            map.put(Variable.DB_DOC_USER_PASSWORD, Sha2.sha256(password));
-            map.put(Variable.DB_DOC_USER_EMAIL, email);
+            map.put(Variable.DB_DOC_USER_DISPLAYNAME, username); // for new user
+            map.put(Variable.DB_DOC_USER_PASSWORD, password);
             map.put(Variable.DB_DOC_USER_FIRSTNAME, firstname);
             map.put(Variable.DB_DOC_USER_LASTNAME, lastname);
+            map.put(Variable.DB_DOC_USER_EMAIL, email);
             map.put(Variable.DB_DOC_USER_PHONE, phone);
             map.put(Variable.DB_DOC_USER_CREATE_TIME, FieldValue.serverTimestamp());
             map.put(Variable.DB_DOC_USER_PRIVILEGE, Variable.PRIVILEGE_MEMBER);
@@ -150,16 +148,16 @@ public class SignUpServlet extends HttpServlet {
             // Create user and store data in session
             User user = new User(username);
             user.setDisplayname(username);
-            user.setEmail(email);
             user.setFirstname(firstname);
             user.setLastname(lastname);
+            user.setEmail(email);
             user.setPhone(phone);
             user.setPrivilege(Variable.PRIVILEGE_MEMBER);
             request.getSession().setAttribute(Variable.SES_CURRENT_USER, user);
 
             // Redirect to homepage when sign up process is done
             response.sendRedirect(Variable.PAGE_HOME);
-        } catch (NoSuchAlgorithmException | InterruptedException | ExecutionException ex) {
+        } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
             request.setAttribute(Variable.MESSAGE, "Can't connect to database.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);

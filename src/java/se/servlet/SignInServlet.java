@@ -6,7 +6,6 @@ import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import se.Variable;
-import se.crypto.Sha2;
 import se.model.User;
 
 /**
@@ -97,7 +95,7 @@ public class SignInServlet extends HttpServlet {
             // Check if user exists in database
             if (doc.exists()) {
                 // Check password
-                if (Sha2.sha256(password).equals(doc.getString(Variable.DB_DOC_USER_PASSWORD))) {
+                if (password.equals(doc.getString(Variable.DB_DOC_USER_PASSWORD))) {
                     User user = new User(username);
                     // Get user data from database and store in session
                     user.setDisplayname(doc.getString(Variable.DB_DOC_USER_DISPLAYNAME));
@@ -121,7 +119,7 @@ public class SignInServlet extends HttpServlet {
                 request.setAttribute(Variable.MESSAGE, "Unknown user.");
                 request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             }
-        } catch (NoSuchAlgorithmException | InterruptedException | ExecutionException ex) {
+        } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
             request.setAttribute(Variable.MESSAGE, "Can't connect to database.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);

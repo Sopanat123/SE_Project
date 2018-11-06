@@ -22,7 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import se.Variable;
-import se.crypto.Sha2;
 import se.model.User;
 
 /**
@@ -85,14 +84,14 @@ public class EditProfileServlet extends HttpServlet {
         String tag = request.getParameter(Variable.WEB_USER_TAG);
         
         // Data changes flags
-        boolean displaynameFlag = true;
-        boolean usernameFlag = true;
-        boolean passwordFlag = true;
-        boolean emailFlag = true;
-        boolean phoneFlag = true;
-        boolean infoFlag = true;
-        boolean imageFlag = true;
-        boolean tagFlag = true;
+        boolean displaynameFlag = !displayname.isEmpty();
+        boolean usernameFlag = !username.isEmpty();
+        boolean passwordFlag = !password.isEmpty();
+        boolean emailFlag = !email.isEmpty();
+        boolean phoneFlag = !phone.isEmpty();
+        boolean infoFlag = !info.isEmpty();
+        boolean imageFlag = !image.isEmpty();
+        boolean tagFlag = !tag.isEmpty();
 
         // Check user input
         if (displayname.isEmpty() || displayname.length() < 8) {
@@ -153,13 +152,13 @@ public class EditProfileServlet extends HttpServlet {
                 map.put(Variable.DB_DOC_USER_CREATE_TIME, FieldValue.serverTimestamp());
                 if (passwordFlag) {
                     // New password
-//                    map.put(Variable.DB_DOC_USER_PASSWORD, Sha2.sha256(password));
+                    map.put(Variable.DB_DOC_USER_PASSWORD, password);
                 } else {
                     // Old password
-//                    map.put(Variable.DB_DOC_USER_PASSWORD, db.collection(Variable.DB_COL_USER)
-//                            .document(user.getUsername())
-//                            .get().get()
-//                            .getString(Variable.DB_DOC_USER_PASSWORD));
+                    map.put(Variable.DB_DOC_USER_PASSWORD, db.collection(Variable.DB_COL_USER)
+                            .document(user.getUsername())
+                            .get().get()
+                            .getString(Variable.DB_DOC_USER_PASSWORD));
                 }
                 // TODO - add more field
 
@@ -195,12 +194,12 @@ public class EditProfileServlet extends HttpServlet {
                 map.put(Variable.DB_DOC_USER_PHONE, phone);
                 map.put(Variable.DB_DOC_USER_CREATE_TIME, FieldValue.serverTimestamp());
                 if (passwordFlag) {
-//                    map.put(Variable.DB_DOC_USER_PASSWORD, Sha2.sha256(password));
+                    map.put(Variable.DB_DOC_USER_PASSWORD, password);
                 } else {
-//                    map.put(Variable.DB_DOC_USER_PASSWORD, db.collection(Variable.DB_COL_USER)
-//                            .document(user.getUsername())
-//                            .get().get()
-//                            .getString(Variable.DB_DOC_USER_PASSWORD));
+                    map.put(Variable.DB_DOC_USER_PASSWORD, db.collection(Variable.DB_COL_USER)
+                            .document(user.getUsername())
+                            .get().get()
+                            .getString(Variable.DB_DOC_USER_PASSWORD));
                 }
                 // TODO - add more field
 
@@ -237,7 +236,7 @@ public class EditProfileServlet extends HttpServlet {
                 dr.update(Variable.DB_DOC_USER_EMAIL, email);
                 dr.update(Variable.DB_DOC_USER_PHONE, phone);
                 if (passwordFlag) {
-                    dr.update(Variable.DB_DOC_USER_PASSWORD, Sha2.sha256(password));
+                    dr.update(Variable.DB_DOC_USER_PASSWORD, password);
                 }
                 // TODO - add more field
 
@@ -256,7 +255,7 @@ public class EditProfileServlet extends HttpServlet {
                 dr.update(Variable.DB_DOC_USER_EMAIL, email);
                 dr.update(Variable.DB_DOC_USER_PHONE, phone);
                 if (passwordFlag) {
-                    dr.update(Variable.DB_DOC_USER_PASSWORD, Sha2.sha256(password));
+                    dr.update(Variable.DB_DOC_USER_PASSWORD, password);
                 }
                 // TODO - add more field
 
@@ -269,7 +268,7 @@ public class EditProfileServlet extends HttpServlet {
                 // Redirect to homepage
                 response.sendRedirect(Variable.PAGE_HOME);
             }
-        } catch (InterruptedException | ExecutionException | NoSuchAlgorithmException ex) {
+        } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
             request.setAttribute(Variable.MESSAGE, "Can't connect to database.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
