@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 public class SignOutServlet extends HttpServlet {
 
 //    private static final String TAG = "SignOutServlet";
-//    private static final String MESSAGE = "msg";
     private static final String PAGE_SIGNIN = "welcome_page.jsp";
 
     /**
