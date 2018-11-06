@@ -78,11 +78,21 @@ public class EditProfileServlet extends HttpServlet {
         String displayname = request.getParameter(Variable.WEB_DISPLAYNAME);
         String username = request.getParameter(Variable.WEB_USERNAME);
         String password = request.getParameter(Variable.WEB_PASSWORD);
-        String firstname = request.getParameter(Variable.WEB_FIRSTNAME);
-        String lastname = request.getParameter(Variable.WEB_LASTNAME);
         String email = request.getParameter(Variable.WEB_EMAIL);
         String phone = request.getParameter(Variable.WEB_PHONE);
-        // TODO - get more field (info, image, tag, idc, ids)
+        String info = request.getParameter(Variable.WEB_USER_INFO);
+        String image = request.getParameter(Variable.WEB_IMAGE);
+        String tag = request.getParameter(Variable.WEB_USER_TAG);
+        
+        // Data changes flags
+        boolean displaynameFlag = true;
+        boolean usernameFlag = true;
+        boolean passwordFlag = true;
+        boolean emailFlag = true;
+        boolean phoneFlag = true;
+        boolean infoFlag = true;
+        boolean imageFlag = true;
+        boolean tagFlag = true;
 
         // Check user input
         if (displayname.isEmpty() || displayname.length() < 8) {
@@ -107,11 +117,6 @@ public class EditProfileServlet extends HttpServlet {
             return;
         }
         // TODO - add more field
-
-        // Flag for change in important field
-        boolean usernameFlag = !user.getUsername().equals(username);
-        boolean emailFlag = !user.getEmail().equals(email);
-        boolean passwordFlag = !password.isEmpty();
 
         try {
             // Get database
@@ -141,20 +146,20 @@ public class EditProfileServlet extends HttpServlet {
                 // Store pre-db data in Map
                 Map<String, Object> map = new HashMap<>();
                 map.put(Variable.DB_DOC_USER_DISPLAYNAME, displayname);
-                map.put(Variable.DB_DOC_USER_FIRSTNAME, firstname);
-                map.put(Variable.DB_DOC_USER_LASTNAME, lastname);
+//                map.put(Variable.DB_DOC_USER_FIRSTNAME, firstname);
+//                map.put(Variable.DB_DOC_USER_LASTNAME, lastname);
                 map.put(Variable.DB_DOC_USER_EMAIL, email);
                 map.put(Variable.DB_DOC_USER_PHONE, phone);
                 map.put(Variable.DB_DOC_USER_CREATE_TIME, FieldValue.serverTimestamp());
                 if (passwordFlag) {
                     // New password
-                    map.put(Variable.DB_DOC_USER_PASSWORD, Sha2.sha256(password));
+//                    map.put(Variable.DB_DOC_USER_PASSWORD, Sha2.sha256(password));
                 } else {
                     // Old password
-                    map.put(Variable.DB_DOC_USER_PASSWORD, db.collection(Variable.DB_COL_USER)
-                            .document(user.getUsername())
-                            .get().get()
-                            .getString(Variable.DB_DOC_USER_PASSWORD));
+//                    map.put(Variable.DB_DOC_USER_PASSWORD, db.collection(Variable.DB_COL_USER)
+//                            .document(user.getUsername())
+//                            .get().get()
+//                            .getString(Variable.DB_DOC_USER_PASSWORD));
                 }
                 // TODO - add more field
 
@@ -184,18 +189,18 @@ public class EditProfileServlet extends HttpServlet {
                 // Store pre-db data in Map
                 Map<String, Object> map = new HashMap<>();
                 map.put(Variable.DB_DOC_USER_DISPLAYNAME, displayname);
-                map.put(Variable.DB_DOC_USER_FIRSTNAME, firstname);
-                map.put(Variable.DB_DOC_USER_LASTNAME, lastname);
+//                map.put(Variable.DB_DOC_USER_FIRSTNAME, firstname);
+//                map.put(Variable.DB_DOC_USER_LASTNAME, lastname);
                 map.put(Variable.DB_DOC_USER_EMAIL, email);
                 map.put(Variable.DB_DOC_USER_PHONE, phone);
                 map.put(Variable.DB_DOC_USER_CREATE_TIME, FieldValue.serverTimestamp());
                 if (passwordFlag) {
-                    map.put(Variable.DB_DOC_USER_PASSWORD, Sha2.sha256(password));
+//                    map.put(Variable.DB_DOC_USER_PASSWORD, Sha2.sha256(password));
                 } else {
-                    map.put(Variable.DB_DOC_USER_PASSWORD, db.collection(Variable.DB_COL_USER)
-                            .document(user.getUsername())
-                            .get().get()
-                            .getString(Variable.DB_DOC_USER_PASSWORD));
+//                    map.put(Variable.DB_DOC_USER_PASSWORD, db.collection(Variable.DB_COL_USER)
+//                            .document(user.getUsername())
+//                            .get().get()
+//                            .getString(Variable.DB_DOC_USER_PASSWORD));
                 }
                 // TODO - add more field
 

@@ -63,6 +63,8 @@ public final class Variable {
 //    public static final String PRIVILEGE_ADMIN = "admin";
 
     // Web parameter name
+    // Share
+    public static final String WEB_IMAGE = "image";
     // User
     public static final String WEB_USERNAME = "username";
     public static final String WEB_PASSWORD = "password";
@@ -71,7 +73,10 @@ public final class Variable {
     public static final String WEB_LASTNAME = "lastname";
     public static final String WEB_EMAIL = "email";
     public static final String WEB_PHONE = "phone";
+    public static final String WEB_USER_INFO = "info";
     public static final String WEB_USER_TAG = "usertag";
+    public static final String WEB_USER_ID_CARD = "idcardimg";
+    public static final String WEB_USER_ID_SELFIE = "idselfieimg";
     // Work
     public static final String WEB_TITLE = "title";
     public static final String WEB_DESC = "desc";
@@ -80,6 +85,4 @@ public final class Variable {
     public static final String WEB_PRICE = "price";
     public static final String WEB_HIDDEN = "hidden";
     public static final String WEB_FILE = "file";
-    // Share
-    public static final String WEB_IMAGE = "image";
 }
