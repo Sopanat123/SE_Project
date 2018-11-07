@@ -1,16 +1,21 @@
 package se.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import se.Variable;
+//import se.model.User;
 
 /**
  *
  * @author Ben
  */
+@MultipartConfig
 public class AddWorkServlet extends HttpServlet {
 
     private static final String PAGE_JSP = "WEB-INF/addwork.jsp";
@@ -45,7 +50,18 @@ public class AddWorkServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO
+        // Get user from the session
+        se.model.User user = (se.model.User) request.getSession().getAttribute(Variable.SES_CURRENT_USER);
+        
+        // User MUST signed in
+        if (user == null) {
+            response.sendRedirect(Variable.PAGE_SIGN_IN);
+            return;
+        }
+        
+        // Get parameter adn part from request
+        String title = request.getParameter(Variable.WEB_WORK_TITLE);
+        String desc = request.getParameter(Variable.WEB_WORK_DESC);
     }
 
     /**

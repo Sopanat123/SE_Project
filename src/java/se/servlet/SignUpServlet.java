@@ -72,12 +72,12 @@ public class SignUpServlet extends HttpServlet {
         }
 
         // Get parameter from request
-        String username = request.getParameter(Variable.WEB_USERNAME);
-        String password = request.getParameter(Variable.WEB_PASSWORD);
-        String firstname = request.getParameter(Variable.WEB_FIRSTNAME);
-        String lastname = request.getParameter(Variable.WEB_LASTNAME);
-        String email = request.getParameter(Variable.WEB_EMAIL);
-        String phone = request.getParameter(Variable.WEB_PHONE);
+        String username = request.getParameter(Variable.WEB_USER_USERNAME);
+        String password = request.getParameter(Variable.WEB_USER_PASSWORD);
+        String firstname = request.getParameter(Variable.WEB_USER_FIRSTNAME);
+        String lastname = request.getParameter(Variable.WEB_USER_LASTNAME);
+        String email = request.getParameter(Variable.WEB_USER_EMAIL);
+        String phone = request.getParameter(Variable.WEB_USER_PHONE);
 
         // Check user input
         if (!UserService.validateUsername(username)) {
@@ -154,7 +154,7 @@ public class SignUpServlet extends HttpServlet {
             user.setLastname(lastname);
             user.setEmail(email);
             user.setPhone(phone);
-            user.setImage("assets/def_pro_img.png");
+            user.setImage(Variable.DEF_PRO_IMG);
             user.setPrivilege(Variable.PRIVILEGE_MEMBER);
             request.getSession().setAttribute(Variable.SES_CURRENT_USER, user);
 

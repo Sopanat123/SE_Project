@@ -64,8 +64,8 @@ public class SignInServlet extends HttpServlet {
         }
 
         // Get parameter from request
-        String username = request.getParameter(Variable.WEB_USERNAME);
-        String password = request.getParameter(Variable.WEB_PASSWORD);
+        String username = request.getParameter(Variable.WEB_USER_USERNAME);
+        String password = request.getParameter(Variable.WEB_USER_PASSWORD);
 
         //Check if input is empty
         if (username == null || password == null || username.isEmpty() && password.isEmpty()) {
@@ -78,7 +78,7 @@ public class SignInServlet extends HttpServlet {
             return;
         } else if (password == null || password.isEmpty()) {
             request.setAttribute(Variable.MESSAGE, "Please enter your password.");
-            request.setAttribute(Variable.WEB_USERNAME, username);
+            request.setAttribute(Variable.WEB_USER_USERNAME, username);
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
@@ -109,7 +109,7 @@ public class SignInServlet extends HttpServlet {
                     response.sendRedirect(Variable.PAGE_HOME);
                 } else {
                     request.setAttribute(Variable.MESSAGE, "Wrong password.");
-                    request.setAttribute(Variable.WEB_USERNAME, username);
+                    request.setAttribute(Variable.WEB_USER_USERNAME, username);
                     request.getRequestDispatcher(PAGE_JSP).forward(request, response);
                 }
             } else {

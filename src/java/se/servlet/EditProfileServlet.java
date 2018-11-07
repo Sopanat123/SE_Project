@@ -9,7 +9,7 @@ import com.google.cloud.firestore.Query;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.storage.Acl;
 //import com.google.cloud.storage.Acl.User;
-//import com.google.cloud.storage.Acl.Role;
+import com.google.cloud.storage.Acl.Role;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Bucket;
 import com.google.cloud.storage.Storage;
@@ -88,12 +88,12 @@ public class EditProfileServlet extends HttpServlet {
         }
 
         // Get parameter from request
-        String displayname = request.getParameter(Variable.WEB_DISPLAYNAME);
-        String password = request.getParameter(Variable.WEB_PASSWORD);
-        String email = request.getParameter(Variable.WEB_EMAIL);
-        String phone = request.getParameter(Variable.WEB_PHONE);
+        String displayname = request.getParameter(Variable.WEB_USER_DISPLAYNAME);
+        String password = request.getParameter(Variable.WEB_USER_PASSWORD);
+        String email = request.getParameter(Variable.WEB_USER_EMAIL);
+        String phone = request.getParameter(Variable.WEB_USER_PHONE);
         String info = request.getParameter(Variable.WEB_USER_INFO);
-        Part image = request.getPart(Variable.WEB_IMAGE);
+        Part image = request.getPart(Variable.WEB_USER_IMAGE);
         String imgName = Paths.get(image.getSubmittedFileName()).getFileName().toString();
         String tag = request.getParameter(Variable.WEB_USER_TAG);
 
@@ -197,7 +197,7 @@ public class EditProfileServlet extends HttpServlet {
 
                 BlobInfo blobInfo = st.create(BlobInfo.newBuilder(bk.getName(),
                         Variable.LINK_APPEND_PROFILE_IMAGE + user.getUsername() + "-" + imgName)
-                        .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
+                        .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Role.READER))))
                         .build(), imgFile);
 
                 map.put(Variable.DB_DOC_USER_IMAGE, Variable.LINK_GCS
