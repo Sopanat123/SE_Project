@@ -106,15 +106,21 @@ public final class Variable {
     public static final int LEN_MIN_PHONE = 10;
     public static final int LEN_MIN_INFO = 1;
     public static final int LEN_MIN_TAG = 3;
+    public static final int LEN_MIN_TITLE = 1;
+    public static final int LEN_MIN_DESC = 1;
+    public static final double LEN_MIN_PRICE = 0;
 
     // MAX length
     public static final int LEN_MAX_USERNAME = 25;
     public static final int LEN_MAX_PASSWORD = 25;
     public static final int LEN_MAX_DISPLAYNAME = 25;
-    public static final int LEN_MAX_FIRSTNAME = 999;
-    public static final int LEN_MAX_LASTNAME = 999;
+    public static final int LEN_MAX_FIRSTNAME = 255;
+    public static final int LEN_MAX_LASTNAME = 255;
     public static final int LEN_MAX_EMAIL = 5;
     public static final int LEN_MAX_PHONE = 10;
-    public static final int LEN_MAX_INFO = 999;
+    public static final int LEN_MAX_INFO = 255;
     public static final int LEN_MAX_TAG = 9;
+    public static final int LEN_MAX_TITLE = 20;
+    public static final int LEN_MAX_DESC = 255;
+    public static final double LEN_MAX_PRICE = 99999.99;
 }

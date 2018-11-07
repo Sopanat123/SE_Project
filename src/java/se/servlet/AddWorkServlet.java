@@ -1,7 +1,20 @@
 package se.servlet;
 
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.storage.Acl;
+//import com.google.cloud.storage.Acl.User;
+//import com.google.cloud.storage.Acl.Role;
+import com.google.cloud.storage.BlobInfo;
+import com.google.cloud.storage.Bucket;
+import com.google.cloud.storage.Storage;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -11,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import se.Variable;
+import se.WorkService;
 //import se.model.User;
 
 /**
@@ -54,13 +68,13 @@ public class AddWorkServlet extends HttpServlet {
             throws ServletException, IOException {
         // Get user from the session
         se.model.User user = (se.model.User) request.getSession().getAttribute(Variable.SES_CURRENT_USER);
-        
+
         // User MUST signed in
         if (user == null) {
             response.sendRedirect(Variable.PAGE_SIGN_IN);
             return;
         }
-        
+
         // Get parameter adn part from request
         String title = request.getParameter(Variable.WEB_WORK_TITLE);
         String desc = request.getParameter(Variable.WEB_WORK_DESC);
@@ -72,9 +86,62 @@ public class AddWorkServlet extends HttpServlet {
         Part file = request.getPart(Variable.WEB_WORK_FILE);
         String imageName = Paths.get(image.getSubmittedFileName()).getFileName().toString();
         String fileName = Paths.get(file.getSubmittedFileName()).getFileName().toString();
-        
+
         // Check parameter
-        
+        if (!WorkService.validateTitle(title)) {
+            request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
+            request.getRequestDispatcher(PAGE_JSP).forward(request, response);
+            return;
+        }
+        if (!WorkService.validateDescription(desc)) {
+            request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
+            request.getRequestDispatcher(PAGE_JSP).forward(request, response);
+            return;
+        }
+        if (!WorkService.validateTag(tag)) {
+            request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
+            request.getRequestDispatcher(PAGE_JSP).forward(request, response);
+            return;
+        }
+        if (!WorkService.validateTime(deadline)) {
+            request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
+            request.getRequestDispatcher(PAGE_JSP).forward(request, response);
+            return;
+        }
+        if (!WorkService.validatePrice(price)) {
+            request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
+            request.getRequestDispatcher(PAGE_JSP).forward(request, response);
+            return;
+        }
+
+        // Get database
+        Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.APP_DB_NAME);
+        DocumentReference dr = db.collection(Variable.DB_COL_USER).document(user.getUsername());
+        Bucket bk = (Bucket) request.getServletContext().getAttribute(Variable.APP_DB_BUCKET);
+        Storage st = bk.getStorage();
+
+        // Create map to store new data
+        Map<String, Object> map = new HashMap<>();
+
+        // Process stuff
+        if (imageName != null && !imageName.isEmpty()) {
+            InputStream imgFile = image.getInputStream();
+
+            st.create(BlobInfo.newBuilder(bk.getName(),
+                    Variable.LINK_APPEND_WORK_IMAGE
+                    + user.getUsername()
+                    + "-"
+                    + imageName)
+                    .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
+                    .build(), imgFile);
+
+            map.put(Variable.DB_DOC_USER_IMAGE, Variable.LINK_GCS
+                    + Variable.LINK_APPEND_WORK_IMAGE
+                    + user.getUsername()
+                    + "-"
+                    + imageName);
+        }
+
     }
 
     /**

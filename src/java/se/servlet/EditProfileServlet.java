@@ -9,7 +9,7 @@ import com.google.cloud.firestore.Query;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.storage.Acl;
 //import com.google.cloud.storage.Acl.User;
-import com.google.cloud.storage.Acl.Role;
+//import com.google.cloud.storage.Acl.Role;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Bucket;
 import com.google.cloud.storage.Storage;
@@ -197,7 +197,7 @@ public class EditProfileServlet extends HttpServlet {
 
                 BlobInfo blobInfo = st.create(BlobInfo.newBuilder(bk.getName(),
                         Variable.LINK_APPEND_PROFILE_IMAGE + user.getUsername() + "-" + imgName)
-                        .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Role.READER))))
+                        .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
                         .build(), imgFile);
 
                 map.put(Variable.DB_DOC_USER_IMAGE, Variable.LINK_GCS
