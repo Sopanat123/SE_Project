@@ -1,6 +1,7 @@
 package se.servlet;
 
 import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.FieldValue;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.storage.Acl;
 //import com.google.cloud.storage.Acl.User;
@@ -81,11 +82,24 @@ public class AddWorkServlet extends HttpServlet {
         String tag = request.getParameter(Variable.WEB_WORK_TAG);
         String deadline = request.getParameter(Variable.WEB_WORK_DEADLINE);
         String price = request.getParameter(Variable.WEB_WORK_PRICE);
+        String onlysample = request.getParameterValues(Variable.WEB_WORK_ONLYSAMPLE)[0]; // 1 checkbox
         String hidden = request.getParameterValues(Variable.WEB_WORK_HIDDEN)[0]; // 1 checkbox
         Part image = request.getPart(Variable.WEB_WORK_IMAGE);
+        Part sample = request.getPart(Variable.WEB_WORK_SAMPLE);
         Part file = request.getPart(Variable.WEB_WORK_FILE);
         String imageName = Paths.get(image.getSubmittedFileName()).getFileName().toString();
+        String sampleName = Paths.get(sample.getSubmittedFileName()).getFileName().toString();
         String fileName = Paths.get(file.getSubmittedFileName()).getFileName().toString();
+
+        // Check null for all optional parameter
+        boolean descFlag = desc != null;
+        boolean tagFlag = tag != null;
+        boolean deadlineFlag = deadline != null;
+        boolean priceFlag = price != null && !price.isEmpty();
+        boolean onlysampleFlag = onlysample != null && !onlysample.isEmpty();
+        boolean hiddenFlag = hidden != null && !hidden.isEmpty();
+        boolean imageFlag = imageName != null && !imageName.isEmpty();
+        boolean sampleFlag = sampleName != null && !sampleName.isEmpty();
 
         // Check parameter
         if (!WorkService.validateTitle(title)) {
@@ -93,22 +107,22 @@ public class AddWorkServlet extends HttpServlet {
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
-        if (!WorkService.validateDescription(desc)) {
+        if (descFlag && !WorkService.validateDescription(desc)) {
             request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
-        if (!WorkService.validateTag(tag)) {
+        if (tagFlag && !WorkService.validateTag(tag)) {
             request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
-        if (!WorkService.validateTime(deadline)) {
+        if (deadlineFlag && !WorkService.validateTime(deadline)) {
             request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
-        if (!WorkService.validatePrice(price)) {
+        if (priceFlag && !WorkService.validatePrice(price)) {
             request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
@@ -124,7 +138,11 @@ public class AddWorkServlet extends HttpServlet {
         Map<String, Object> map = new HashMap<>();
 
         // Process stuff
-        if (imageName != null && !imageName.isEmpty()) {
+        map.put(Variable.DB_DOC_WORK_OWNER, user.getUsername());
+        map.put(Variable.DB_DOC_WORK_TITLE, title);
+        map.put(Variable.DB_DOC_WORK_STATUS, Variable.WORK_STATUS_NEW);
+        map.put(Variable.DB_DOC_WORK_CREATED, FieldValue.serverTimestamp());
+        if (imageFlag) {
             InputStream imgFile = image.getInputStream();
 
             st.create(BlobInfo.newBuilder(bk.getName(),

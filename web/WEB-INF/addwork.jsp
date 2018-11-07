@@ -12,8 +12,10 @@
             <input type="text" name="worktag" pattern="[a-z]+" placeholder="use comma (,) to seperate between tags" /> <br>
             <input type="text" name="deadline" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" placeholder="31-11-2561 (optional)" /> <br>
             <input type="text" name="price" pattern="[0-9]{1,}" /> <br>
+            <input type="checkbox" name="onlysample" value="onlysample" checked="checked" /> <br>
             <input type="checkbox" name="hidden" value="hidden" /> <br>
             <input type="file" name="image" accept="image/*" /> <br>
+            <input type="file" name="sample" /> <br>
             <input type="file" name="file" required /> <br>
             <input type="submit" value="Create" /> <br>
         </form>

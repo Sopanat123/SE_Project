@@ -52,6 +52,22 @@ public final class Variable {
 
     // DB collection 'works', document values
     public static final String DB_DOC_WORK_ID = "id";
+    public static final String DB_DOC_WORK_OWNER = "owner";
+    public static final String DB_DOC_WORK_TRANSLATOR = "translator";
+    public static final String DB_DOC_WORK_TITLE = "title";
+    public static final String DB_DOC_WORK_DESC = "desc";
+    public static final String DB_DOC_WORK_TAG = "tag";
+    public static final String DB_DOC_WORK_IMAGE = "image";
+    public static final String DB_DOC_WORK_SAMPLE = "sample";
+    public static final String DB_DOC_WORK_FILE = "file";
+    public static final String DB_DOC_WORK_PRICE = "price";
+    public static final String DB_DOC_WORK_ONLYSAMPLE = "onlysample";
+    public static final String DB_DOC_WORK_HIDDEN = "hidden";
+    public static final String DB_DOC_WORK_STATUS = "status";
+    public static final String DB_DOC_WORK_DEADLINE = "deadline";
+    public static final String DB_DOC_WORK_CREATED = "created";
+    public static final String DB_DOC_WORK_ACCEPTED = "accepted";
+    public static final String DB_DOC_WORK_FINISHED = "finished";
 
     // Url for call servlet page to forward to associate jsp page
     public static final String PAGE_SIGN_IN = "signin";
@@ -65,12 +81,17 @@ public final class Variable {
 
     // Session scope
     public static final String SES_CURRENT_USER = "cruser";
-//    public static final String SES_CURRENT_WORK = "crwork";
+    public static final String SES_CURRENT_WORK = "crwork";
 
     // User privilege
     public static final String PRIVILEGE_MEMBER = "member";
     public static final String PRIVILEGE_TRANSLATOR = "translator";
     public static final String PRIVILEGE_ADMIN = "admin";
+
+    // Work status
+    public static final String WORK_STATUS_NEW = "new";
+    public static final String WORK_STATUS_DEAL = "deal";
+    public static final String WORK_STATUS_COMPLETED = "completed";
 
     // Web parameter name
     // User
@@ -89,11 +110,13 @@ public final class Variable {
     // Work
     public static final String WEB_WORK_TITLE = "title";
     public static final String WEB_WORK_DESC = "desc";
-    public static final String WEB_WORK_IMAGE = "image";
     public static final String WEB_WORK_TAG = "worktag";
     public static final String WEB_WORK_DEADLINE = "deadline";
     public static final String WEB_WORK_PRICE = "price";
+    public static final String WEB_WORK_ONLYSAMPLE = "onlysample";
     public static final String WEB_WORK_HIDDEN = "hidden";
+    public static final String WEB_WORK_IMAGE = "image";
+    public static final String WEB_WORK_SAMPLE = "sample";
     public static final String WEB_WORK_FILE = "file";
 
     // MIN length

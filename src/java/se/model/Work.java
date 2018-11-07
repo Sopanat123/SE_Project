@@ -9,21 +9,23 @@ import java.util.Date;
  */
 public class Work {
 
-    private String id;
+    private String id; // username + "work" + number of work
     private String owner; // owner username
     private String title;
     private String desc;
     private String tag; // separate by comma (,)
     private String imgUrl;
-    private String fileUrl;
+    private String sampleUrl; // sample file
+    private String fileUrl; // full file
     private String translator; // translator username, separate by comma (,) in auction phase
-    private String status; // created - accepted - completed
-    private Date createTime;
-    private Date acceptTime;
-    private Date deadLine; // user define finish time
-    private Date finishTime; // actual deal closed time;
+    private String status; // new - deal - completed
+    private Date deadline; // user define finish time
+    private Date created;
+    private Date accepted;
+    private Date finished; // actual deal closed time;
     private Double price; // full price
-    private String hidden; // confindential file
+    private String onlySample; // show only sample file not full file
+    private String hidden; // hide work, access by direct url
 
 //    public void setDate(String timestamp) {
 //        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy HH:mm:ss");
