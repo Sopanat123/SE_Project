@@ -15,7 +15,7 @@ public class UserService {
     }
 
     public static final boolean validateUsername(String username) {
-        if (username.isEmpty()) {
+        if (username == null || username.isEmpty()) {
             message = "Username is empty";
             return false;
         } else if (username.length() < Variable.LEN_MIN_USERNAME) {
@@ -32,7 +32,7 @@ public class UserService {
     }
 
     public static final boolean validatePassword(String password) {
-        if (password.isEmpty()) {
+        if (password == null || password.isEmpty()) {
             message = "Password is empty";
             return false;
         } else if (password.length() < Variable.LEN_MIN_PASSWORD) {
@@ -49,7 +49,7 @@ public class UserService {
     }
 
     public static final boolean validateDisplayname(String displayname) {
-        if (displayname.isEmpty()) {
+        if (displayname == null || displayname.isEmpty()) {
             message = "Displayname is empty";
             return false;
         } else if (displayname.length() < Variable.LEN_MIN_DISPLAYNAME) {
@@ -65,8 +65,36 @@ public class UserService {
         return true;
     }
 
+    public static final boolean validateFirstname(String firstname) {
+        if (firstname == null || firstname.isEmpty()) {
+            message = "Firstname is empty";
+            return false;
+        } else if (firstname.length() < Variable.LEN_MIN_FIRSTNAME) {
+            message = "Firstname is too short";
+            return false;
+        } else if (firstname.length() > Variable.LEN_MAX_FIRSTNAME) {
+            message = "Firstname is too long";
+            return false;
+        }
+        return true;
+    }
+
+    public static final boolean validateLastname(String lastname) {
+        if (lastname == null || lastname.isEmpty()) {
+            message = "Lastname is empty";
+            return false;
+        } else if (lastname.length() < Variable.LEN_MIN_LASTNAME) {
+            message = "Lastname is too short";
+            return false;
+        } else if (lastname.length() > Variable.LEN_MAX_LASTNAME) {
+            message = "Lastname is too long";
+            return false;
+        }
+        return true;
+    }
+
     public static final boolean validateEmail(String email) {
-        if (email.isEmpty()) {
+        if (email == null || email.isEmpty()) {
             message = "Email is empty";
             return false;
         } else if (email.length() < Variable.LEN_MIN_EMAIL) {
@@ -86,7 +114,7 @@ public class UserService {
     }
 
     public static final boolean validatePhone(String phone) {
-        if (phone.isEmpty()) {
+        if (phone == null || phone.isEmpty()) {
             message = "Phone is empty";
             return false;
         } else if (phone.length() < Variable.LEN_MIN_PHONE) {
@@ -103,7 +131,7 @@ public class UserService {
     }
 
     public static final boolean validateInfo(String info) {
-        if (info.isEmpty()) {
+        if (info == null || info.isEmpty()) {
             message = "Info is empty";
             return false;
         } else if (info.length() < Variable.LEN_MIN_INFO) {
@@ -117,7 +145,7 @@ public class UserService {
     }
 
     public static final boolean validateTag(String tag) {
-        if (tag.isEmpty()) {
+        if (tag == null || tag.isEmpty()) {
             message = "Tag is empty";
             return false;
         } else if (tag.length() < Variable.LEN_MIN_TAG) {

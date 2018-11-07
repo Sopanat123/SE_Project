@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import se.Variable;
 import se.model.User;
+import se.model.UserService;
 
 /**
  * url - /signup
@@ -79,28 +80,28 @@ public class SignUpServlet extends HttpServlet {
         String phone = request.getParameter(Variable.WEB_PHONE);
 
         // Check user input
-        if (username.isEmpty() || username.length() < 8) {
-            request.setAttribute(Variable.MESSAGE, "Invalid username");
+        if (!UserService.validateUsername(username)) {
+            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
-        } else if (password.isEmpty() || password.length() < 8) {
-            request.setAttribute(Variable.MESSAGE, "Invalid password");
+        } else if (!UserService.validatePassword(password)) {
+            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
-        } else if (email.isEmpty()) {
-            request.setAttribute(Variable.MESSAGE, "Invalid email");
+        } else if (!UserService.validateEmail(email)) {
+            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
-        } else if (firstname.isEmpty()) {
-            request.setAttribute(Variable.MESSAGE, "Invalid name");
+        } else if (!UserService.validateFirstname(firstname)) {
+            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
-        } else if (lastname.isEmpty()) {
-            request.setAttribute(Variable.MESSAGE, "Invalid name");
+        } else if (!UserService.validateLastname(lastname)) {
+            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
-        } else if (phone.isEmpty()) {
-            request.setAttribute(Variable.MESSAGE, "Invalid phone number");
+        } else if (!UserService.validatePhone(phone)) {
+            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }

@@ -68,15 +68,15 @@ public class SignInServlet extends HttpServlet {
         String password = request.getParameter(Variable.WEB_PASSWORD);
 
         //Check if input is empty
-        if (username.isEmpty() && password.isEmpty()) {
+        if (username == null || password == null || username.isEmpty() && password.isEmpty()) {
             request.setAttribute(Variable.MESSAGE, "Please enter your username and password.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
-        } else if (username.isEmpty()) {
+        } else if (username == null || username.isEmpty()) {
             request.setAttribute(Variable.MESSAGE, "Please enter your username.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
-        } else if (password.isEmpty()) {
+        } else if (password == null || password.isEmpty()) {
             request.setAttribute(Variable.MESSAGE, "Please enter your password.");
             request.setAttribute(Variable.WEB_USERNAME, username);
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);

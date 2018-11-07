@@ -14,6 +14,12 @@ package se;
  */
 public final class Variable {
 
+    // Link to Google Cloud Store (GCS)
+    public static final String LINK_GCS = "https://storage.googleapis.com/se-project-db.appspot.com/";
+    public static final String LINK_APPEND_PROFILE_IMAGE = "profile-image/";
+    public static final String LINK_APPEND_WORK_IMAGE = "work-image/";
+    public static final String LINK_APPEND_WORK_FILE = "work-file/";
+    
     // Application scope
     public static final String APP_DB_NAME = "db";
     public static final String APP_DB_BUCKET = "bk";
@@ -40,7 +46,7 @@ public final class Variable {
 
     // DB collection 'works', document values
 //    public static final String DB_DOC_WORK_ID = "id";
-    
+
     // Usally carry error message in request scope
     public static final String MESSAGE = "msg";
 
@@ -101,8 +107,8 @@ public final class Variable {
     public static final int LEN_MAX_USERNAME = 25;
     public static final int LEN_MAX_PASSWORD = 25;
     public static final int LEN_MAX_DISPLAYNAME = 25;
-//    public static final int LEN_MAX_FIRSTNAME = inf;
-//    public static final int LEN_MAX_LASTNAME = inf;
+    public static final int LEN_MAX_FIRSTNAME = 999;
+    public static final int LEN_MAX_LASTNAME = 999;
     public static final int LEN_MAX_EMAIL = 5;
     public static final int LEN_MAX_PHONE = 10;
     public static final int LEN_MAX_INFO = 999;

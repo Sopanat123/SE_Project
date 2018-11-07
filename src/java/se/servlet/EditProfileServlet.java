@@ -98,13 +98,13 @@ public class EditProfileServlet extends HttpServlet {
         String tag = request.getParameter(Variable.WEB_USER_TAG);
 
         // Web parameter flags
-        boolean displaynameFlag = !displayname.isEmpty();
-        boolean passwordFlag = !password.isEmpty();
-        boolean emailFlag = !email.isEmpty();
-        boolean phoneFlag = !phone.isEmpty();
-        boolean infoFlag = !info.isEmpty();
-        boolean imageFlag = !imgName.isEmpty();
-        boolean tagFlag = !tag.isEmpty();
+        boolean displaynameFlag = displayname != null && !displayname.isEmpty();
+        boolean passwordFlag = password != null && !password.isEmpty();
+        boolean emailFlag = email != null && !email.isEmpty();
+        boolean phoneFlag = phone != null && !phone.isEmpty();
+        boolean infoFlag = info != null && !info.isEmpty();
+        boolean imageFlag = imgName != null && !imgName.isEmpty();
+        boolean tagFlag = tag != null && !tag.isEmpty();
 
         // Check user input
         if (displaynameFlag && !UserService.validateDisplayname(displayname)) {
@@ -127,15 +127,15 @@ public class EditProfileServlet extends HttpServlet {
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
-        if (info.equals(CLEAR)) { // If input == "CLEAR", data field will set to null
-            info = null;
+        if (info != null && info.equals(CLEAR)) { // If input == "CLEAR", data field will set to null
+            info = "";
         } else if (infoFlag && !UserService.validateInfo(info)) {
             request.setAttribute(Variable.MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
-        if (tag.equals(CLEAR)) { // If input == "CLEAR", data field will set to null
-            tag = null;
+        if (tag != null && tag.equals(CLEAR)) { // If input == "CLEAR", data field will set to null
+            tag = "";
         } else if (tagFlag && !UserService.validateTag(tag)) {
             request.setAttribute(Variable.MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
@@ -195,10 +195,16 @@ public class EditProfileServlet extends HttpServlet {
                 Storage st = bk.getStorage();
                 InputStream imgFile = image.getInputStream();
 
-                BlobInfo blobInfo = st.create(BlobInfo.newBuilder(bk.getName(), imgName)
+                BlobInfo blobInfo = st.create(BlobInfo.newBuilder(bk.getName(),
+                        Variable.LINK_APPEND_PROFILE_IMAGE + user.getUsername() + "-" + imgName)
                         .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
                         .build(), imgFile);
-                map.put(Variable.DB_DOC_USER_IMAGE, blobInfo.getMediaLink());
+
+                map.put(Variable.DB_DOC_USER_IMAGE, Variable.LINK_GCS
+                        + Variable.LINK_APPEND_PROFILE_IMAGE
+                        + user.getUsername()
+                        + "-"
+                        + imgName);
             }
             if (tagFlag) {
                 map.put(Variable.DB_DOC_USER_TAG, tag);
