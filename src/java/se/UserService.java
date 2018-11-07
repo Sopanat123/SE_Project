@@ -1,4 +1,4 @@
-package se.model;
+package se;
 
 import se.Variable;
 

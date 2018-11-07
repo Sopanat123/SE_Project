@@ -14,9 +14,10 @@ public class Work {
     private String title;
     private String desc;
     private String tag; // separate by comma (,)
-    private String srcUrl;
-    private String translator; // translator username
-    private String status;
+    private String imgUrl;
+    private String fileUrl;
+    private String translator; // translator username, separate by comma (,) in auction phase
+    private String status; // created - accepted - completed
     private Date createTime;
     private Date acceptTime;
     private Date deadLine; // user define finish time

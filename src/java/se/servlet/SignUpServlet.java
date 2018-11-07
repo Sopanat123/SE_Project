@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import se.Variable;
 import se.model.User;
-import se.model.UserService;
+import se.UserService;
 
 /**
  * url - /signup

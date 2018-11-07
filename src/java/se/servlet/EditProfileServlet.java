@@ -32,9 +32,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import se.UserService;
 import se.Variable;
 //import se.model.User;
-import se.model.UserService;
 
 /**
  * url - /editprofile
