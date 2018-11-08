@@ -16,6 +16,7 @@ public final class Variable {
 
     // Usally carry error message in request scope
     public static final String MESSAGE = "msg";
+    public static final String WORKLIST = "works";
 
     // Default profile image
     public static final String DEF_PRO_IMG = "assets/def_pro_img.png";

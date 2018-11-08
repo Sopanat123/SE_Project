@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import se.Variable;
 
 import se.model.User;
+import se.model.WorkList;
 
 /**
  * url - /home
@@ -46,11 +47,9 @@ public class HomePageServlet extends HttpServlet {
         }
 
         // Get database
-//        Firestore db = (Firestore) request.getServletContext().getAttribute("db");
-        // Query for data
-//        CollectionReference works = db.collection("works");
-//        Query query = works.
-//        ApiFuture<QuerySnapshot> qs = query.get();
+        Firestore db = (Firestore) request.getServletContext().getAttribute("db");
+        WorkList wl = new WorkList(db);
+        request.setAttribute(Variable.WORKLIST, wl.getList());
         request.getRequestDispatcher(PAGE_JSP).forward(request, response);
     }
 

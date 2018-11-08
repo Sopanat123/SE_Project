@@ -55,23 +55,22 @@
         <div class="container-fluid">
             <div class="row height-100">
                 <div class="col-10 bg-danger pt-3 pl-3" id="post-zone">
-
+                    
                     <div class="card-columns">
-<%-- DEMO   <c:forEach var="work" items="${applicationScope.works}"> --%>
-                        <c:forEach begin="0" end="10" step="1">
+                        <c:forEach var="work" items="${works}">
                             <div class="card">
                                 <div class="card-header row">
                                     <div class="col-2">
-                                        <img class="img-circle" src="http://semantic-ui.com/images/avatar/large/elliot.jpg"  width="40" height="40" alt="user img">
+                                        <img class="img-circle" src="${sessionScope.cruser.image}"  width="40" height="40" alt="user img">
                                     </div>
                                     <div class="col-10">
-                                        <h3 class="car col-6">Card title</h3>
-                                        <small class="text-muted col-6">Last posted 3 mins ago</small>
+                                        <h3 class="car col-6">${work.title}</h3>
+                                        <small class="text-muted col-6">Posted ${work.created}</small>
                                     </div>
                                 </div>
-                                <img class="card-img-top" src="https://semantic-ui.com/images/wireframe/image.png" alt="Card image cap">
+                                <img class="card-img-top" src="${work.imgUrl}" alt="Card image cap">
                                 <div class="card-body">
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <p class="card-text">${work.desc}</p>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#model">View</button>
                                 </div>
                             </div>
