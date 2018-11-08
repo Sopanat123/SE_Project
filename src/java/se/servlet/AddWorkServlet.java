@@ -1,6 +1,7 @@
 package se.servlet;
 
 import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.FieldValue;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.storage.Acl;
 //import com.google.cloud.storage.Acl.User;
@@ -8,6 +9,7 @@ import com.google.cloud.storage.Acl;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Bucket;
 import com.google.cloud.storage.Storage;
+
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
@@ -144,6 +146,8 @@ public class AddWorkServlet extends HttpServlet {
         try {
             // Get database
             Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.APP_DB_NAME);
+            DocumentReference dr = db.collection(Variable.DB_COL_WORK).document();
+            String id = dr.getId();
             Bucket bk = (Bucket) request.getServletContext().getAttribute(Variable.APP_DB_BUCKET);
             Storage st = bk.getStorage();
 
@@ -157,7 +161,7 @@ public class AddWorkServlet extends HttpServlet {
             map.put(Variable.DB_DOC_WORK_LANG_ORI, oriLang);
             map.put(Variable.DB_DOC_WORK_LANG_DEST, destLang);
             map.put(Variable.DB_DOC_WORK_STATUS, Variable.WORK_STATUS_NEW);
-            map.put(Variable.DB_DOC_WORK_CREATED, timestamp);
+            map.put(Variable.DB_DOC_WORK_CREATED, FieldValue.serverTimestamp());
             String dbFileName = timestamp + "-f-" + user.getUsername() + fileName;
             st.create(BlobInfo.newBuilder(bk.getName(), Variable.LINK_APPEND_WORK_FILE + dbFileName)
                     .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
@@ -199,8 +203,6 @@ public class AddWorkServlet extends HttpServlet {
             }
 
             // Add data to database with auto generate id
-            DocumentReference dr = db.collection(Variable.DB_COL_WORK).document();
-            String id = dr.getId();
             map.put(Variable.DB_DOC_WORK_ID, id);
             dr.set(map);
 
