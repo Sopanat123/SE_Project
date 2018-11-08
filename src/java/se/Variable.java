@@ -25,6 +25,7 @@ public final class Variable {
     public static final String LINK_APPEND_PROFILE_IMAGE = "profile-image/";
     public static final String LINK_APPEND_WORK_IMAGE = "work-image/";
     public static final String LINK_APPEND_WORK_FILE = "work-file/";
+    public static final String LINK_APPEND_WORK_SAMPLE = "work-sample/";
 
     // Application scope
     public static final String APP_DB_NAME = "db";

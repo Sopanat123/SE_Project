@@ -195,16 +195,13 @@ public class EditProfileServlet extends HttpServlet {
                 Storage st = bk.getStorage();
                 InputStream imgFile = image.getInputStream();
 
-                BlobInfo blobInfo = st.create(BlobInfo.newBuilder(bk.getName(),
+                st.create(BlobInfo.newBuilder(bk.getName(),
                         Variable.LINK_APPEND_PROFILE_IMAGE + user.getUsername() + "-" + imgName)
                         .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
                         .build(), imgFile);
 
-                map.put(Variable.DB_DOC_USER_IMAGE, Variable.LINK_GCS
-                        + Variable.LINK_APPEND_PROFILE_IMAGE
-                        + user.getUsername()
-                        + "-"
-                        + imgName);
+                map.put(Variable.DB_DOC_USER_IMAGE, Variable.LINK_GCS + Variable.LINK_APPEND_PROFILE_IMAGE
+                        + user.getUsername() + "-" + imgName);
             }
             if (tagFlag) {
                 map.put(Variable.DB_DOC_USER_TAG, tag);

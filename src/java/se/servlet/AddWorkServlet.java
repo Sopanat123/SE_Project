@@ -1,6 +1,5 @@
 package se.servlet;
 
-import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.FieldValue;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.storage.Acl;
@@ -10,12 +9,13 @@ import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Bucket;
 import com.google.cloud.storage.Storage;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -35,6 +35,7 @@ import se.WorkService;
 @MultipartConfig
 public class AddWorkServlet extends HttpServlet {
 
+    private static final String TAG = "AddWorkServlet";
     private static final String PAGE_JSP = "WEB-INF/addwork.jsp";
 
     /**
@@ -128,38 +129,70 @@ public class AddWorkServlet extends HttpServlet {
             return;
         }
 
-        // Get database
-        Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.APP_DB_NAME);
-        DocumentReference dr = db.collection(Variable.DB_COL_USER).document(user.getUsername());
-        Bucket bk = (Bucket) request.getServletContext().getAttribute(Variable.APP_DB_BUCKET);
-        Storage st = bk.getStorage();
+        try {
+            // Get database
+            Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.APP_DB_NAME);
+            Bucket bk = (Bucket) request.getServletContext().getAttribute(Variable.APP_DB_BUCKET);
+            Storage st = bk.getStorage();
 
-        // Create map to store new data
-        Map<String, Object> map = new HashMap<>();
+            // Create map to store new data
+            Map<String, Object> map = new HashMap<>();
+            FieldValue time = FieldValue.serverTimestamp();
 
-        // Process stuff
-        map.put(Variable.DB_DOC_WORK_OWNER, user.getUsername());
-        map.put(Variable.DB_DOC_WORK_TITLE, title);
-        map.put(Variable.DB_DOC_WORK_STATUS, Variable.WORK_STATUS_NEW);
-        map.put(Variable.DB_DOC_WORK_CREATED, FieldValue.serverTimestamp());
-        if (imageFlag) {
-            InputStream imgFile = image.getInputStream();
-
-            st.create(BlobInfo.newBuilder(bk.getName(),
-                    Variable.LINK_APPEND_WORK_IMAGE
-                    + user.getUsername()
-                    + "-"
-                    + imageName)
+            // Process mandaoty stuff
+            map.put(Variable.DB_DOC_WORK_OWNER, user.getUsername());
+            map.put(Variable.DB_DOC_WORK_TITLE, title);
+            map.put(Variable.DB_DOC_WORK_STATUS, Variable.WORK_STATUS_NEW);
+            map.put(Variable.DB_DOC_WORK_CREATED, time);
+            String dbFileName = time + "-f-" + user.getUsername() + fileName;
+            st.create(BlobInfo.newBuilder(bk.getName(), Variable.LINK_APPEND_WORK_FILE + dbFileName)
                     .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
-                    .build(), imgFile);
+                    .build(), file.getInputStream());
+            map.put(Variable.DB_DOC_WORK_FILE, Variable.LINK_GCS + Variable.LINK_APPEND_WORK_FILE + dbFileName);
 
-            map.put(Variable.DB_DOC_USER_IMAGE, Variable.LINK_GCS
-                    + Variable.LINK_APPEND_WORK_IMAGE
-                    + user.getUsername()
-                    + "-"
-                    + imageName);
+            // Process optional stuff
+            if (descFlag) {
+                map.put(Variable.DB_DOC_WORK_DESC, desc);
+            }
+            if (tagFlag) {
+                map.put(Variable.DB_DOC_WORK_TAG, tag);
+            }
+            if (deadlineFlag) {
+                map.put(Variable.DB_DOC_WORK_DEADLINE, deadline);
+            }
+            if (priceFlag) {
+                map.put(Variable.DB_DOC_WORK_PRICE, price);
+            }
+            if (onlysampleFlag) {
+                map.put(Variable.DB_DOC_WORK_ONLYSAMPLE, "true");
+            }
+            if (hiddenFlag) {
+                map.put(Variable.DB_DOC_WORK_HIDDEN, "true");
+            }
+            if (imageFlag) {
+                String dbImageName = time + "-i-" + user.getUsername() + imageName;
+                st.create(BlobInfo.newBuilder(bk.getName(), Variable.LINK_APPEND_WORK_IMAGE + dbImageName)
+                        .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
+                        .build(), image.getInputStream());
+                map.put(Variable.DB_DOC_WORK_IMAGE, Variable.LINK_GCS + Variable.LINK_APPEND_WORK_IMAGE + dbImageName);
+            }
+            if (sampleFlag) {
+                String dbSampleName = time + "-s-" + user.getUsername() + sampleName;
+                st.create(BlobInfo.newBuilder(bk.getName(), Variable.LINK_APPEND_WORK_SAMPLE + dbSampleName)
+                        .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
+                        .build(), sample.getInputStream());
+                map.put(Variable.DB_DOC_WORK_SAMPLE, Variable.LINK_GCS + Variable.LINK_APPEND_WORK_SAMPLE + dbSampleName);
+            }
+
+            // Add data to database with auto generate id
+            db.collection(Variable.DB_COL_WORK).add(map);
+
+            response.sendRedirect(Variable.PAGE_HOME);
+        } catch (IOException ex) {
+            Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
+            request.setAttribute(Variable.MESSAGE, "Can't connect to database.");
+            request.getRequestDispatcher(PAGE_JSP).forward(request, response);
         }
-
     }
 
     /**
