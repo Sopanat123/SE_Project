@@ -1,5 +1,6 @@
 package se.servlet;
 
+import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.storage.Acl;
 //import com.google.cloud.storage.Acl.User;
@@ -198,7 +199,10 @@ public class AddWorkServlet extends HttpServlet {
             }
 
             // Add data to database with auto generate id
-            db.collection(Variable.DB_COL_WORK).add(map);
+            DocumentReference dr = db.collection(Variable.DB_COL_WORK).document();
+            String id = dr.getId();
+            map.put(Variable.DB_DOC_WORK_ID, id);
+            dr.set(map);
 
             response.sendRedirect(Variable.PAGE_HOME);
         } catch (IOException ex) {
