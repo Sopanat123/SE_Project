@@ -1,6 +1,5 @@
 package se.servlet;
 
-import com.google.cloud.firestore.FieldValue;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.storage.Acl;
 //import com.google.cloud.storage.Acl.User;
@@ -10,8 +9,10 @@ import com.google.cloud.storage.Bucket;
 import com.google.cloud.storage.Storage;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -80,14 +81,19 @@ public class AddWorkServlet extends HttpServlet {
         // Get parameter adn part from request
         String title = request.getParameter(Variable.WEB_WORK_TITLE);
         String desc = request.getParameter(Variable.WEB_WORK_DESC);
+        String oriLang = request.getParameter(Variable.WEB_WORK_LANG_ORI);
+        String destLang = request.getParameter(Variable.WEB_WORK_LANG_DEST);
         String tag = request.getParameter(Variable.WEB_WORK_TAG);
         String deadline = request.getParameter(Variable.WEB_WORK_DEADLINE);
         String price = request.getParameter(Variable.WEB_WORK_PRICE);
-        String onlysample = request.getParameterValues(Variable.WEB_WORK_ONLYSAMPLE)[0]; // 1 checkbox
-        String hidden = request.getParameterValues(Variable.WEB_WORK_HIDDEN)[0]; // 1 checkbox
+        String onlysample = request.getParameterValues(Variable.WEB_WORK_ONLYSAMPLE)
+                == null ? "" : request.getParameterValues(Variable.WEB_WORK_ONLYSAMPLE)[0];
+        String hidden = request.getParameterValues(Variable.WEB_WORK_HIDDEN)
+                == null ? "" : request.getParameterValues(Variable.WEB_WORK_HIDDEN)[0];
         Part image = request.getPart(Variable.WEB_WORK_IMAGE);
         Part sample = request.getPart(Variable.WEB_WORK_SAMPLE);
         Part file = request.getPart(Variable.WEB_WORK_FILE);
+
         String imageName = Paths.get(image.getSubmittedFileName()).getFileName().toString();
         String sampleName = Paths.get(sample.getSubmittedFileName()).getFileName().toString();
         String fileName = Paths.get(file.getSubmittedFileName()).getFileName().toString();
@@ -104,6 +110,11 @@ public class AddWorkServlet extends HttpServlet {
 
         // Check parameter
         if (!WorkService.validateTitle(title)) {
+            request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
+            request.getRequestDispatcher(PAGE_JSP).forward(request, response);
+            return;
+        }
+        if (!WorkService.validateLanguage(oriLang) || !WorkService.validateLanguage(destLang)) {
             request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
@@ -137,14 +148,16 @@ public class AddWorkServlet extends HttpServlet {
 
             // Create map to store new data
             Map<String, Object> map = new HashMap<>();
-            FieldValue time = FieldValue.serverTimestamp();
+            String timestamp = new SimpleDateFormat("yyyyMMdd-HHmmss").format(Calendar.getInstance().getTime());
 
             // Process mandaoty stuff
             map.put(Variable.DB_DOC_WORK_OWNER, user.getUsername());
             map.put(Variable.DB_DOC_WORK_TITLE, title);
+            map.put(Variable.DB_DOC_WORK_LANG_ORI, oriLang);
+            map.put(Variable.DB_DOC_WORK_LANG_DEST, destLang);
             map.put(Variable.DB_DOC_WORK_STATUS, Variable.WORK_STATUS_NEW);
-            map.put(Variable.DB_DOC_WORK_CREATED, time);
-            String dbFileName = time + "-f-" + user.getUsername() + fileName;
+            map.put(Variable.DB_DOC_WORK_CREATED, timestamp);
+            String dbFileName = timestamp + "-f-" + user.getUsername() + fileName;
             st.create(BlobInfo.newBuilder(bk.getName(), Variable.LINK_APPEND_WORK_FILE + dbFileName)
                     .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
                     .build(), file.getInputStream());
@@ -164,20 +177,20 @@ public class AddWorkServlet extends HttpServlet {
                 map.put(Variable.DB_DOC_WORK_PRICE, price);
             }
             if (onlysampleFlag) {
-                map.put(Variable.DB_DOC_WORK_ONLYSAMPLE, "true");
+                map.put(Variable.DB_DOC_WORK_ONLYSAMPLE, onlysample);
             }
             if (hiddenFlag) {
-                map.put(Variable.DB_DOC_WORK_HIDDEN, "true");
+                map.put(Variable.DB_DOC_WORK_HIDDEN, hidden);
             }
             if (imageFlag) {
-                String dbImageName = time + "-i-" + user.getUsername() + imageName;
+                String dbImageName = timestamp + "-i-" + user.getUsername() + imageName;
                 st.create(BlobInfo.newBuilder(bk.getName(), Variable.LINK_APPEND_WORK_IMAGE + dbImageName)
                         .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
                         .build(), image.getInputStream());
                 map.put(Variable.DB_DOC_WORK_IMAGE, Variable.LINK_GCS + Variable.LINK_APPEND_WORK_IMAGE + dbImageName);
             }
             if (sampleFlag) {
-                String dbSampleName = time + "-s-" + user.getUsername() + sampleName;
+                String dbSampleName = timestamp + "-s-" + user.getUsername() + sampleName;
                 st.create(BlobInfo.newBuilder(bk.getName(), Variable.LINK_APPEND_WORK_SAMPLE + dbSampleName)
                         .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
                         .build(), sample.getInputStream());
@@ -190,7 +203,7 @@ public class AddWorkServlet extends HttpServlet {
             response.sendRedirect(Variable.PAGE_HOME);
         } catch (IOException ex) {
             Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
-            request.setAttribute(Variable.MESSAGE, "Can't connect to database.");
+            request.setAttribute(Variable.MESSAGE, "Can't upload to database.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
         }
     }

@@ -12,6 +12,8 @@ public class Work {
     private String id; // username + "work" + number of work
     private String owner; // owner username
     private String title;
+    private String oriLang;
+    private String destLang;
     private String desc;
     private String tag; // separate by comma (,)
     private String imgUrl;

@@ -26,6 +26,20 @@ public class WorkService {
         return true;
     }
 
+    public static final boolean validateLanguage(String lang) {
+        if (lang == null || lang.isEmpty()) {
+            message = "Language is empty";
+            return false;
+        } else if (lang.length() < Variable.LEN_MIN_LANGUAGE) {
+            message = "Language is too short";
+            return false;
+        } else if (lang.length() > Variable.LEN_MAX_LANGUAGE) {
+            message = "Language is too long";
+            return false;
+        }
+        return true;
+    }
+
     public static final boolean validateDescription(String desc) {
         if (desc == null || desc.isEmpty()) {
             message = "Description is empty";
@@ -44,15 +58,18 @@ public class WorkService {
         if (tag == null || tag.isEmpty()) {
             message = "Tag is empty";
             return false;
-        } else if (tag.length() < Variable.LEN_MIN_TAG) {
-            message = "Tag is too short";
-            return false;
-        } else if (tag.length() > Variable.LEN_MAX_TAG) {
-            message = "Tag is too long";
-            return false;
-        } else if (tag.contains("/")) {
-            message = "Tag can't has /";
-            return false;
+        }
+        for (String s : tag.split(",")) {
+            if (s.length() < Variable.LEN_MIN_TAG) {
+                message = "Tag is too short";
+                return false;
+            } else if (s.length() > Variable.LEN_MAX_TAG) {
+                message = "Tag is too long";
+                return false;
+            } else if (s.contains("/")) {
+                message = "Tag can't has /";
+                return false;
+            }
         }
         return true;
     }

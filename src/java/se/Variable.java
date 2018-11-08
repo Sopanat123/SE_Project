@@ -56,6 +56,8 @@ public final class Variable {
     public static final String DB_DOC_WORK_OWNER = "owner";
     public static final String DB_DOC_WORK_TRANSLATOR = "translator";
     public static final String DB_DOC_WORK_TITLE = "title";
+    public static final String DB_DOC_WORK_LANG_ORI = "orilang";
+    public static final String DB_DOC_WORK_LANG_DEST = "destlang";
     public static final String DB_DOC_WORK_DESC = "desc";
     public static final String DB_DOC_WORK_TAG = "tag";
     public static final String DB_DOC_WORK_IMAGE = "image";
@@ -111,6 +113,8 @@ public final class Variable {
     // Work
     public static final String WEB_WORK_TITLE = "title";
     public static final String WEB_WORK_DESC = "desc";
+    public static final String WEB_WORK_LANG_ORI = "orilang";
+    public static final String WEB_WORK_LANG_DEST = "destlang";
     public static final String WEB_WORK_TAG = "worktag";
     public static final String WEB_WORK_DEADLINE = "deadline";
     public static final String WEB_WORK_PRICE = "price";
@@ -131,6 +135,7 @@ public final class Variable {
     public static final int LEN_MIN_INFO = 1;
     public static final int LEN_MIN_TAG = 3;
     public static final int LEN_MIN_TITLE = 1;
+    public static final int LEN_MIN_LANGUAGE = 2;
     public static final int LEN_MIN_DESC = 1;
     public static final double LEN_MIN_PRICE = 0;
 
@@ -145,6 +150,7 @@ public final class Variable {
     public static final int LEN_MAX_INFO = 255;
     public static final int LEN_MAX_TAG = 9;
     public static final int LEN_MAX_TITLE = 20;
+    public static final int LEN_MAX_LANGUAGE = 20;
     public static final int LEN_MAX_DESC = 255;
     public static final double LEN_MAX_PRICE = 99999.99;
 }
