@@ -161,11 +161,11 @@ public class AddWorkServlet extends HttpServlet {
             map.put(Variable.DB_DOC_WORK_STATUS, Variable.WORK_STATUS_NEW);
             map.put(Variable.DB_DOC_WORK_CREATED, FieldValue.serverTimestamp());
             // Upload work file to database
-            String dbFileName = Variable.LINK_APPEND_WORK_FILE + timestamp + "-f-" + user.getUsername() + fileName;
-            bk.getStorage().create(BlobInfo.newBuilder(bk.getName(), dbFileName)
+            String fileUrl = Variable.LINK_APPEND_WORK_FILE + timestamp + "-f-" + user.getUsername() + fileName;
+            bk.getStorage().create(BlobInfo.newBuilder(bk.getName(), fileUrl)
                     .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
                     .build(), file.getInputStream());
-            map.put(Variable.DB_DOC_WORK_FILE, Variable.LINK_GCS + dbFileName);
+            map.put(Variable.DB_DOC_WORK_FILE, Variable.LINK_GCS + fileUrl);
 
             // Process optional stuff
             if (descFlag) {
@@ -187,22 +187,22 @@ public class AddWorkServlet extends HttpServlet {
                 map.put(Variable.DB_DOC_WORK_HIDDEN, hidden);
             }
             if (imageFlag) {
-                String dbImageName = Variable.LINK_APPEND_WORK_IMAGE + timestamp + "-i-" + user.getUsername() + imageName;
+                String imageUrl = Variable.LINK_APPEND_WORK_IMAGE + timestamp + "-i-" + user.getUsername() + imageName;
 
-                bk.getStorage().create(BlobInfo.newBuilder(bk.getName(), dbImageName)
+                bk.getStorage().create(BlobInfo.newBuilder(bk.getName(), imageUrl)
                         .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
                         .build(), image.getInputStream());
 
-                map.put(Variable.DB_DOC_WORK_IMAGE, Variable.LINK_GCS + dbImageName);
+                map.put(Variable.DB_DOC_WORK_IMAGE, Variable.LINK_GCS + imageUrl);
             }
             if (sampleFlag) {
-                String dbSampleName = Variable.LINK_APPEND_WORK_SAMPLE + timestamp + "-s-" + user.getUsername() + sampleName;
+                String sampleUrl = Variable.LINK_APPEND_WORK_SAMPLE + timestamp + "-s-" + user.getUsername() + sampleName;
 
-                bk.getStorage().create(BlobInfo.newBuilder(bk.getName(), dbSampleName)
+                bk.getStorage().create(BlobInfo.newBuilder(bk.getName(), sampleUrl)
                         .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
                         .build(), sample.getInputStream());
 
-                map.put(Variable.DB_DOC_WORK_SAMPLE, Variable.LINK_GCS + dbSampleName);
+                map.put(Variable.DB_DOC_WORK_SAMPLE, Variable.LINK_GCS + sampleUrl);
             }
 
             // Add data to database with auto generate id
