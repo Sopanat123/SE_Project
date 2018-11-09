@@ -44,6 +44,10 @@
         <servlet-name>VerifyTranslatorServlet</servlet-name>
         <servlet-class>se.servlet.VerifyTranslatorServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>WorkInterestedServlet</servlet-name>
+        <servlet-class>se.servlet.WorkInterestedServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/signin</url-pattern>
@@ -83,6 +87,10 @@
     <servlet-mapping>
         <servlet-name>VerifyTranslatorServlet</servlet-name>
         <url-pattern>/verifytranslator</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WorkInterestedServlet</servlet-name>
+        <url-pattern>/workinterested</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
