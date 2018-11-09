@@ -15,10 +15,11 @@ package se;
 public final class Variable {
 
     // Usally be used in request scope
-    public static final String MESSAGE = "msg";
-    public static final String WORKLIST = "works";
-    public static final String TRANSLATOR = "translator";
-    public static final String VERIFY_LIST = "translist";
+    public static final String REQ_MESSAGE = "msg";
+    public static final String REQ_WORKLIST = "works";
+    public static final String REQ_TRANSLATOR = "translator";
+    public static final String REQ_VERIFY_LIST = "translist";
+    public static final String REQ_INTERESTED = "interested";
 
     // Session scope
     public static final String SES_CURRENT_USER = "cruser";

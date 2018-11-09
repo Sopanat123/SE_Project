@@ -4,8 +4,6 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.FieldValue;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.storage.Acl;
-//import com.google.cloud.storage.Acl.User;
-//import com.google.cloud.storage.Acl.Role;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Bucket;
 
@@ -29,7 +27,6 @@ import javax.servlet.http.Part;
 
 import se.Variable;
 import se.WorkService;
-//import se.model.User;
 
 /**
  *
@@ -112,32 +109,32 @@ public class AddWorkServlet extends HttpServlet {
 
         // Check parameter
         if (!WorkService.validateTitle(title)) {
-            request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, WorkService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
         if (!WorkService.validateLanguage(oriLang) || !WorkService.validateLanguage(destLang)) {
-            request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, WorkService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
         if (descFlag && !WorkService.validateDescription(desc)) {
-            request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, WorkService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
         if (tagFlag && !WorkService.validateTag(tag)) {
-            request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, WorkService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
         if (deadlineFlag && !WorkService.validateTime(deadline)) {
-            request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, WorkService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
         if (priceFlag && !WorkService.validatePrice(price)) {
-            request.setAttribute(Variable.MESSAGE, WorkService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, WorkService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
@@ -212,7 +209,7 @@ public class AddWorkServlet extends HttpServlet {
             response.sendRedirect(Variable.PAGE_HOME);
         } catch (IOException ex) {
             Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
-            request.setAttribute(Variable.MESSAGE, "Can't upload to database.");
+            request.setAttribute(Variable.REQ_MESSAGE, "Can't upload to database.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
         }
     }

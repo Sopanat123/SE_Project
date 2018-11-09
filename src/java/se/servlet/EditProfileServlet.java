@@ -8,8 +8,6 @@ import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.Query;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.storage.Acl;
-//import com.google.cloud.storage.Acl.User;
-//import com.google.cloud.storage.Acl.Role;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Bucket;
 
@@ -32,7 +30,6 @@ import javax.servlet.http.Part;
 
 import se.UserService;
 import se.Variable;
-//import se.model.User;
 
 /**
  * url - /editprofile
@@ -106,36 +103,36 @@ public class EditProfileServlet extends HttpServlet {
 
         // Check user input
         if (displaynameFlag && !UserService.validateDisplayname(displayname)) {
-            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
         if (passwordFlag && !UserService.validatePassword(password)) {
-            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
         if (emailFlag && !UserService.validateEmail(email)) {
-            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
         if (phoneFlag && !UserService.validatePhone(phone)) {
-            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
         if (info != null && info.equals(CLEAR)) { // If input == "CLEAR", data field will set to null
             info = "";
         } else if (infoFlag && !UserService.validateInfo(info)) {
-            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
         if (tag != null && tag.equals(CLEAR)) { // If input == "CLEAR", data field will set to null
             tag = "";
         } else if (tagFlag && !UserService.validateTag(tag)) {
-            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
@@ -157,7 +154,7 @@ public class EditProfileServlet extends HttpServlet {
 
                 // INVALID displayname - displayname is already taken
                 if (qsDn.get().size() > 0) {
-                    request.setAttribute(Variable.MESSAGE, "This displayname is already taken.");
+                    request.setAttribute(Variable.REQ_MESSAGE, "This displayname is already taken.");
                     request.getRequestDispatcher(PAGE_JSP).forward(request, response);
                     return;
                 }
@@ -175,7 +172,7 @@ public class EditProfileServlet extends HttpServlet {
 
                 // INVALID email - email is already taken
                 if (qsEm.get().size() > 0) {
-                    request.setAttribute(Variable.MESSAGE, "This email is already taken.");
+                    request.setAttribute(Variable.REQ_MESSAGE, "This email is already taken.");
                     request.getRequestDispatcher(PAGE_JSP).forward(request, response);
                     return;
                 }
@@ -220,7 +217,7 @@ public class EditProfileServlet extends HttpServlet {
             response.sendRedirect(Variable.PAGE_HOME);
         } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
-            request.setAttribute(Variable.MESSAGE, "Can't connect to database.");
+            request.setAttribute(Variable.REQ_MESSAGE, "Can't connect to database.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
         }
     }

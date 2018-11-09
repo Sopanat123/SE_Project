@@ -81,27 +81,27 @@ public class SignUpServlet extends HttpServlet {
 
         // Check user input
         if (!UserService.validateUsername(username)) {
-            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         } else if (!UserService.validatePassword(password)) {
-            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         } else if (!UserService.validateEmail(email)) {
-            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         } else if (!UserService.validateFirstname(firstname)) {
-            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         } else if (!UserService.validateLastname(lastname)) {
-            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         } else if (!UserService.validatePhone(phone)) {
-            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
+            request.setAttribute(Variable.REQ_MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
@@ -114,7 +114,7 @@ public class SignUpServlet extends HttpServlet {
 
             // INVALID username - username is already taken
             if (document.exists()) {
-                request.setAttribute(Variable.MESSAGE, "This username is not available.");
+                request.setAttribute(Variable.REQ_MESSAGE, "This username is not available.");
                 request.getRequestDispatcher(PAGE_JSP).forward(request, response);
                 return;
             }
@@ -126,7 +126,7 @@ public class SignUpServlet extends HttpServlet {
 
             // INVALID email - email is already taken
             if (qs.get().size() > 0) {
-                request.setAttribute(Variable.MESSAGE, "This email is already taken.");
+                request.setAttribute(Variable.REQ_MESSAGE, "This email is already taken.");
                 request.getRequestDispatcher(PAGE_JSP).forward(request, response);
                 return;
             }
@@ -163,7 +163,7 @@ public class SignUpServlet extends HttpServlet {
             response.sendRedirect(Variable.PAGE_HOME);
         } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
-            request.setAttribute(Variable.MESSAGE, "Can't connect to database.");
+            request.setAttribute(Variable.REQ_MESSAGE, "Can't connect to database.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
         }
     }

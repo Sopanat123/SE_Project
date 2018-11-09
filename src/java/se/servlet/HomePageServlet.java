@@ -46,7 +46,7 @@ public class HomePageServlet extends HttpServlet {
         // Get database
         Firestore db = (Firestore) request.getServletContext().getAttribute("db");
         WorkList wl = new WorkList(db);
-        request.setAttribute(Variable.WORKLIST, wl.getList());
+        request.setAttribute(Variable.REQ_WORKLIST, wl.getList());
         request.getRequestDispatcher(PAGE_JSP).forward(request, response);
     }
 

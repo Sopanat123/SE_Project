@@ -68,16 +68,12 @@ public class SignInServlet extends HttpServlet {
         String password = request.getParameter(Variable.WEB_USER_PASSWORD);
 
         //Check if input is empty
-        if (username == null || password == null || username.isEmpty() && password.isEmpty()) {
-            request.setAttribute(Variable.MESSAGE, "Please enter your username and password.");
-            request.getRequestDispatcher(PAGE_JSP).forward(request, response);
-            return;
-        } else if (username == null || username.isEmpty()) {
-            request.setAttribute(Variable.MESSAGE, "Please enter your username.");
+        if (username == null || username.isEmpty()) {
+            request.setAttribute(Variable.REQ_MESSAGE, "Please enter your username.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         } else if (password == null || password.isEmpty()) {
-            request.setAttribute(Variable.MESSAGE, "Please enter your password.");
+            request.setAttribute(Variable.REQ_MESSAGE, "Please enter your password.");
             request.setAttribute(Variable.WEB_USER_USERNAME, username);
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
@@ -108,18 +104,18 @@ public class SignInServlet extends HttpServlet {
                     request.getSession().setAttribute(Variable.SES_CURRENT_USER, user);
                     response.sendRedirect(Variable.PAGE_HOME);
                 } else {
-                    request.setAttribute(Variable.MESSAGE, "Wrong password.");
+                    request.setAttribute(Variable.REQ_MESSAGE, "Wrong password.");
                     request.setAttribute(Variable.WEB_USER_USERNAME, username);
                     request.getRequestDispatcher(PAGE_JSP).forward(request, response);
                 }
             } else {
                 // No username in database
-                request.setAttribute(Variable.MESSAGE, "Unknown user.");
+                request.setAttribute(Variable.REQ_MESSAGE, "Unknown user.");
                 request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             }
         } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
-            request.setAttribute(Variable.MESSAGE, "Can't connect to database.");
+            request.setAttribute(Variable.REQ_MESSAGE, "Can't connect to database.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
         }
     }

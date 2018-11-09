@@ -88,12 +88,12 @@ public class ChangeToTranslator extends HttpServlet {
 
         // Check null
         if (idCard == null) {
-            request.setAttribute(Variable.MESSAGE, "No id card image");
+            request.setAttribute(Variable.REQ_MESSAGE, "No id card image");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
         if (idSelfie == null) {
-            request.setAttribute(Variable.MESSAGE, "No id card selfie image");
+            request.setAttribute(Variable.REQ_MESSAGE, "No id card selfie image");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
