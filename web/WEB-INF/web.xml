@@ -36,6 +36,10 @@
         <servlet-name>MyWorkServlet</servlet-name>
         <servlet-class>se.servlet.MyWorkServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChangeToTranslator</servlet-name>
+        <servlet-class>se.servlet.ChangeToTranslator</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/signin</url-pattern>
@@ -67,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>MyWorkServlet</servlet-name>
         <url-pattern>/mywork</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangeToTranslator</servlet-name>
+        <url-pattern>/changetotranslator</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
