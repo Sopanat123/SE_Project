@@ -21,9 +21,18 @@ public final class Variable {
     // Default profile image
     public static final String DEF_PRO_IMG = "assets/def_pro_img.png";
 
-    // Link to Google Cloud Store (GCS)
+    /*
+     * Link to Google Cloud Store (GCS)
+     *
+     * profile image : (GCS/)PI/username-imagename
+     * work image : (GCS/)WI/timestamp-i-usernameimagename
+     * work sample : (GCS/)WS/timestamp-s-usernamesamplename
+     * work file : (GCS/)WF/timestamp-f-usernamefilename
+     */
     public static final String LINK_GCS = "https://storage.googleapis.com/se-project-db.appspot.com/";
     public static final String LINK_APPEND_PROFILE_IMAGE = "profile-image/";
+    public static final String LINK_APPEND_USER_ID_CARD = "user-idcard/";
+    public static final String LINK_APPEND_USER_ID_SELFIE = "user-idselfie/";
     public static final String LINK_APPEND_WORK_IMAGE = "work-image/";
     public static final String LINK_APPEND_WORK_FILE = "work-file/";
     public static final String LINK_APPEND_WORK_SAMPLE = "work-sample/";
@@ -82,6 +91,7 @@ public final class Variable {
     public static final String PAGE_EDIT_PROFILE = "editprofile";
     public static final String PAGE_MYWORK = "mywork";
     public static final String PAGE_ADD_WORK = "addwork";
+    public static final String PAGE_TO_TRANSLATOR = ""; // TODO ///////////////////////////////////////////////
 
     // Session scope
     public static final String SES_CURRENT_USER = "cruser";
