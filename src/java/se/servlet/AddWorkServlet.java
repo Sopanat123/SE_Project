@@ -8,7 +8,6 @@ import com.google.cloud.storage.Acl;
 //import com.google.cloud.storage.Acl.Role;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Bucket;
-import com.google.cloud.storage.Storage;
 
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -149,7 +148,6 @@ public class AddWorkServlet extends HttpServlet {
             DocumentReference dr = db.collection(Variable.DB_COL_WORK).document();
             String id = dr.getId();
             Bucket bk = (Bucket) request.getServletContext().getAttribute(Variable.APP_DB_BUCKET);
-            Storage st = bk.getStorage();
 
             // Create map to store new data
             Map<String, Object> map = new HashMap<>();
@@ -162,8 +160,9 @@ public class AddWorkServlet extends HttpServlet {
             map.put(Variable.DB_DOC_WORK_LANG_DEST, destLang);
             map.put(Variable.DB_DOC_WORK_STATUS, Variable.WORK_STATUS_NEW);
             map.put(Variable.DB_DOC_WORK_CREATED, FieldValue.serverTimestamp());
+
             String dbFileName = timestamp + "-f-" + user.getUsername() + fileName;
-            st.create(BlobInfo.newBuilder(bk.getName(), Variable.LINK_APPEND_WORK_FILE + dbFileName)
+            bk.getStorage().create(BlobInfo.newBuilder(bk.getName(), Variable.LINK_APPEND_WORK_FILE + dbFileName)
                     .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
                     .build(), file.getInputStream());
             map.put(Variable.DB_DOC_WORK_FILE, Variable.LINK_GCS + Variable.LINK_APPEND_WORK_FILE + dbFileName);
@@ -189,14 +188,14 @@ public class AddWorkServlet extends HttpServlet {
             }
             if (imageFlag) {
                 String dbImageName = timestamp + "-i-" + user.getUsername() + imageName;
-                st.create(BlobInfo.newBuilder(bk.getName(), Variable.LINK_APPEND_WORK_IMAGE + dbImageName)
+                bk.getStorage().create(BlobInfo.newBuilder(bk.getName(), Variable.LINK_APPEND_WORK_IMAGE + dbImageName)
                         .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
                         .build(), image.getInputStream());
                 map.put(Variable.DB_DOC_WORK_IMAGE, Variable.LINK_GCS + Variable.LINK_APPEND_WORK_IMAGE + dbImageName);
             }
             if (sampleFlag) {
                 String dbSampleName = timestamp + "-s-" + user.getUsername() + sampleName;
-                st.create(BlobInfo.newBuilder(bk.getName(), Variable.LINK_APPEND_WORK_SAMPLE + dbSampleName)
+                bk.getStorage().create(BlobInfo.newBuilder(bk.getName(), Variable.LINK_APPEND_WORK_SAMPLE + dbSampleName)
                         .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
                         .build(), sample.getInputStream());
                 map.put(Variable.DB_DOC_WORK_SAMPLE, Variable.LINK_GCS + Variable.LINK_APPEND_WORK_SAMPLE + dbSampleName);

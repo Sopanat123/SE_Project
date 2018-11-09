@@ -21,7 +21,14 @@ public final class Variable {
     // Default profile image
     public static final String DEF_PRO_IMG = "assets/def_pro_img.png";
 
-    // Link to Google Cloud Store (GCS)
+    /*
+     * Link to Google Cloud Store (GCS)
+     *
+     * profile image : (GCS/)PI/username-imagename
+     * work image : (GCS/)WI/timestamp-i-usernameimagename
+     * work sample : (GCS/)WS/timestamp-s-usernamesamplename
+     * work file : (GCS/)WF/timestamp-f-usernamefilename
+     */
     public static final String LINK_GCS = "https://storage.googleapis.com/se-project-db.appspot.com/";
     public static final String LINK_APPEND_PROFILE_IMAGE = "profile-image/";
     public static final String LINK_APPEND_WORK_IMAGE = "work-image/";
