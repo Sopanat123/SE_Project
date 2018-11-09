@@ -139,9 +139,10 @@ public class SignUpServlet extends HttpServlet {
             map.put(Variable.DB_DOC_USER_LASTNAME, lastname);
             map.put(Variable.DB_DOC_USER_EMAIL, email);
             map.put(Variable.DB_DOC_USER_PHONE, phone);
-            map.put(Variable.DB_DOC_USER_IMAGE, "assets/def_pro_img.png");
+            map.put(Variable.DB_DOC_USER_IMAGE, Variable.DEF_PRO_IMG);
             map.put(Variable.DB_DOC_USER_CREATE_TIME, FieldValue.serverTimestamp());
             map.put(Variable.DB_DOC_USER_PRIVILEGE, Variable.PRIVILEGE_MEMBER);
+            map.put(Variable.DB_DOC_USER_VERIFY, Variable.VERIFY_NONE);
 
             // Add map into users collection, using username as key value
             // Username already set to be the document id
