@@ -192,16 +192,13 @@ public class EditProfileServlet extends HttpServlet {
             }
             if (imageFlag) {
                 Bucket bk = (Bucket) request.getServletContext().getAttribute(Variable.APP_DB_BUCKET);
-                Storage st = bk.getStorage();
-                InputStream imgFile = image.getInputStream();
+                String imgLink = Variable.LINK_APPEND_PROFILE_IMAGE + user.getUsername() + "-" + imgName;
 
-                st.create(BlobInfo.newBuilder(bk.getName(),
-                        Variable.LINK_APPEND_PROFILE_IMAGE + user.getUsername() + "-" + imgName)
+                bk.getStorage().create(BlobInfo.newBuilder(bk.getName(), imgLink)
                         .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
-                        .build(), imgFile);
+                        .build(), image.getInputStream());
 
-                map.put(Variable.DB_DOC_USER_IMAGE, Variable.LINK_GCS + Variable.LINK_APPEND_PROFILE_IMAGE
-                        + user.getUsername() + "-" + imgName);
+                map.put(Variable.DB_DOC_USER_IMAGE, Variable.LINK_GCS + imgLink);
             }
             if (tagFlag) {
                 map.put(Variable.DB_DOC_USER_TAG, tag);
