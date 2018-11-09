@@ -12,7 +12,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,42 +32,44 @@ public class WorkList {
     private ArrayList<Work> list;
 
     public WorkList(Firestore db) {
+        // Create arraylist to hold all work reference
         list = new ArrayList<>();
+
         try {
             ApiFuture<QuerySnapshot> future = db.collection(Variable.DB_COL_WORK)
                     .orderBy(Variable.DB_DOC_WORK_CREATED, Query.Direction.ASCENDING)
                     .get();
             List<QueryDocumentSnapshot> docs = future.get().getDocuments();
+            // Iliterate each document
             for (DocumentSnapshot doc : docs) {
-                Map<String, Object> map = doc.getData();
                 Work work = new Work();
 
-                work.setId((String) map.get(Variable.DB_DOC_WORK_ID));
-                work.setOwner((String) map.get(Variable.DB_DOC_WORK_OWNER));
-                work.setTitle((String) map.get(Variable.DB_DOC_WORK_TITLE));
-                work.setOriLang((String) map.get(Variable.DB_DOC_WORK_LANG_ORI));
-                work.setDestLang((String) map.get(Variable.DB_DOC_WORK_LANG_DEST));
-                work.setDesc((String) map.get(Variable.DB_DOC_WORK_DESC));
-                work.setTag((String) map.get(Variable.DB_DOC_WORK_TAG));
-                work.setImgUrl((String) map.get(Variable.DB_DOC_WORK_IMAGE));
-                work.setSampleUrl((String) map.get(Variable.DB_DOC_WORK_SAMPLE));
-                work.setFileUrl((String) map.get(Variable.DB_DOC_WORK_FILE));
-                work.setTranslator((String) map.get(Variable.DB_DOC_WORK_TRANSLATOR));
-                work.setStatus((String) map.get(Variable.DB_DOC_WORK_STATUS));
-                work.setDeadline((String) map.get(Variable.DB_DOC_WORK_DEADLINE));
-                Date cDate = (Date) map.get(Variable.DB_DOC_WORK_CREATED);
+                work.setId(doc.getString(Variable.DB_DOC_WORK_ID));
+                work.setOwner(doc.getString(Variable.DB_DOC_WORK_OWNER));
+                work.setTitle(doc.getString(Variable.DB_DOC_WORK_TITLE));
+                work.setOriLang(doc.getString(Variable.DB_DOC_WORK_LANG_ORI));
+                work.setDestLang(doc.getString(Variable.DB_DOC_WORK_LANG_DEST));
+                work.setDesc(doc.getString(Variable.DB_DOC_WORK_DESC));
+                work.setTag(doc.getString(Variable.DB_DOC_WORK_TAG));
+                work.setImgUrl(doc.getString(Variable.DB_DOC_WORK_IMAGE));
+                work.setSampleUrl(doc.getString(Variable.DB_DOC_WORK_SAMPLE));
+                work.setFileUrl(doc.getString(Variable.DB_DOC_WORK_FILE));
+                work.setTranslator(doc.getString(Variable.DB_DOC_WORK_TRANSLATOR));
+                work.setStatus(doc.getString(Variable.DB_DOC_WORK_STATUS));
+                work.setDeadline(doc.getString(Variable.DB_DOC_WORK_DEADLINE));
+                Date cDate = (Date) doc.get(Variable.DB_DOC_WORK_CREATED);
                 work.setCreated(df.format(cDate));
-                if (map.get(Variable.DB_DOC_WORK_ACCEPTED) != null) {
-                    Date aDate = (Date) map.get(Variable.DB_DOC_WORK_ACCEPTED);
+                if (doc.get(Variable.DB_DOC_WORK_ACCEPTED) != null) {
+                    Date aDate = (Date) doc.get(Variable.DB_DOC_WORK_ACCEPTED);
                     work.setAccepted(df.format(aDate));
                 }
-                if (map.get(Variable.DB_DOC_WORK_FINISHED) != null) {
-                    Date fDate = (Date) map.get(Variable.DB_DOC_WORK_FINISHED);
+                if (doc.get(Variable.DB_DOC_WORK_FINISHED) != null) {
+                    Date fDate = (Date) doc.get(Variable.DB_DOC_WORK_FINISHED);
                     work.setFinished(df.format(fDate));
                 }
-                work.setPrice((String) map.get(Variable.DB_DOC_WORK_PRICE));
-                work.setOnlySample((String) map.get(Variable.DB_DOC_WORK_ONLYSAMPLE));
-                work.setHidden((String) map.get(Variable.DB_DOC_WORK_HIDDEN));
+                work.setPrice(doc.getString(Variable.DB_DOC_WORK_PRICE));
+                work.setOnlySample(doc.getString(Variable.DB_DOC_WORK_ONLYSAMPLE));
+                work.setHidden(doc.getString(Variable.DB_DOC_WORK_HIDDEN));
 
                 list.add(work);
             }

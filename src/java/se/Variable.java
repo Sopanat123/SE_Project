@@ -14,9 +14,15 @@ package se;
  */
 public final class Variable {
 
-    // Usally carry error message in request scope
+    // Usally be used in request scope
     public static final String MESSAGE = "msg";
     public static final String WORKLIST = "works";
+    public static final String TRANSLATOR = "translator";
+    public static final String VERIFY_LIST = "translist";
+
+    // Session scope
+    public static final String SES_CURRENT_USER = "cruser";
+    public static final String SES_CURRENT_WORK = "crwork";
 
     // Default profile image
     public static final String DEF_PRO_IMG = "assets/def_pro_img.png";
@@ -58,6 +64,9 @@ public final class Variable {
     public static final String DB_DOC_USER_IMAGE = "image";
     public static final String DB_DOC_USER_INFO = "info";
     public static final String DB_DOC_USER_TAG = "tag";
+    // For translator only
+    public static final String DB_DOC_USER_VERIFY = "verify";
+    public static final String DB_DOC_USER_VERIFY_TIME = "verifytime";
     public static final String DB_DOC_USER_ID_IMAGE = "idcard";
     public static final String DB_DOC_USER_ID_SELFIE = "idselfie";
 
@@ -92,15 +101,18 @@ public final class Variable {
     public static final String PAGE_MYWORK = "mywork";
     public static final String PAGE_ADD_WORK = "addwork";
     public static final String PAGE_TO_TRANSLATOR = ""; // TODO ///////////////////////////////////////////////
-
-    // Session scope
-    public static final String SES_CURRENT_USER = "cruser";
-    public static final String SES_CURRENT_WORK = "crwork";
+    public static final String PAGE_VERIFY_TRANSLATOR = ""; // TODO ///////////////////////////////////////////
 
     // User privilege
     public static final String PRIVILEGE_MEMBER = "member";
     public static final String PRIVILEGE_TRANSLATOR = "translator";
     public static final String PRIVILEGE_ADMIN = "admin";
+
+    // User verification step
+    public static final String VERIFY_NONE = "none";
+    public static final String VERIFY_WAIT = "wait";
+    public static final String VERIFY_SUCCESS = "success";
+    public static final String VERIFY_REJECT = "reject";
 
     // Work status
     public static final String WORK_STATUS_NEW = "new";
@@ -108,6 +120,9 @@ public final class Variable {
     public static final String WORK_STATUS_COMPLETED = "completed";
 
     // Web parameter name
+    // Verify translator
+    public static final String WEB_VERIFY_BUTTON_REJECT = "vrbtn";
+    public static final String WEB_VERIFY_BUTTON_APPROVE = "apbtn";
     // User
     public static final String WEB_USER_USERNAME = "username";
     public static final String WEB_USER_PASSWORD = "password";

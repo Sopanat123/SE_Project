@@ -105,6 +105,7 @@ public class ChangeToTranslator extends HttpServlet {
 
         // Create HashMap to hold url of each file to update user reference data in database
         HashMap<String, Object> map = new HashMap<>();
+        map.put(Variable.DB_DOC_USER_VERIFY, Variable.VERIFY_WAIT);
 
         // Get file name
         String idCardName = Paths.get(idCard.getSubmittedFileName()).getFileName().toString();

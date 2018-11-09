@@ -16,6 +16,7 @@ public class User {
     private String image;
     private String info;
     private String tag;
+    private String verify;
 
     /**
      * Create user object, identify by username
@@ -104,5 +105,13 @@ public class User {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public String getVerify() {
+        return verify;
+    }
+
+    public void setVerify(String verify) {
+        this.verify = verify;
     }
 }
