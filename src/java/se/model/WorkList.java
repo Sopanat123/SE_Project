@@ -32,7 +32,7 @@ public class WorkList {
     private ArrayList<Work> list;
 
     public WorkList(Firestore db) {
-        // Create arraylist to hold all user reference
+        // Create arraylist to hold all work reference
         list = new ArrayList<>();
 
         try {
