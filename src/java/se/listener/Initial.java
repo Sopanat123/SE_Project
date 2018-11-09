@@ -18,6 +18,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import se.Variable;
+
 /**
  * Web application lifecycle listener.
  *
@@ -25,36 +27,48 @@ import javax.servlet.ServletContextListener;
  */
 public class Initial implements ServletContextListener {
 
+    private static final String TAG = "Initial";
+
     private Firestore fs;
     private Bucket bk;
 
+    /**
+     * Initialize web application, call only one times when deploy an
+     * application.
+     *
+     * @param sce Application context
+     */
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         try {
             // Create and get connection to firebase
             initDatabase(sce.getServletContext());
-            sce.getServletContext().setAttribute("db", fs);
-            sce.getServletContext().setAttribute("bk", bk);
+            // Store instance in application context for the whole web usage
+            sce.getServletContext().setAttribute(Variable.APP_DB_NAME, fs);
+            sce.getServletContext().setAttribute(Variable.APP_DB_BUCKET, bk);
         } catch (IOException ex) {
-            Logger.getLogger(Initial.class.getName())
-                    .log(Level.SEVERE, null, ex);
+            Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
         }
     }
 
+    /**
+     * Call only when web application is being shut down.
+     *
+     * @param sce Application context
+     */
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         try {
             fs.close();
         } catch (Exception ex) {
-            Logger.getLogger(Initial.class.getName())
-                    .log(Level.SEVERE, null, ex);
+            Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
         }
     }
 
     /**
-     * Initialize connection to Firestore database.
+     * Initialize connection to Firestore database and File storage. Provide
+     * database instance
      *
-     * @return connection to database
      * @throws FileNotFoundException
      * @throws IOException
      */

@@ -3,13 +3,22 @@ package se.servlet;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.FieldValue;
+import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.Query;
 import com.google.cloud.firestore.QuerySnapshot;
+import com.google.cloud.storage.Acl;
+//import com.google.cloud.storage.Acl.User;
+//import com.google.cloud.storage.Acl.Role;
+import com.google.cloud.storage.BlobInfo;
+import com.google.cloud.storage.Bucket;
+import com.google.cloud.storage.Storage;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
+import java.io.InputStream;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -17,26 +26,27 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import se.crypto.Sha2;
+import javax.servlet.http.Part;
 
-import se.model.User;
+import se.UserService;
+import se.Variable;
+//import se.model.User;
 
 /**
  * url - /editprofile
  *
  * @author Ben
  */
+@MultipartConfig
 public class EditProfileServlet extends HttpServlet {
 
     private static final String TAG = "EditProfileServlet";
-    private static final String MESSAGE = "msg";
     private static final String PAGE_JSP = "WEB-INF/edit_profile.jsp";
-    private static final String PAGE_SIGNIN = "signin";
-    private static final String PAGE_HOME = "home";
-    private static final String SESS_USER = "user";
+    private static final String CLEAR = "CLEAR";
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -49,9 +59,9 @@ public class EditProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // User 'MUST' logged in
-        if (request.getSession().getAttribute(SESS_USER) == null) {
-            response.sendRedirect(PAGE_SIGNIN);
+        // User 'MUST' signed in
+        if (request.getSession().getAttribute(Variable.SES_CURRENT_USER) == null) {
+            response.sendRedirect(Variable.PAGE_SIGN_IN);
             return;
         }
         request.getRequestDispatcher(PAGE_JSP).forward(request, response);
@@ -69,192 +79,153 @@ public class EditProfileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Get user from session
-        User user = (User) request.getSession().getAttribute(SESS_USER);
+        se.model.User user = (se.model.User) request.getSession().getAttribute(Variable.SES_CURRENT_USER);
 
-        // User 'MUST' logged in
+        // User 'MUST' signed in
         if (user == null) {
-            response.sendRedirect(PAGE_SIGNIN);
+            response.sendRedirect(Variable.PAGE_SIGN_IN);
             return;
         }
 
         // Get parameter from request
-        String displayname = request.getParameter("displayname");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String firstname = request.getParameter("firstname");
-        String lastname = request.getParameter("lastname");
-        String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
+        String displayname = request.getParameter(Variable.WEB_USER_DISPLAYNAME);
+        String password = request.getParameter(Variable.WEB_USER_PASSWORD);
+        String email = request.getParameter(Variable.WEB_USER_EMAIL);
+        String phone = request.getParameter(Variable.WEB_USER_PHONE);
+        String info = request.getParameter(Variable.WEB_USER_INFO);
+        Part image = request.getPart(Variable.WEB_USER_IMAGE);
+        String imgName = Paths.get(image.getSubmittedFileName()).getFileName().toString();
+        String tag = request.getParameter(Variable.WEB_USER_TAG);
+
+        // Web parameter flags
+        boolean displaynameFlag = displayname != null && !displayname.isEmpty();
+        boolean passwordFlag = password != null && !password.isEmpty();
+        boolean emailFlag = email != null && !email.isEmpty();
+        boolean phoneFlag = phone != null && !phone.isEmpty();
+        boolean infoFlag = info != null && !info.isEmpty();
+        boolean imageFlag = imgName != null && !imgName.isEmpty();
+        boolean tagFlag = tag != null && !tag.isEmpty();
 
         // Check user input
-        if (displayname.isEmpty() || displayname.length() < 8) {
-            request.setAttribute(MESSAGE, "Invalid displayname");
+        if (displaynameFlag && !UserService.validateDisplayname(displayname)) {
+            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
-        } else if (username.isEmpty() || username.length() < 8) {
-            request.setAttribute(MESSAGE, "Invalid username");
+        }
+        if (passwordFlag && !UserService.validatePassword(password)) {
+            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
-        } else if (!password.isEmpty() && password.length() < 8) { // if user want to change password
-            request.setAttribute(MESSAGE, "Invalid password");
+        }
+        if (emailFlag && !UserService.validateEmail(email)) {
+            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
-        } else if (email.isEmpty()) {
-            request.setAttribute(MESSAGE, "Invalid email");
+        }
+        if (phoneFlag && !UserService.validatePhone(phone)) {
+            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
-        } else if (phone.isEmpty()) {
-            request.setAttribute(MESSAGE, "Invalid phone number");
+        }
+        if (info != null && info.equals(CLEAR)) { // If input == "CLEAR", data field will set to null
+            info = "";
+        } else if (infoFlag && !UserService.validateInfo(info)) {
+            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
+            request.getRequestDispatcher(PAGE_JSP).forward(request, response);
+            return;
+        }
+        if (tag != null && tag.equals(CLEAR)) { // If input == "CLEAR", data field will set to null
+            tag = "";
+        } else if (tagFlag && !UserService.validateTag(tag)) {
+            request.setAttribute(Variable.MESSAGE, UserService.getMessage());
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
             return;
         }
 
-        boolean usernameFlag = !user.getUsername().equals(username);
-        boolean emailFlag = !user.getEmail().equals(email);
-        boolean passwordFlag = !password.isEmpty();
-
         try {
             // Get database
-            Firestore db = (Firestore) request.getServletContext().getAttribute("db");
+            Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.APP_DB_NAME);
+            DocumentReference dr = db.collection(Variable.DB_COL_USER).document(user.getUsername());
 
-            // Check if user want to change username and/or email
-            if (usernameFlag && emailFlag) {
-                // Duplicate username check
-                if (db.collection("users").document(username).get().get().exists()) {
-                    request.setAttribute(MESSAGE, "This username is not available.");
+            // Create map to store new data
+            Map<String, Object> map = new HashMap<>();
+
+            // Changes check
+            if (displaynameFlag) {
+                // Duplicate displayname check
+                CollectionReference users = db.collection(Variable.DB_COL_USER);
+                Query queryDn = users.whereEqualTo(Variable.DB_DOC_USER_DISPLAYNAME, displayname);
+                ApiFuture<QuerySnapshot> qsDn = queryDn.get();
+
+                // INVALID displayname - displayname is already taken
+                if (qsDn.get().size() > 0) {
+                    request.setAttribute(Variable.MESSAGE, "This displayname is already taken.");
                     request.getRequestDispatcher(PAGE_JSP).forward(request, response);
                     return;
                 }
 
-                // Duplicate email check
-                CollectionReference users = db.collection("users");
-                Query query = users.whereEqualTo("email", email);
-                ApiFuture<QuerySnapshot> qs = query.get();
-
-                // INVALID email - email is already taken
-                if (qs.get().size() > 0) {
-                    request.setAttribute(MESSAGE, "This email is already taken.");
-                    request.getRequestDispatcher(PAGE_JSP).forward(request, response);
-                    return;
-                }
-
-                // Store pre-db data in Map
-                Map<String, Object> map = new HashMap<>();
-                map.put("displayname", displayname);
-                map.put("firstname", firstname);
-                map.put("lastname", lastname);
-                map.put("email", email);
-                map.put("phone", phone);
-                map.put("created", FieldValue.serverTimestamp());
-                if (passwordFlag) {
-                    map.put("password", Sha2.sha256(password));
-                } else {
-                    map.put("password", db.collection("users")
-                            .document(user.getUsername())
-                            .get().get().getString("password"));
-                }
-
-                // Add map into users collection, using username as key value
-                db.collection("users").document(username).set(map);
-
-                // Delete old document
-                db.collection("users").document(user.getUsername()).delete();
-
-                // Reset user property
-                user.setDisplayname(displayname);
-                user.setUsername(username);
-                user.setEmail(email);
-                user.setPhone(phone);
-
-                // Redirect to homepage
-                response.sendRedirect(PAGE_HOME);
-            } else if (usernameFlag) {
-                // Duplicate username check
-                if (db.collection("users").document(username).get().get().exists()) {
-                    request.setAttribute(MESSAGE, "This username is not available.");
-                    request.getRequestDispatcher(PAGE_JSP).forward(request, response);
-                    return;
-                }
-
-                // Store pre-db data in Map
-                Map<String, Object> map = new HashMap<>();
-                map.put("displayname", displayname);
-                map.put("firstname", firstname);
-                map.put("lastname", lastname);
-                map.put("email", email);
-                map.put("phone", phone);
-                map.put("created", FieldValue.serverTimestamp());
-                if (passwordFlag) {
-                    map.put("password", Sha2.sha256(password));
-                } else {
-                    map.put("password", db.collection("users")
-                            .document(user.getUsername())
-                            .get().get().getString("password"));
-                }
-
-                // Add map into users collection, using username as key value
-                db.collection("users").document(username).set(map);
-
-                // Delete old document
-                db.collection("users").document(user.getUsername()).delete();
-
-                // Reset user property
-                user.setDisplayname(displayname);
-                user.setUsername(username);
-                user.setPhone(phone);
-
-                // Redirect to homepage
-                response.sendRedirect(PAGE_HOME);
-            } else if (emailFlag) {
-                // Duplicate email check
-                CollectionReference users = db.collection("users");
-                Query query = users.whereEqualTo("email", email);
-                ApiFuture<QuerySnapshot> qs = query.get();
-
-                // INVALID email - email is already taken
-                if (qs.get().size() > 0) {
-                    request.setAttribute(MESSAGE, "This email is already taken.");
-                    request.getRequestDispatcher(PAGE_JSP).forward(request, response);
-                    return;
-                }
-
-                // Update data in database
-                DocumentReference dr = db.collection("users").document(username);
-                dr.update("displayname", displayname);
-                dr.update("email", email);
-                dr.update("phone", phone);
-                if (passwordFlag) {
-                    dr.update("password", Sha2.sha256(password));
-                }
-
-                // Update data in session
-                user.setDisplayname(displayname);
-                user.setEmail(email);
-                user.setPhone(phone);
-
-                // Redirect to homepage
-                response.sendRedirect(PAGE_HOME);
-            } else {
-                // Update data in database
-                DocumentReference dr = db.collection("users").document(username);
-                dr.update("displayname", displayname);
-                dr.update("email", email);
-                dr.update("phone", phone);
-                if (passwordFlag) {
-                    dr.update("password", Sha2.sha256(password));
-                }
-
-                // Update data in session
-                user.setDisplayname(displayname);
-                user.setEmail(email);
-                user.setPhone(phone);
-
-                // Redirect to homepage
-                response.sendRedirect(PAGE_HOME);
+                map.put(Variable.DB_DOC_USER_DISPLAYNAME, displayname);
             }
-        } catch (InterruptedException | ExecutionException | NoSuchAlgorithmException ex) {
+            if (passwordFlag) {
+                map.put(Variable.DB_DOC_USER_PASSWORD, password);
+            }
+            if (emailFlag) {
+                // Duplicate email check
+                CollectionReference users = db.collection(Variable.DB_COL_USER);
+                Query queryEm = users.whereEqualTo(Variable.DB_DOC_USER_EMAIL, email);
+                ApiFuture<QuerySnapshot> qsEm = queryEm.get();
+
+                // INVALID email - email is already taken
+                if (qsEm.get().size() > 0) {
+                    request.setAttribute(Variable.MESSAGE, "This email is already taken.");
+                    request.getRequestDispatcher(PAGE_JSP).forward(request, response);
+                    return;
+                }
+
+                map.put(Variable.DB_DOC_USER_EMAIL, email);
+            }
+            if (phoneFlag) {
+                map.put(Variable.DB_DOC_USER_PHONE, phone);
+            }
+            if (infoFlag) {
+                map.put(Variable.DB_DOC_USER_INFO, info);
+            }
+            if (imageFlag) {
+                Bucket bk = (Bucket) request.getServletContext().getAttribute(Variable.APP_DB_BUCKET);
+                Storage st = bk.getStorage();
+                InputStream imgFile = image.getInputStream();
+
+                st.create(BlobInfo.newBuilder(bk.getName(),
+                        Variable.LINK_APPEND_PROFILE_IMAGE + user.getUsername() + "-" + imgName)
+                        .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
+                        .build(), imgFile);
+
+                map.put(Variable.DB_DOC_USER_IMAGE, Variable.LINK_GCS + Variable.LINK_APPEND_PROFILE_IMAGE
+                        + user.getUsername() + "-" + imgName);
+            }
+            if (tagFlag) {
+                map.put(Variable.DB_DOC_USER_TAG, tag);
+            }
+
+            // Put map to database if change is occured
+            if (!map.isEmpty()) {
+                dr.update(map);
+
+                // Update current user
+                DocumentSnapshot doc = dr.get().get();
+                user.setDisplayname(doc.getString(Variable.DB_DOC_USER_DISPLAYNAME));
+                user.setEmail(doc.getString(Variable.DB_DOC_USER_EMAIL));
+                user.setPhone(doc.getString(Variable.DB_DOC_USER_PHONE));
+                user.setInfo(doc.getString(Variable.DB_DOC_USER_INFO));
+                user.setImage(doc.getString(Variable.DB_DOC_USER_IMAGE));
+                user.setTag(doc.getString(Variable.DB_DOC_USER_TAG));
+            }
+
+            // Redirect to homepage
+            response.sendRedirect(Variable.PAGE_HOME);
+        } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(TAG).log(Level.SEVERE, null, ex);
-            request.setAttribute(MESSAGE, "Can't connect to database.");
+            request.setAttribute(Variable.MESSAGE, "Can't connect to database.");
             request.getRequestDispatcher(PAGE_JSP).forward(request, response);
         }
     }

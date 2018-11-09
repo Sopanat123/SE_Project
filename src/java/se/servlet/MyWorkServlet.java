@@ -1,30 +1,22 @@
 package se.servlet;
 
-import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.Query;
-import com.google.cloud.firestore.QuerySnapshot;
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import se.Variable;
 
+import se.Variable;
 import se.model.User;
-import se.model.WorkList;
 
 /**
- * url - /home
  *
  * @author Ben
  */
-public class HomePageServlet extends HttpServlet {
+public class MyWorkServlet extends HttpServlet {
 
-    private static final String TAG = "HomePageServlet";
-    private static final String PAGE_JSP = "WEB-INF/homepage.jsp";
+    private static final String TAG = "MyWorkServlet";
+    private static final String PAGE_JSP = "WEB-INF/mywork.jsp";
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -40,16 +32,13 @@ public class HomePageServlet extends HttpServlet {
         // Get user from session
         User user = (User) request.getSession().getAttribute(Variable.SES_CURRENT_USER);
 
-        // User 'MUST' logged in
+        // User must signed in
         if (user == null) {
             response.sendRedirect(Variable.PAGE_SIGN_IN);
             return;
         }
 
-        // Get database
-        Firestore db = (Firestore) request.getServletContext().getAttribute("db");
-        WorkList wl = new WorkList(db);
-        request.setAttribute(Variable.WORKLIST, wl.getList());
+        // TODO - show work this user own
         request.getRequestDispatcher(PAGE_JSP).forward(request, response);
     }
 
@@ -64,7 +53,7 @@ public class HomePageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO
+        // TODO - post processing
     }
 
     /**
@@ -74,7 +63,7 @@ public class HomePageServlet extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "A servlet for homepage";
-    }
+        return "Short description";
+    }// </editor-fold>
 
 }

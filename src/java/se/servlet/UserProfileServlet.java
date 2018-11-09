@@ -1,31 +1,18 @@
 package se.servlet;
 
-import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.Query;
-import com.google.cloud.firestore.QuerySnapshot;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import se.Variable;
-
-import se.model.User;
-import se.model.WorkList;
 
 /**
- * url - /home
  *
  * @author Ben
  */
-public class HomePageServlet extends HttpServlet {
-
-    private static final String TAG = "HomePageServlet";
-    private static final String PAGE_JSP = "WEB-INF/homepage.jsp";
-
+public class UserProfileServlet extends HttpServlet {
+    
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -37,20 +24,12 @@ public class HomePageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Get user from session
-        User user = (User) request.getSession().getAttribute(Variable.SES_CURRENT_USER);
-
-        // User 'MUST' logged in
-        if (user == null) {
-            response.sendRedirect(Variable.PAGE_SIGN_IN);
-            return;
-        }
-
+        // Get username from url */user/*username*
+        String pathUsername = request.getPathInfo();
+        
         // Get database
-        Firestore db = (Firestore) request.getServletContext().getAttribute("db");
-        WorkList wl = new WorkList(db);
-        request.setAttribute(Variable.WORKLIST, wl.getList());
-        request.getRequestDispatcher(PAGE_JSP).forward(request, response);
+        
+        // Forward to user page
     }
 
     /**
@@ -64,7 +43,6 @@ public class HomePageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // TODO
     }
 
     /**
@@ -74,7 +52,6 @@ public class HomePageServlet extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "A servlet for homepage";
+        return "A servlet for manage content on userprofile.jsp";
     }
-
 }

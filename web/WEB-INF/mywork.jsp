@@ -23,15 +23,15 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+<%-- NAV HEAD --%> <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="mywork.jsp">My Work</a>
+                        <a class="nav-link" href="mywork">My Work</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="homepage.jsp" disabled>Doing Work</a>
+                        <a class="nav-link disabled" href="home" disabled>Doing Work</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="editprofile">Edit Profile</a>
@@ -40,11 +40,11 @@
                                             <input class="form-control mr-sm-2" type="search" placeholder="Search">
                                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                                         </form>-->
-                </ul>
+<%-- NAV TAIL --%> </ul>
 
-                <form class="form-inline my-2 my-lg-0 ml-5">
+<%-- 'sign out' HEAD --%> <form action="signout" method="POST" class="form-inline my-2 my-lg-0 ml-5">
                     <button class="btn btn-danger my-2 my-sm-0" type="submit">Sign Out</button>
-                </form>
+<%-- 'sign out' TAIL --%> </form>
             </div>
         </nav>
         <div class="accordion" id="accordionExample">
@@ -59,6 +59,7 @@
 
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                     <div class="card-body card-body-height card-columns bg-danger ">
+                        <c:forEach var="work" items="${sessionScope.workbyowner}}" >
                         <div class="card card-width">
                             <div class="card-header row">
                                 <div class="col-2">
@@ -75,54 +76,7 @@
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#model">View</button>
                             </div>
                         </div>
-                        <div class="card card-width">
-                            <div class="card-header row">
-                                <div class="col-2">
-                                    <img class="img-circle" src="http://semantic-ui.com/images/avatar/large/elliot.jpg"  width="40" height="40" alt="user img">
-                                </div>
-                                <div class="col-10">
-                                    <h3 class="car">Card title</h3>
-                                    <small class="text-muted">Last posted 3 mins ago</small>
-                                </div>
-                            </div>
-                            <img class="card-img-top" src="//placehold.it/800x400" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#model">View</button>
-                            </div>
-                        </div>
-                        <div class="card card-width">
-                            <div class="card-header row">
-                                <div class="col-2">
-                                    <img class="img-circle" src="http://semantic-ui.com/images/avatar/large/elliot.jpg"  width="40" height="40" alt="user img">
-                                </div>
-                                <div class="col-10">
-                                    <h3 class="car">Card title</h3>
-                                    <small class="text-muted">Last posted 3 mins ago</small>
-                                </div>
-                            </div>
-                            <img class="card-img-top" src="//placehold.it/800x400" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#model">View</button>
-                            </div>
-                        </div>
-                        <div class="card card-width">
-                            <div class="card-header row">
-                                <div class="col-2">
-                                    <img class="img-circle" src="http://semantic-ui.com/images/avatar/large/elliot.jpg"  width="40" height="40" alt="user img">
-                                </div>
-                                <div class="col-10">
-                                    <h3 class="car">Card title</h3>
-                                    <small class="text-muted">Last posted 3 mins ago</small>
-                                </div>
-                            </div>
-                            <img class="card-img-top" src="//placehold.it/800x400" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#model">View</button>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
@@ -136,7 +90,7 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body card-body-height bg-danger">
-                        
+
                     </div>
                 </div>
             </div>
@@ -150,7 +104,7 @@
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                     <div class="card-body card-body-height bg-danger">
-                        
+
                     </div>
                 </div>
             </div>
