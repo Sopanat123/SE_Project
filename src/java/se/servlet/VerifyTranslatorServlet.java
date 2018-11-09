@@ -1,5 +1,6 @@
 package se.servlet;
 
+import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.Firestore;
 
 import java.io.IOException;
@@ -10,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import se.Variable;
-import se.model.Translator;
 import se.model.TranslatorVerifyList;
 import se.model.User;
 
@@ -78,13 +78,18 @@ public class VerifyTranslatorServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_FORBIDDEN);
         }
 
-        // Get attribute and web parameter
-        Translator translator = (Translator) request.getAttribute(Variable.TRANSLATOR);
+        // Get database
+        Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.APP_DB_NAME);
 
+        // Check what button admin does pressed
         if (request.getParameter(Variable.WEB_VERIFY_BUTTON_REJECT) != null) {
-            // TODO
+            DocumentReference dr = db.collection(Variable.DB_COL_USER)
+                    .document(request.getParameter(Variable.WEB_VERIFY_BUTTON_REJECT));
+            dr.update(Variable.DB_DOC_USER_VERIFY, Variable.VERIFY_REJECT);
         } else if (request.getParameter(Variable.WEB_VERIFY_BUTTON_APPROVE) != null) {
-            // TODO
+            DocumentReference dr = db.collection(Variable.DB_COL_USER)
+                    .document(request.getParameter(Variable.WEB_VERIFY_BUTTON_APPROVE));
+            dr.update(Variable.DB_DOC_USER_VERIFY, Variable.VERIFY_SUCCESS);
         }
 
         // Forward to back to same page
