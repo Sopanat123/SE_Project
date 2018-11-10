@@ -22,6 +22,8 @@ import se.model.User;
 public class VerifyTranslatorServlet extends HttpServlet {
 
     private static final String PAGE_JSP = ""; // TODO ////////////////////////////////////////////////////////
+    private static final String WEB_BUTTON_REJECT = ""; // TODO ///////////////////////////////////////////////
+    private static final String WEB_BUTTON_APPROVE = ""; // TODO //////////////////////////////////////////////
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -82,13 +84,13 @@ public class VerifyTranslatorServlet extends HttpServlet {
         Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.APP_DB_NAME);
 
         // Check what button admin does pressed
-        if (request.getParameter(Variable.WEB_VERIFY_BUTTON_REJECT) != null) {
+        if (request.getParameter(WEB_BUTTON_REJECT) != null) {
             DocumentReference dr = db.collection(Variable.DB_COL_USER)
-                    .document(request.getParameter(Variable.WEB_VERIFY_BUTTON_REJECT));
+                    .document(request.getParameter(WEB_BUTTON_REJECT));
             dr.update(Variable.DB_DOC_USER_VERIFY, Variable.VERIFY_REJECT);
-        } else if (request.getParameter(Variable.WEB_VERIFY_BUTTON_APPROVE) != null) {
+        } else if (request.getParameter(WEB_BUTTON_APPROVE) != null) {
             DocumentReference dr = db.collection(Variable.DB_COL_USER)
-                    .document(request.getParameter(Variable.WEB_VERIFY_BUTTON_APPROVE));
+                    .document(request.getParameter(WEB_BUTTON_APPROVE));
             dr.update(Variable.DB_DOC_USER_VERIFY, Variable.VERIFY_SUCCESS);
         }
 

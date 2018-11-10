@@ -1,6 +1,12 @@
 package se.servlet;
 
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.Firestore;
+
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +26,9 @@ public class WorkInterestedServlet extends HttpServlet {
 
     private static final String TAG = "WorkInterestedServlet";
     private static final String PAGE_JSP = ""; // TODO ////////////////////////////////////////////////////////
+    private static final String INTERESTED = "interboo";
+    private static final String INTERESTER = "interstr";
+    private static final String INTERESTER_NUMBER = "interint";
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -47,15 +56,38 @@ public class WorkInterestedServlet extends HttpServlet {
         // Get current work from session
         Work work = (Work) request.getSession().getAttribute(Variable.SES_CURRENT_WORK);
 
-        // Check if user (translator) is already interested in this work
-        boolean interested = false;
-        if (work.getTranslator().contains(user.getUsername())) {
-            interested = true;
-        }
+        try {
+            // Get database
+            Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.APP_DB_NAME);
+            DocumentReference dr = db.collection(Variable.DB_COL_WORK).document(work.getId());
 
-        // Forward to coresponse page
-        request.setAttribute(Variable.REQ_INTERESTED, interested);
-        request.getRequestDispatcher(PAGE_JSP).forward(request, response);
+            // Update translator (prevent outdate data)
+            work.setTranslator(dr.get().get().getString(Variable.DB_DOC_WORK_TRANSLATOR));
+
+            // Check if user (translator) is already interested in this work
+            boolean interested = false;
+            if (work.getTranslator().contains(user.getUsername())) {
+                interested = true;
+            }
+
+            // Define instant of work's interested translator
+            String[] interesters = {"None"};
+            int interestNumber = 0;
+
+            // Check if work has any interester
+            if (work.getTranslator() != null) {
+                interesters = work.getTranslator().split(",");
+                interestNumber = interesters.length;
+            }
+
+            // Forward to coresponse page
+            request.setAttribute(INTERESTED, interested);
+            request.setAttribute(INTERESTER, interesters);
+            request.setAttribute(INTERESTER_NUMBER, interestNumber);
+            request.getRequestDispatcher(PAGE_JSP).forward(request, response);
+        } catch (ExecutionException | InterruptedException ex) {
+            Logger.getLogger(WorkInterestedServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -83,7 +115,20 @@ public class WorkInterestedServlet extends HttpServlet {
 
         // Get current work from session
         Work work = (Work) request.getSession().getAttribute(Variable.SES_CURRENT_WORK);
-        String wid = work.getId();
+
+        try {
+            // Get database
+            Firestore db = (Firestore) request.getServletContext().getAttribute(Variable.APP_DB_NAME);
+            DocumentReference dr = db.collection(Variable.DB_COL_WORK).document(work.getId());
+
+            // Update translator (prevent outdate data)
+            work.setTranslator(dr.get().get().getString(Variable.DB_DOC_WORK_TRANSLATOR));
+
+            // Check what user (translator) press the button
+            // TODO
+        } catch (ExecutionException | InterruptedException ex) {
+            Logger.getLogger(WorkInterestedServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

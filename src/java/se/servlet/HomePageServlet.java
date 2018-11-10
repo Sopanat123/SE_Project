@@ -22,6 +22,7 @@ public class HomePageServlet extends HttpServlet {
 
     private static final String TAG = "HomePageServlet";
     private static final String PAGE_JSP = "WEB-INF/homepage.jsp";
+    private static final String REQ_WORKLIST = "works";
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -46,7 +47,7 @@ public class HomePageServlet extends HttpServlet {
         // Get database
         Firestore db = (Firestore) request.getServletContext().getAttribute("db");
         WorkList wl = new WorkList(db);
-        request.setAttribute(Variable.REQ_WORKLIST, wl.getList());
+        request.setAttribute(REQ_WORKLIST, wl.getList());
         request.getRequestDispatcher(PAGE_JSP).forward(request, response);
     }
 

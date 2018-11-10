@@ -16,14 +16,14 @@ public final class Variable {
 
     // Usally be used in request scope
     public static final String REQ_MESSAGE = "msg";
-    public static final String REQ_WORKLIST = "works";
-    public static final String REQ_TRANSLATOR = "translator";
-    public static final String REQ_VERIFY_LIST = "translist";
-    public static final String REQ_INTERESTED = "interested";
 
     // Session scope
     public static final String SES_CURRENT_USER = "cruser";
     public static final String SES_CURRENT_WORK = "crwork";
+
+    // Application scope
+    public static final String APP_DB_NAME = "db";
+    public static final String APP_DB_BUCKET = "bk";
 
     // Default profile image
     public static final String DEF_PRO_IMG = "assets/def_pro_img.png";
@@ -43,10 +43,6 @@ public final class Variable {
     public static final String LINK_APPEND_WORK_IMAGE = "work-image/";
     public static final String LINK_APPEND_WORK_FILE = "work-file/";
     public static final String LINK_APPEND_WORK_SAMPLE = "work-sample/";
-
-    // Application scope
-    public static final String APP_DB_NAME = "db";
-    public static final String APP_DB_BUCKET = "bk";
 
     // DB collection name
     public static final String DB_COL_USER = "users";
@@ -121,9 +117,6 @@ public final class Variable {
     public static final String WORK_STATUS_COMPLETED = "completed";
 
     // Web parameter name
-    // Verify translator
-    public static final String WEB_VERIFY_BUTTON_REJECT = "vrbtn";
-    public static final String WEB_VERIFY_BUTTON_APPROVE = "apbtn";
     // User
     public static final String WEB_USER_USERNAME = "username";
     public static final String WEB_USER_PASSWORD = "password";
