@@ -21,6 +21,7 @@ import se.model.User;
  */
 public class VerifyTranslatorServlet extends HttpServlet {
 
+    private static final String TAG = "VerifyTranslatorServlet";
     private static final String PAGE_JSP = ""; // TODO ////////////////////////////////////////////////////////
     private static final String WEB_BUTTON_REJECT = ""; // TODO ///////////////////////////////////////////////
     private static final String WEB_BUTTON_APPROVE = ""; // TODO //////////////////////////////////////////////
