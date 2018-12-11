@@ -28,7 +28,7 @@
                             <div class="col-2 offset-3 rounded-circle text-center label">
                                 <div id="welcome_text">Welcome</div>
                             </div>
-                            <div class="col-8 offset-2 text-center welcome-text" id="intro_text">เหนื่อยจังทำโปรเจ็ค</div>
+                            <div class="col-8 offset-2 text-center welcome-text" id="intro_text">หิวข้าวจุงเบย</div>
                             <div class="col-8 offset-2 text-center welcome-text">แหล่งรวมพลนักแปลรอรับงาน</div>
                             <div class="row mt-5">
                                 <div class="col-2 offset-2">
