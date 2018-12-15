@@ -9,18 +9,21 @@
 <!DOCTYPE htm l>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-        <!--<link href="assets/css/all.min.css" rel="stylesheet">-->
-        <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
-        <script src="assets/js/jquery-3.3.1.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title id="welcome">Translator Marketplace</title>
+        
+        <!-- Bootstrap Core CSS -->
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        
+        <script src="assets/js/jquery-3.3.1.min.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+        
+        <!-- Custom Fonts -->
         <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
@@ -30,7 +33,7 @@
         <!-- Theme CSS -->
         <link href="assets/css/agency.css" rel="stylesheet">
         <link href="assets/css/NewCss.css" rel="stylesheet">
-        <title>Welcome Page</title>
+
     </head>
     
     <body id="page-top" class="index">
@@ -138,11 +141,11 @@
                         <h4>Kay Garland</h4>
                         <p class="text-muted">Lead Designer</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li><a href="#"><i class="fa fa-twitter" id="tweet"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a href="#"><i class="fa fa-facebook" id="tweet"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="#"><i class="fa fa-linkedin" id="tweet"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -153,11 +156,11 @@
                         <h4>Larry Parker</h4>
                         <p class="text-muted">Lead Marketer</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li><a href="#"><i class="fa fa-twitter" id="tweet"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a href="#"><i class="fa fa-facebook" id="tweet"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="#"><i class="fa fa-linkedin" id="tweet"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -168,26 +171,11 @@
                         <h4>Diana Pertersen</h4>
                         <p class="text-muted">Lead Developer</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li><a href="#"><i class="fa fa-twitter" id="tweet"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a href="#"><i class="fa fa-facebook" id="tweet"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                 <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="assets/img/team/3.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="#"><i class="fa fa-linkedin" id="tweet"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -198,11 +186,11 @@
                         <h4>Diana Pertersen</h4>
                         <p class="text-muted">Lead Developer</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li><a href="#"><i class="fa fa-twitter" id="tweet"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a href="#"><i class="fa fa-facebook" id="tweet"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="#"><i class="fa fa-linkedin" id="tweet"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -213,11 +201,26 @@
                         <h4>Diana Pertersen</h4>
                         <p class="text-muted">Lead Developer</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li><a href="#"><i class="fa fa-twitter" id="tweet"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a href="#"><i class="fa fa-facebook" id="tweet"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="#"><i class="fa fa-linkedin" id="tweet"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="assets/img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Diana Pertersen</h4>
+                        <p class="text-muted">Lead Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter" id="tweet"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook" id="tweet"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin" id="tweet"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -355,14 +358,7 @@
                                                 <br>
                                                 <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
                                             </div>
-                                            <!-- div class="form-group col-lg-6">
-                                                <label for="password" class="col-form-label">Password:</label>
-                                                <input type="password" name="password" class="form-control" id="in-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required>
-                                            </div>-->
-                                           <!-- <div class="float-right">
-                                                <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
-                                            </div>-->
-        
+                                              
             <!-- /.navbar-collapse -->
         </div>
       </div>
