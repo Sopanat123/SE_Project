@@ -6,152 +6,274 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+<!DOCTYPE htm l>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/welcome_page.css" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
         <!--<link href="assets/css/all.min.css" rel="stylesheet">-->
         <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
         <script src="assets/js/jquery-3.3.1.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+        <!-- Theme CSS -->
+        <link href="assets/css/agency.css" rel="stylesheet">
+        <link href="assets/css/NewCss.css" rel="stylesheet">
         <title>Welcome Page</title>
     </head>
-    <body>
-        <div class="container-fluid" id="page">
-            <div class="row">
-                <div class="col-9" id="intro">
-                    <div class="h-100 row align-items-center">
-                        <div class="col">
-                            <div class="col-2 offset-3 rounded-circle text-center label">
-                                <div id="welcome_text">Welcome</div>
-                            </div>
-                            <div class="col-8 offset-2 text-center welcome-text" id="intro_text">หิวข้าวจุงเบย</div>
-                            <div class="col-8 offset-2 text-center welcome-text">แหล่งรวมพลนักแปลรอรับงาน</div>
-                            <div class="row mt-5">
-                                <div class="col-2 offset-2">
-                                    <i class="fas fa-users fa-5x"></i>
-                                </div>
-                                <div class="col-2">
-                                    <i class="fas fa-handshake fa-5x"></i>
-                                </div>
-                                <div class="col-2">
-                                    <i class="fas fa-file-alt fa-5x"></i>
-                                </div>
-                                <div class="col-2">
-                                    <i class="fas fa-lock fa-5x"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3" id="action">
-                    <div class="h-100 row align-items-center">
-                        <div class="col">
-                            <button type="button" id="signin_btn" class="btn btn-lg btn-block" data-toggle="modal" data-target="#signIn">Sign In</button>
-                            <div class="text-center font-size-1_5">or</div>
-                            <button type="button" id="signup_btn" class="btn btn-lg btn-block" data-toggle="modal" data-target="#signUp">Sign Up</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Modal -->
-                <div class="modal fade" id="signIn" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title model-center welcome-text">Sign In</h4>
-                                <button type="button" class="close fmargin" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-4">
-<%-- 'sign in' HEAD --%>                <form action="signin" method="POST">
-                                            <div>
-                                                <font color="red">${msg}</font>
-                                                <c:remove var="msg" scope="request"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="username" class="col-form-label">Username:</label>
-                                                <input type="text" name="username" class="form-control" id="in-username" placeholder="username" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="password" class="col-form-label">Password:</label>
-                                                <input type="password" name="password" class="form-control" id="in-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required>
-                                            </div>
-                                            <div class="float-right">
-                                                <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
-                                            </div>
-                                            <div class="text-right btn-signup">
-                                                <p class="pull-right"><a href="#" class="text-primary" data-dismiss="modal" data-toggle="modal" data-target="#signUp" onmousedown="goSignUp()">Sign Up?</a></p>
-                                            </div>
-<%-- 'sign in' TAIL --%>                </form>
-                                    </div>
-                                    <div class="col-8">
-                                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                            <ol class="carousel-indicators">
-                                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                                            </ol>
-                                            <div class="carousel-inner">
-                                                <div class="carousel-item active">
-                                                    <img class="d-block w-100" src="assets/promotion.jpg" alt="First slide">
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100" src="assets/promotion.jpg" alt="Second slide">
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100" src="assets/promotion.jpg" alt="Third slide">
-                                                </div>
-                                            </div>
-                                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Modal -->
-                <div class="modal fade" id="signUp" role="dialog">
-                    <div class="modal-dialog modal-lg">
+    
+    <body id="page-top" class="index">
 
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title model-center welcome-text">Sign Up</h4>
-                                <button type="button" class="close fmargin" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col">
-<%-- 'sign up' HEAD --%>                <form action="signup" method="POST">
-                                            <div class="form-group">
-                                                <label for="firstname" class="col-form-label">First name:</label>
-                                                <div class="row pl-3 pr-3">
-                                                    <input type="text" name="firstname" class="col-11 form-control" id="out-fullname" placeholder="firstname" autocomplete="off" pattern="[A-Za-z0-9]{1,}" required/>
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Translator Marketplace</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">ABOUT</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#team">Team</a>
+                    </li>
+                    <li>
+                        <a type="button" id="sign-in" data-toggle="modal" data-target="#signIN">Log IN</a>
+                    </li>
+                </ul>
+            </div>
+             
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To The Translator Marketplace</div>
+                <div class="intro-heading">It's Nice To Meet You</div>
+                <button type="button" class="page-scroll btn btn-xl" data-toggle="modal" data-target="#signUp" id="sign-up">Registration</button>
+            </div>
+        </div>
+    </header>
+        
+     <!-- About Section -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">About US</h2>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-stack-2x text-primary">
+                            <img src="assets/img/bath.png" style=" width: 75px; height: 75px;">
+                        </i>
+                        <i class="fa fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Extra Income</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-stack-2x text-primary">
+                            <img src="img/tran.png" style=" width: 75px; height: 75px;>
+                        </i>
+                            
+                        <i class="fa fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Translate Content</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-stack-2x text-primary">
+                            <img src="img/commu1.png" style=" width: 75px; height: 75px;>
+                        </i>
+                        <i class="fa fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Comunication</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Our Amazing Team</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Kay Garland</h4>
+                        <p class="text-muted">Lead Designer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Larry Parker</h4>
+                        <p class="text-muted">Lead Marketer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Diana Pertersen</h4>
+                        <p class="text-muted">Lead Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Diana Pertersen</h4>
+                        <p class="text-muted">Lead Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Diana Pertersen</h4>
+                        <p class="text-muted">Lead Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Diana Pertersen</h4>
+                        <p class="text-muted">Lead Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+     <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Your Website 2018</span>
+                </div>
+    
+    <!-- Model: SignUP -->
+    <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Registration</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>   
+        <div id="modal-body" class="modal-body">
+           <!-- 'sign up' HEAD -->       
+                            <div class="row">
+                                    <div class="col-lg-12">
+                                        <form action="signup" method="POST">
+                                            <div class="form-group col-lg-12">
+                                                <div class="row">
+                                                    <label for="firstname" class="col-form-label">First name:</label>
+                                                </div>
+                                                <div class="row ">
+                                                    <input type="text" name="firstname" class="col-7 form-control" id="out-fullname" placeholder="firstname" autocomplete="off" pattern="[A-Za-z0-9]{1,}" required/>
                                                     <span class="col-1 text-center validity"></span>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="lastname" class="col-form-label">Last name:</label>
+                                            <div class="form-group col-lg-12">
+                                                <div class="row">
+                                                    <label for="lastname" class="col-form-label">Last name:</label>
+                                                </div>
                                                 <div class="row pl-3 pr-3">
                                                     <input type="text" name="lastname" class="col-11 form-control" id="out-lastname" placeholder="lastname" autocomplete="off" pattern="[A-Za-z0-9]{1,}" required/>
                                                     <span class="col-1 text-center validity"></span>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="username" class="col-form-label">Username:</label>
+                                            <div class="form-group col-lg-12">
+                                                <div class="row">
+                                                    <label for="username" class="col-form-label">Username:</label>
+                                                </div>
                                                 <div class="row pl-3 pr-3">
                                                     <input type="text" name="username" class="col-11 form-control" id="out-username" placeholder="username" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
                                                     <span class="col-1 text-center validity"></span>
@@ -160,11 +282,12 @@
                                                     </small>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="password" class="col-form-label">Password:</label>
+                                            <div class="form-group col-lg-12">
+                                                <div class="row">
+                                                    <label for="password" class="col-form-label">Password:</label>
+                                                </div>
                                                 <div class="row pl-3 pr-3">
                                                     <button class="col-1 btn btn-default" type="button" onmousedown="mouseDown()" onmouseup="mouseUp()">
-                                                        <i class="far fa-eye"></i>
                                                     </button>
                                                     <input type="password" name="password" class="col-10 form-control" id="out-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
                                                     <span class="col-1 text-center validity"></span>
@@ -173,15 +296,19 @@
                                                     </small>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="email" class="col-form-label">Email:</label>
+                                            <div class="form-group col-lg-12">
+                                                <div class="row">
+                                                    <label for="email" class="col-form-label">Email:</label>
+                                                </div>
                                                 <div class="row pl-3 pr-3">
                                                     <input type="email" name="email" class="col-11 form-control" id="out-email" placeholder="example@mail.com" autocomplete="off" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required/>
                                                     <span class="col-1 text-center validity"></span>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="phonenumber" class="col-form-label">Phone:</label>
+                                            <div class="form-group col-lg-12">
+                                                <div class="row">
+                                                    <label for="phonenumber" class="col-form-label">Phone:</label>
+                                                </div>
                                                 <div class="row pl-3 pr-3">
                                                     <input type="tel" name="phone" class="col-11 form-control" id="out-phone" placeholder="099-999-9999" autocomplete="off" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
                                                     <span class="col-1 text-center validity"></span>
@@ -190,17 +317,75 @@
                                                     </small>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="float-right btn btn-primary btn-lg">Sign Up</button>
-<%-- 'sign up' TAIL --%>                </form>
-                                    </div>
-                                </div>
+                                          </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+    <!-- Model: Log in -->
+    <div class="modal fade" id="signIN" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Log IN</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+         <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <form action="signin" method="POST">
+                                            <div>
+                                                <font color="red">${msg}</font>
+                                                <c:remove var="msg" scope="request"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="username" class="col-form-label">Username:</label>
+                                                <input type="text" name="username" class="form-control" id="in-username" placeholder="username" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required>
+                                                
+                                                <br>
+                                                <label for="password" class="col-form-label">Password:</label>
+                                                <input type="password" name="password" class="form-control" id="in-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required>
+                                                <br>
+                                                <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
+                                            </div>
+                                            <!-- div class="form-group col-lg-6">
+                                                <label for="password" class="col-form-label">Password:</label>
+                                                <input type="password" name="password" class="form-control" id="in-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required>
+                                            </div>-->
+                                           <!-- <div class="float-right">
+                                                <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
+                                            </div>-->
+        
+            <!-- /.navbar-collapse -->
+        </div>
+      </div>
+    </div>
+  
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/agency.min.js"></script>
+
+</body>
+
 </html>
 
 <script>

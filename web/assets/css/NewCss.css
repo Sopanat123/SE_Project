@@ -1,0 +1,23 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 11, 2018, 8:24:10 PM
+    Author     : User
+*/
+#headgo{
+    color: #ec6400;
+}
+#sign-up{
+    background-color: red;
+    border-color: #d43f3a;
+}
+#sign-in{
+    background: green;
+    border-radius: 10px;
+}
+#col{
+    
+}
