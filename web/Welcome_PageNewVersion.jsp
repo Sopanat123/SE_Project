@@ -100,7 +100,7 @@
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-stack-2x text-primary">
-                            <img src="img/tran.png" style=" width: 75px; height: 75px;>
+                            <img src="assets/img/tran.png" style=" width: 75px; height: 75px;">
                         </i>
                             
                         <i class="fa fa-stack-1x fa-inverse"></i>
@@ -111,7 +111,7 @@
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-stack-2x text-primary">
-                            <img src="img/commu1.png" style=" width: 75px; height: 75px;>
+                            <img src="assets/img/commu1.png" style=" width: 75px; height: 75px;">
                         </i>
                         <i class="fa fa-stack-1x fa-inverse"></i>
                     </span>
@@ -134,7 +134,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
+                        <img src="assets/img/team/1.jpg" class="img-responsive img-circle" alt="">
                         <h4>Kay Garland</h4>
                         <p class="text-muted">Lead Designer</p>
                         <ul class="list-inline social-buttons">
@@ -149,7 +149,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
+                        <img src="assets/img/team/2.jpg" class="img-responsive img-circle" alt="">
                         <h4>Larry Parker</h4>
                         <p class="text-muted">Lead Marketer</p>
                         <ul class="list-inline social-buttons">
@@ -164,7 +164,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <img src="assets/img/team/3.jpg" class="img-responsive img-circle" alt="">
                         <h4>Diana Pertersen</h4>
                         <p class="text-muted">Lead Developer</p>
                         <ul class="list-inline social-buttons">
@@ -179,7 +179,7 @@
                 </div>
                  <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <img src="assets/img/team/3.jpg" class="img-responsive img-circle" alt="">
                         <h4>Diana Pertersen</h4>
                         <p class="text-muted">Lead Developer</p>
                         <ul class="list-inline social-buttons">
@@ -194,7 +194,7 @@
                 </div>
                  <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <img src="assets/img/team/3.jpg" class="img-responsive img-circle" alt="">
                         <h4>Diana Pertersen</h4>
                         <p class="text-muted">Lead Developer</p>
                         <ul class="list-inline social-buttons">
@@ -209,7 +209,7 @@
                 </div>
                  <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <img src="assets/img/team/3.jpg" class="img-responsive img-circle" alt="">
                         <h4>Diana Pertersen</h4>
                         <p class="text-muted">Lead Developer</p>
                         <ul class="list-inline social-buttons">
@@ -369,20 +369,20 @@
     </div>
   
     <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <script src="assets/js/jqBootstrapValidation.js"></script>
+    <script src="assets/js/contact_me.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="js/agency.min.js"></script>
+    <script src="assets/js/agency.min.js"></script>
 
 </body>
 
