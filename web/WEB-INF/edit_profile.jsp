@@ -1,7 +1,7 @@
 <%-- 
     Document   : edit_profile
     Created on : Oct 28, 2018, 3:46:42 PM
-    Author     : 58070001
+    Author     : 58070158
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,14 +11,17 @@
     <c:set var="user" scope="session" value="${cruser}" />
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/homepage.css" rel="stylesheet">
-        <link href="assets/css/edit_profile.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/Edit_Profile.css" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
         <!--<link href="assets/css/all.min.css" rel="stylesheet">-->
         <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
         <script src="assets/js/jquery-3.3.1.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
+        
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <title>Edit Profile</title>
     </head>
     <body>
@@ -56,95 +59,201 @@
 
         <form action="editprofile" method="POST" enctype="multipart/form-data" class="was-validated" id="edp"></form>
 
-        <div class="container pt-5">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="row text-center">
-                        <img src="${user.image}" class="avatar img-profile-circle img-thumbnail mx-auto" alt="avatar">
-                        <!--<img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-profile-circle img-thumbnail mx-auto" alt="avatar">-->
-                    </div>
-                    <div class="text-center">
-                        <h6>Upload a different photo...</h6>
-                        <div class="input-group mb-3">
-<%-- IMG HEAD --%>          <div class="custom-file">
-                                <input type="file" name="image" accept="image/*" class="custom-file-input" id="inputFile" onchange="myFunction()" form="edp"/>
-                                <label class="custom-file-label text-center" id="user-pic" for="inputFile">Choose file</label>
-<%-- IMG TAIL --%>          </div>
-                        </div>
-                        <!--<input type="file" class="text-center center-block file-upload">-->
-                    </div><br>
-                </div>
-                <div class="col-md-9">
-                    <div class="card no-border bg-transparent">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4>Your Profile</h4>
-                                    <hr>
-                                </div>
-<%-- ERROR --%>                 <font color="red">${msg}</font>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 scroll">
-                                    <div class="form-group">
-                                        <label for="displayname" class="col-4 col-form-label">Display Name</label> 
-                                        <div class="col-12">
-                                            <input id="displayname" name="displayname" class="form-control here" type="text" pattern="[A-Za-z0-9]{8,25}" form="edp"/>
-                                            <div class="invalid-feedback">Please enter the correct display name.</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password" class="col-4 col-form-label">Password</label> 
-                                        <div class="col-12">
-                                            <input id="password" name="password" class="form-control here" type="password" pattern="[A-Za-z0-9]{8,25}" form="edp"/>
-                                            <div class="invalid-feedback">Please enter the correct password.</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email" class="col-4 col-form-label">Email</label> 
-                                        <div class="col-12">
-                                            <input id="email" name="email" class="form-control here" type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" form="edp"/>
-                                            <div class="invalid-feedback">Please choose a email.</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="phone" class="col-4 col-form-label">Phone</label> 
-                                        <div class="col-12">
-                                            <input id="phone" name="phone" class="form-control here" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" form="edp"/>
-                                            <div class="invalid-feedback">Please choose a phone number.</div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="publicinfo" class="col-4 col-form-label">Public Info</label> 
-                                        <div class="col-12">
-                                            <textarea id="info" name="info" placeholder="example" cols="40" rows="4" class="form-control" form="edp"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tag" class="col-4 col-form-label">Tag</label> 
-                                        <div class="col-12">
-                                            <input id="tag" name="tag" class="form-control here" type="text" pattern="[a-zA-Z][A-Za-z0-9]{2,9}" form="edp"/>
-                                            <div class="invalid-feedback">Please enter the correct tag.</div>
-                                        </div>
-                                    </div>
-                                    <!--<div class="form-group row">
-                                      <label for="newpass" class="col-4 col-form-label">New Password</label> 
-                                      <div class="col-8">
-                                        <input id="newpass" name="newpass" placeholder="New Password" class="form-control here" type="text">
-                                      </div>
-                                    </div>  -->
-                                    <div class="form-group text-center">
-                                        <div class="mx-auto">
-                                            <button name="submit" type="submit" class="btn btn-primary" form="edp">Update My Profile</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="container">
+<div class="row">
+      <div class="col-xs-12 col-sm-9">
+        
+        <!-- User profile -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+          <h4 class="panel-title">User profile</h4>
+          </div>
+          <div class="panel-body">
+            <div class="profile__avatar">
+              <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
             </div>
+            <div class="profile__header">
+              <h4>Richard Roe <small>Administrator</small></h4>
+              <p class="text-muted">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nostrum odio cum repellat veniam eligendi rem cumque magnam autem delectus qui.
+              </p>
+              <p>
+                <a href="#">bootdey.com</a>
+              </p>
+            </div>
+          </div>
         </div>
+
+        <!-- User info -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+          <h4 class="panel-title">User info</h4>
+          </div>
+          <div class="panel-body">
+            <table class="table profile__table">
+              <tbody>
+                <tr>
+                  <th><strong>Location</strong></th>
+                  <td>United States</td>
+                </tr>
+                <tr>
+                  <th><strong>Company name</strong></th>
+                  <td>Simpleqode.com</td>
+                </tr>
+                <tr>
+                  <th><strong>Position</strong></th>
+                  <td>Front-end developer</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Community -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+          <h4 class="panel-title">Community</h4>
+          </div>
+          <div class="panel-body">
+            <table class="table profile__table">
+              <tbody>
+                <tr>
+                  <th><strong>Comments</strong></th>
+                  <td>58584</td>
+                </tr>
+                <tr>
+                  <th><strong>Member since</strong></th>
+                  <td>Jan 01, 2016</td>
+                </tr>
+                <tr>
+                  <th><strong>Last login</strong></th>
+                  <td>1 day ago</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Latest posts -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+          <h4 class="panel-title">Latest posts</h4>
+          </div>
+          <div class="panel-body">
+            <div class="profile__comments">
+              <div class="profile-comments__item">
+                <div class="profile-comments__controls">
+                  <a href="#"><i class="fa fa-share-square-o"></i></a>
+                  <a href="#"><i class="fa fa-edit"></i></a>
+                  <a href="#"><i class="fa fa-trash-o"></i></a>
+                </div>
+                <div class="profile-comments__avatar">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
+                </div>
+                <div class="profile-comments__body">
+                  <h5 class="profile-comments__sender">
+                    Richard Roe <small>2 hours ago</small>
+                  </h5>
+                  <div class="profile-comments__content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, corporis. Voluptatibus odio perspiciatis non quisquam provident, quasi eaque officia.
+                  </div>
+                </div>
+              </div>
+              <div class="profile-comments__item">
+                <div class="profile-comments__controls">
+                  <a href="#"><i class="fa fa-share-square-o"></i></a>
+                  <a href="#"><i class="fa fa-edit"></i></a>
+                  <a href="#"><i class="fa fa-trash-o"></i></a>
+                </div>
+                <div class="profile-comments__avatar">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="...">
+                </div>
+                <div class="profile-comments__body">
+                  <h5 class="profile-comments__sender">
+                    Richard Roe <small>5 hours ago</small>
+                  </h5>
+                  <div class="profile-comments__content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero itaque dolor laboriosam dolores magnam mollitia, voluptatibus inventore accusamus illo.
+                  </div>
+                </div>
+              </div>
+              <div class="profile-comments__item">
+                <div class="profile-comments__controls">
+                  <a href="#"><i class="fa fa-share-square-o"></i></a>
+                  <a href="#"><i class="fa fa-edit"></i></a>
+                  <a href="#"><i class="fa fa-trash-o"></i></a>
+                </div>
+                <div class="profile-comments__avatar">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="...">
+                </div>
+                <div class="profile-comments__body">
+                  <h5 class="profile-comments__sender">
+                    Richard Roe <small>1 day ago</small>
+                  </h5>
+                  <div class="profile-comments__content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, esse, magni aliquam quisquam modi delectus veritatis est ut culpa minus repellendus.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        
+        <!-- Contact user -->
+        <p>
+          <a href="#" class="profile__contact-btn btn btn-lg btn-block btn-info" data-toggle="modal" data-target="#profile__contact-form">
+            Contact user
+          </a>
+        </p>
+
+        <hr class="profile__contact-hr">
+        
+        <!-- Contact info -->
+        <div class="profile__contact-info">
+          <div class="profile__contact-info-item">
+            <div class="profile__contact-info-icon">
+              <i class="fa fa-phone"></i>
+            </div>
+            <div class="profile__contact-info-body">
+              <h5 class="profile__contact-info-heading">Work number</h5>
+              (000)987-65-43
+            </div>
+          </div>
+          <div class="profile__contact-info-item">
+            <div class="profile__contact-info-icon">
+              <i class="fa fa-phone"></i>
+            </div>
+            <div class="profile__contact-info-body">
+              <h5 class="profile__contact-info-heading">Mobile number</h5>
+              (000)987-65-43
+            </div>
+          </div>
+          <div class="profile__contact-info-item">
+            <div class="profile__contact-info-icon">
+              <i class="fa fa-envelope-square"></i>
+            </div>
+            <div class="profile__contact-info-body">
+              <h5 class="profile__contact-info-heading">E-mail address</h5>
+              <a href="mailto:admin@domain.com">admin@domain.com</a>
+            </div>
+          </div>
+          <div class="profile__contact-info-item">
+            <div class="profile__contact-info-icon">
+              <i class="fa fa-map-marker"></i>
+            </div>
+            <div class="profile__contact-info-body">
+              <h5 class="profile__contact-info-heading">Work address</h5>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div>
 
         <script>
             function myFunction() {
