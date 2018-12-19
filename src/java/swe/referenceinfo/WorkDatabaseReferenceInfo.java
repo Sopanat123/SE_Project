@@ -9,37 +9,37 @@ public class WorkDatabaseReferenceInfo {
     private static WorkDatabaseReferenceInfo workDatabaseReferenceInfo;
 
     // Work collection level
-    private final String dbColWork = "works";
+    private final String colWork = "works";
 
     // Work document level
-    private final String dbDocId = "id";
-    private final String dbDocOwner = "owner";
-    private final String dbDocTranslator = "translator";
-    private final String dbDocTitle = "title";
-    private final String dbDocOrigLang = "origlang";
-    private final String dbDocTargLang = "targlang";
-    private final String dbDocDesc = "desc";
-    private final String dbDocTag = "tag";
-    private final String dbDocImage = "image";
-    private final String dbDocSample = "sample";
-    private final String dbDocFile = "file";
-    private final String dbDocPrice = "price";
-    private final String dbDocHidden = "hidden";
-    private final String dbDocStatus = "status";
-    private final String dbDocDeadline = "deadline";
-    private final String dbDocCreateTime = "created";
-    private final String dbDocAcceptTime = "accepted";
-    private final String dbDocFinishTime = "finished";
+    private final String docId = "id";
+    private final String docOwner = "owner";
+    private final String docTranslator = "translator";
+    private final String docTitle = "title";
+    private final String docOrigLang = "origlang";
+    private final String docTargLang = "targlang";
+    private final String docDesc = "desc";
+    private final String docTag = "tag";
+    private final String docImage = "image";
+    private final String docSample = "sample";
+    private final String docFile = "file";
+    private final String docPrice = "price";
+    private final String docHidden = "hidden";
+    private final String docStatus = "status";
+    private final String docDeadline = "deadline";
+    private final String docCreateTime = "created";
+    private final String docAcceptTime = "accepted";
+    private final String docFinishTime = "finished";
 
     // Work hidden flag
-    private final String dbAttHideFalse = "no";
-    private final String dbAttHideTrue = "yes";
+    private final String attHideFalse = "no";
+    private final String attHideTrue = "yes";
 
     // Work status
-    private final String dbAttStatusNew = "new";
-    private final String dbAttStatusDeal = "deal";
-    private final String dbAttStatusWip = "in progress";
-    private final String dbAttStatusComplete = "completed";
+    private final String attStatusNew = "new";
+    private final String attStatusDeal = "deal";
+    private final String attStatusWip = "in progress";
+    private final String attStatusComplete = "completed";
 
     private WorkDatabaseReferenceInfo() {
     }
@@ -51,104 +51,104 @@ public class WorkDatabaseReferenceInfo {
         return workDatabaseReferenceInfo;
     }
 
-    public String getDbColWork() {
-        return dbColWork;
+    public String getColWork() {
+        return colWork;
     }
 
-    public String getDbDocId() {
-        return dbDocId;
+    public String getDocId() {
+        return docId;
     }
 
-    public String getDbDocOwner() {
-        return dbDocOwner;
+    public String getDocOwner() {
+        return docOwner;
     }
 
-    public String getDbDocTranslator() {
-        return dbDocTranslator;
+    public String getDocTranslator() {
+        return docTranslator;
     }
 
-    public String getDbDocTitle() {
-        return dbDocTitle;
+    public String getDocTitle() {
+        return docTitle;
     }
 
-    public String getDbDocOrigLang() {
-        return dbDocOrigLang;
+    public String getDocOrigLang() {
+        return docOrigLang;
     }
 
-    public String getDbDocTargLang() {
-        return dbDocTargLang;
+    public String getDocTargLang() {
+        return docTargLang;
     }
 
-    public String getDbDocDesc() {
-        return dbDocDesc;
+    public String getDocDesc() {
+        return docDesc;
     }
 
-    public String getDbDocTag() {
-        return dbDocTag;
+    public String getDocTag() {
+        return docTag;
     }
 
-    public String getDbDocImage() {
-        return dbDocImage;
+    public String getDocImage() {
+        return docImage;
     }
 
-    public String getDbDocSample() {
-        return dbDocSample;
+    public String getDocSample() {
+        return docSample;
     }
 
-    public String getDbDocFile() {
-        return dbDocFile;
+    public String getDocFile() {
+        return docFile;
     }
 
-    public String getDbDocPrice() {
-        return dbDocPrice;
+    public String getDocPrice() {
+        return docPrice;
     }
 
-    public String getDbDocHidden() {
-        return dbDocHidden;
+    public String getDocHidden() {
+        return docHidden;
     }
 
-    public String getDbDocStatus() {
-        return dbDocStatus;
+    public String getDocStatus() {
+        return docStatus;
     }
 
-    public String getDbDocDeadline() {
-        return dbDocDeadline;
+    public String getDocDeadline() {
+        return docDeadline;
     }
 
-    public String getDbDocCreateTime() {
-        return dbDocCreateTime;
+    public String getDocCreateTime() {
+        return docCreateTime;
     }
 
-    public String getDbDocAcceptTime() {
-        return dbDocAcceptTime;
+    public String getDocAcceptTime() {
+        return docAcceptTime;
     }
 
-    public String getDbDocFinishTime() {
-        return dbDocFinishTime;
+    public String getDocFinishTime() {
+        return docFinishTime;
     }
 
-    public String getDbAttHideFalse() {
-        return dbAttHideFalse;
+    public String getAttHideFalse() {
+        return attHideFalse;
     }
 
-    public String getDbAttHideTrue() {
-        return dbAttHideTrue;
+    public String getAttHideTrue() {
+        return attHideTrue;
     }
 
-    public String getDbAttStatusNew() {
-        return dbAttStatusNew;
+    public String getAttStatusNew() {
+        return attStatusNew;
     }
 
-    public String getDbAttStatusDeal() {
-        return dbAttStatusDeal;
+    public String getAttStatusDeal() {
+        return attStatusDeal;
     }
 
-    public String getDbAttStatusWip() {
-        return dbAttStatusWip;
+    public String getAttStatusWip() {
+        return attStatusWip;
     }
 
-    public String getDbAttStatusComplete() {
-        return dbAttStatusComplete;
+    public String getAttStatusComplete() {
+        return attStatusComplete;
     }
 
 }

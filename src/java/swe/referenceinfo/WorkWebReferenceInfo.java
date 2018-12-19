@@ -8,17 +8,17 @@ public class WorkWebReferenceInfo {
 
     private static WorkWebReferenceInfo workWebReferenceInfo;
 
-    private final String webTitle = "title";
-    private final String webDesc = "desc";
-    private final String webOrigLang = "origlang";
-    private final String webTargLang = "targlang";
-    private final String webTag = "worktag";
-    private final String webDeadline = "deadline";
-    private final String webPrice = "price";
-    private final String webHidden = "hidden";
-    private final String webImage = "image";
-    private final String webSample = "sample";
-    private final String webFile = "file";
+    private final String title = "title";
+    private final String desc = "desc";
+    private final String origLang = "origlang";
+    private final String targLang = "targlang";
+    private final String tag = "worktag";
+    private final String deadline = "deadline";
+    private final String price = "price";
+    private final String hidden = "hidden";
+    private final String image = "image";
+    private final String sample = "sample";
+    private final String file = "file";
 
     private WorkWebReferenceInfo() {
     }
@@ -30,48 +30,48 @@ public class WorkWebReferenceInfo {
         return workWebReferenceInfo;
     }
 
-    public String getWebTitle() {
-        return webTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public String getWebDesc() {
-        return webDesc;
+    public String getDesc() {
+        return desc;
     }
 
-    public String getWebOrigLang() {
-        return webOrigLang;
+    public String getOrigLang() {
+        return origLang;
     }
 
-    public String getWebTargLang() {
-        return webTargLang;
+    public String getTargLang() {
+        return targLang;
     }
 
-    public String getWebTag() {
-        return webTag;
+    public String getTag() {
+        return tag;
     }
 
-    public String getWebDeadline() {
-        return webDeadline;
+    public String getDeadline() {
+        return deadline;
     }
 
-    public String getWebPrice() {
-        return webPrice;
+    public String getPrice() {
+        return price;
     }
 
-    public String getWebHidden() {
-        return webHidden;
+    public String getHidden() {
+        return hidden;
     }
 
-    public String getWebImage() {
-        return webImage;
+    public String getImage() {
+        return image;
     }
 
-    public String getWebSample() {
-        return webSample;
+    public String getSample() {
+        return sample;
     }
 
-    public String getWebFile() {
-        return webFile;
+    public String getFile() {
+        return file;
     }
 
 }

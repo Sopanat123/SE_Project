@@ -8,8 +8,8 @@ public class MainSessionReferenceInfo {
 
     private static MainSessionReferenceInfo mainSessionReferenceInfo;
 
-    private final String sUser = "suser";
-    private final String sWork = "swork";
+    private final String user = "sesuser";
+    private final String work = "seswork";
 
     private MainSessionReferenceInfo() {
     }
@@ -21,12 +21,12 @@ public class MainSessionReferenceInfo {
         return mainSessionReferenceInfo;
     }
 
-    public String getsUser() {
-        return sUser;
+    public String getUser() {
+        return user;
     }
 
-    public String getsWork() {
-        return sWork;
+    public String getWork() {
+        return work;
     }
 
 }

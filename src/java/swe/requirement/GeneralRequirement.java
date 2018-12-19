@@ -8,8 +8,8 @@ public class GeneralRequirement {
 
     private static GeneralRequirement generalRequirement;
 
-    private final int reqTagMinLength = 1;
-    private final int reqTagMaxLength = 15;
+    private final int tagMinLength = 1;
+    private final int tagMaxLength = 15;
 
     private GeneralRequirement() {
     }
@@ -21,12 +21,12 @@ public class GeneralRequirement {
         return generalRequirement;
     }
 
-    public int getReqTagMinLength() {
-        return reqTagMinLength;
+    public int getTagMinLength() {
+        return tagMinLength;
     }
 
-    public int getReqTagMaxLength() {
-        return reqTagMaxLength;
+    public int getTagMaxLength() {
+        return tagMaxLength;
     }
 
 }

@@ -2,39 +2,15 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <listener>
         <description>ServletContextListener</description>
-        <listener-class>se.listener.Initial</listener-class>
+        <listener-class>swe.listener.Initial</listener-class>
     </listener>
     <servlet>
         <servlet-name>SignInServlet</servlet-name>
-        <servlet-class>se.servlet.SignInServlet</servlet-class>
+        <servlet-class>swe.auth.SignInServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SignOutServlet</servlet-name>
-        <servlet-class>se.servlet.SignOutServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SignUpServlet</servlet-name>
-        <servlet-class>se.servlet.SignUpServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>HomePageServlet</servlet-name>
-        <servlet-class>se.servlet.HomePageServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>EditProfileServlet</servlet-name>
-        <servlet-class>se.servlet.EditProfileServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>UserProfileServlet</servlet-name>
-        <servlet-class>se.servlet.UserProfileServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AddWorkServlet</servlet-name>
-        <servlet-class>se.servlet.AddWorkServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>MyWorkServlet</servlet-name>
-        <servlet-class>se.servlet.MyWorkServlet</servlet-class>
+        <servlet-class>swe.auth.SignOutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
@@ -44,36 +20,12 @@
         <servlet-name>SignOutServlet</servlet-name>
         <url-pattern>/signout</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SignUpServlet</servlet-name>
-        <url-pattern>/signup</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>HomePageServlet</servlet-name>
-        <url-pattern>/home</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>EditProfileServlet</servlet-name>
-        <url-pattern>/editprofile</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UserProfileServlet</servlet-name>
-        <url-pattern>/user/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddWorkServlet</servlet-name>
-        <url-pattern>/addwork</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MyWorkServlet</servlet-name>
-        <url-pattern>/mywork</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>welcome_page.jsp</welcome-file>
+        <welcome-file>welcome.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

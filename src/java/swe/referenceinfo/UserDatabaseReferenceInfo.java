@@ -9,41 +9,41 @@ public class UserDatabaseReferenceInfo {
     private static UserDatabaseReferenceInfo userDatabaseReferenceInfo;
 
     // User collection level
-    private final String dbColUser = "users";
+    private final String colUser = "users";
 
     // User document level
-    private final String dbDocUsername = "username";
-    private final String dbDocPassowrd = "password";
-    private final String dbDocDisplayname = "displayname";
-    private final String dbDocFirstname = "firstname";
-    private final String dbDocLastname = "lastname";
-    private final String dbDocEmail = "email";
-    private final String dbDocPhone = "phone";
-    private final String dbDocCreateTime = "create";
-    private final String dbDocPrivilege = "privilege";
-    private final String dbDocImage = "image";
-    private final String dbDocInfo = "info";
-    private final String dbDocTag = "tag";
+    private final String docUsername = "username";
+    private final String docPassowrd = "password";
+    private final String docDisplayname = "displayname";
+    private final String docFirstname = "firstname";
+    private final String docLastname = "lastname";
+    private final String docEmail = "email";
+    private final String docPhone = "phone";
+    private final String docCreateTime = "create";
+    private final String docPrivilege = "privilege";
+    private final String docImage = "image";
+    private final String docInfo = "info";
+    private final String docTag = "tag";
 
     // Additional for translator
-    private final String dbDocIdCard = "idcard";
-    private final String dbDocIdSelfie = "idselfie";
-    private final String dbDocVerify = "verify";
-    private final String dbDocVerifyTime = "verifytime";
+    private final String docIdCard = "idcard";
+    private final String docIdSelfie = "idselfie";
+    private final String docVerify = "verify";
+    private final String docVerifyTime = "verifytime";
 
     // Default profile image
-    private final String dbAttDefProImage = "assets/def_pro_img.png";
+    private final String attDefProImage = "assets/def_pro_img.png";
 
     // User privilege value
-    private final String dbAttPrivilegeMember = "member";
-    private final String dbAttPrivilegeTranslator = "translator";
-    private final String dbAttPrivilegeAdmin = "admin";
+    private final String attPrivilegeMember = "member";
+    private final String attPrivilegeTranslator = "translator";
+    private final String attPrivilegeAdmin = "admin";
 
     // User verification step
-    private final String dbAttVerifyNone = "none";
-    private final String dbAttVerifyWait = "waiting";
-    private final String dbAttVerifySuccess = "success";
-    private final String dbAttVerifyReject = "reject";
+    private final String attVerifyNone = "none";
+    private final String attVerifyWait = "waiting";
+    private final String attVerifySuccess = "success";
+    private final String attVerifyReject = "reject";
 
     private UserDatabaseReferenceInfo() {
     }
@@ -55,104 +55,104 @@ public class UserDatabaseReferenceInfo {
         return userDatabaseReferenceInfo;
     }
 
-    public String getDbColUser() {
-        return dbColUser;
+    public String getColUser() {
+        return colUser;
     }
 
-    public String getDbDocUsername() {
-        return dbDocUsername;
+    public String getDocUsername() {
+        return docUsername;
     }
 
-    public String getDbDocPassowrd() {
-        return dbDocPassowrd;
+    public String getDocPassowrd() {
+        return docPassowrd;
     }
 
-    public String getDbDocDisplayname() {
-        return dbDocDisplayname;
+    public String getDocDisplayname() {
+        return docDisplayname;
     }
 
-    public String getDbDocFirstname() {
-        return dbDocFirstname;
+    public String getDocFirstname() {
+        return docFirstname;
     }
 
-    public String getDbDocLastname() {
-        return dbDocLastname;
+    public String getDocLastname() {
+        return docLastname;
     }
 
-    public String getDbDocEmail() {
-        return dbDocEmail;
+    public String getDocEmail() {
+        return docEmail;
     }
 
-    public String getDbDocPhone() {
-        return dbDocPhone;
+    public String getDocPhone() {
+        return docPhone;
     }
 
-    public String getDbDocCreateTime() {
-        return dbDocCreateTime;
+    public String getDocCreateTime() {
+        return docCreateTime;
     }
 
-    public String getDbDocPrivilege() {
-        return dbDocPrivilege;
+    public String getDocPrivilege() {
+        return docPrivilege;
     }
 
-    public String getDbDocImage() {
-        return dbDocImage;
+    public String getDocImage() {
+        return docImage;
     }
 
-    public String getDbDocInfo() {
-        return dbDocInfo;
+    public String getDocInfo() {
+        return docInfo;
     }
 
-    public String getDbDocTag() {
-        return dbDocTag;
+    public String getDocTag() {
+        return docTag;
     }
 
-    public String getDbDocIdCard() {
-        return dbDocIdCard;
+    public String getDocIdCard() {
+        return docIdCard;
     }
 
-    public String getDbDocIdSelfie() {
-        return dbDocIdSelfie;
+    public String getDocIdSelfie() {
+        return docIdSelfie;
     }
 
-    public String getDbDocVerify() {
-        return dbDocVerify;
+    public String getDocVerify() {
+        return docVerify;
     }
 
-    public String getDbDocVerifyTime() {
-        return dbDocVerifyTime;
+    public String getDocVerifyTime() {
+        return docVerifyTime;
     }
 
-    public String getDbAttDefProImage() {
-        return dbAttDefProImage;
+    public String getAttDefProImage() {
+        return attDefProImage;
     }
 
-    public String getDbAttPrivilegeMember() {
-        return dbAttPrivilegeMember;
+    public String getAttPrivilegeMember() {
+        return attPrivilegeMember;
     }
 
-    public String getDbAttPrivilegeTranslator() {
-        return dbAttPrivilegeTranslator;
+    public String getAttPrivilegeTranslator() {
+        return attPrivilegeTranslator;
     }
 
-    public String getDbAttPrivilegeAdmin() {
-        return dbAttPrivilegeAdmin;
+    public String getAttPrivilegeAdmin() {
+        return attPrivilegeAdmin;
     }
 
-    public String getDbAttVerifyNone() {
-        return dbAttVerifyNone;
+    public String getAttVerifyNone() {
+        return attVerifyNone;
     }
 
-    public String getDbAttVerifyWait() {
-        return dbAttVerifyWait;
+    public String getAttVerifyWait() {
+        return attVerifyWait;
     }
 
-    public String getDbAttVerifySuccess() {
-        return dbAttVerifySuccess;
+    public String getAttVerifySuccess() {
+        return attVerifySuccess;
     }
 
-    public String getDbAttVerifyReject() {
-        return dbAttVerifyReject;
+    public String getAttVerifyReject() {
+        return attVerifyReject;
     }
 
 }

@@ -8,29 +8,29 @@ public class UserRequirement {
 
     private static UserRequirement userRequirement;
 
-    private final int reqUsernameMinLength = 8;
-    private final int reqUsernameMaxLength = 25;
+    private final int usernameMinLength = 8;
+    private final int usernameMaxLength = 25;
 
-    private final int reqPasswordMinLength = 8;
-    private final int reqPasswordMaxLength = 30;
+    private final int passwordMinLength = 8;
+    private final int passwordMaxLength = 30;
 
-    private final int reqDisplaynameMinLength = 5;
-    private final int reqDisplaynameMaxLength = 20;
+    private final int displaynameMinLength = 5;
+    private final int displaynameMaxLength = 20;
 
-    private final int reqFirstnameMinLength = 1;
-    private final int reqFirstnameMaxLength = 255;
+    private final int firstnameMinLength = 1;
+    private final int firstnameMaxLength = 255;
 
-    private final int reqLastnameMinLength = 1;
-    private final int reqLastnameMaxLength = 255;
+    private final int lastnameMinLength = 1;
+    private final int lastnameMaxLength = 255;
 
-    private final int reqEmailMinLength = 5;
-    private final int reqEmailMaxLength = 255;
+    private final int emailMinLength = 5;
+    private final int emailMaxLength = 255;
 
-    private final int reqPhoneMinLength = 9;
-    private final int reqPhoneMaxLength = 10;
+    private final int phoneMinLength = 9;
+    private final int rphoneMaxLength = 10;
 
-    private final int reqInfoMinLength = 1;
-    private final int reqInfoMaxLength = 999;
+    private final int infoMinLength = 1;
+    private final int infoMaxLength = 999;
 
     private UserRequirement() {
     }
@@ -42,68 +42,68 @@ public class UserRequirement {
         return userRequirement;
     }
 
-    public int getReqUsernameMinLength() {
-        return reqUsernameMinLength;
+    public int getUsernameMinLength() {
+        return usernameMinLength;
     }
 
-    public int getReqUsernameMaxLength() {
-        return reqUsernameMaxLength;
+    public int getUsernameMaxLength() {
+        return usernameMaxLength;
     }
 
-    public int getReqPasswordMinLength() {
-        return reqPasswordMinLength;
+    public int getPasswordMinLength() {
+        return passwordMinLength;
     }
 
-    public int getReqPasswordMaxLength() {
-        return reqPasswordMaxLength;
+    public int getPasswordMaxLength() {
+        return passwordMaxLength;
     }
 
-    public int getReqDisplaynameMinLength() {
-        return reqDisplaynameMinLength;
+    public int getDisplaynameMinLength() {
+        return displaynameMinLength;
     }
 
-    public int getReqDisplaynameMaxLength() {
-        return reqDisplaynameMaxLength;
+    public int getDisplaynameMaxLength() {
+        return displaynameMaxLength;
     }
 
-    public int getReqFirstnameMinLength() {
-        return reqFirstnameMinLength;
+    public int getFirstnameMinLength() {
+        return firstnameMinLength;
     }
 
-    public int getReqFirstnameMaxLength() {
-        return reqFirstnameMaxLength;
+    public int getFirstnameMaxLength() {
+        return firstnameMaxLength;
     }
 
-    public int getReqLastnameMinLength() {
-        return reqLastnameMinLength;
+    public int getLastnameMinLength() {
+        return lastnameMinLength;
     }
 
-    public int getReqLastnameMaxLength() {
-        return reqLastnameMaxLength;
+    public int getLastnameMaxLength() {
+        return lastnameMaxLength;
     }
 
-    public int getReqEmailMinLength() {
-        return reqEmailMinLength;
+    public int getEmailMinLength() {
+        return emailMinLength;
     }
 
-    public int getReqEmailMaxLength() {
-        return reqEmailMaxLength;
+    public int getEmailMaxLength() {
+        return emailMaxLength;
     }
 
-    public int getReqPhoneMinLength() {
-        return reqPhoneMinLength;
+    public int getPhoneMinLength() {
+        return phoneMinLength;
     }
 
-    public int getReqPhoneMaxLength() {
-        return reqPhoneMaxLength;
+    public int getRphoneMaxLength() {
+        return rphoneMaxLength;
     }
 
-    public int getReqInfoMinLength() {
-        return reqInfoMinLength;
+    public int getInfoMinLength() {
+        return infoMinLength;
     }
 
-    public int getReqInfoMaxLength() {
-        return reqInfoMaxLength;
+    public int getInfoMaxLength() {
+        return infoMaxLength;
     }
 
 }

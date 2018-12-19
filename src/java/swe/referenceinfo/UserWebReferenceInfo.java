@@ -8,18 +8,18 @@ public class UserWebReferenceInfo {
 
     private static UserWebReferenceInfo userWebReferenceInfo;
 
-    private final String webUsername = "username";
-    private final String webPassword = "password";
-    private final String webDisplayname = "displayname";
-    private final String webFirstname = "firstname";
-    private final String webLastname = "lastname";
-    private final String webEmail = "email";
-    private final String webPhone = "phone";
-    private final String webImage = "image";
-    private final String webInfo = "info";
-    private final String webTag = "usertag";
-    private final String webIdCardImage = "idcardimg";
-    private final String webIdSelfieImage = "idselfieimg";
+    private final String username = "username";
+    private final String password = "password";
+    private final String displayname = "displayname";
+    private final String firstname = "firstname";
+    private final String lastname = "lastname";
+    private final String email = "email";
+    private final String phone = "phone";
+    private final String image = "image";
+    private final String info = "info";
+    private final String tag = "usertag";
+    private final String idCardImage = "idcardimg";
+    private final String idSelfieImage = "idselfieimg";
 
     private UserWebReferenceInfo() {
     }
@@ -31,52 +31,52 @@ public class UserWebReferenceInfo {
         return userWebReferenceInfo;
     }
 
-    public String getWebUsername() {
-        return webUsername;
+    public String getUsername() {
+        return username;
     }
 
-    public String getWebPassword() {
-        return webPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public String getWebDisplayname() {
-        return webDisplayname;
+    public String getDisplayname() {
+        return displayname;
     }
 
-    public String getWebFirstname() {
-        return webFirstname;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public String getWebLastname() {
-        return webLastname;
+    public String getLastname() {
+        return lastname;
     }
 
-    public String getWebEmail() {
-        return webEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public String getWebPhone() {
-        return webPhone;
+    public String getPhone() {
+        return phone;
     }
 
-    public String getWebImage() {
-        return webImage;
+    public String getImage() {
+        return image;
     }
 
-    public String getWebInfo() {
-        return webInfo;
+    public String getInfo() {
+        return info;
     }
 
-    public String getWebTag() {
-        return webTag;
+    public String getTag() {
+        return tag;
     }
 
-    public String getWebIdCardImage() {
-        return webIdCardImage;
+    public String getIdCardImage() {
+        return idCardImage;
     }
 
-    public String getWebIdSelfieImage() {
-        return webIdSelfieImage;
+    public String getIdSelfieImage() {
+        return idSelfieImage;
     }
 
 }

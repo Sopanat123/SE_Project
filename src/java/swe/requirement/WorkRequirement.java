@@ -8,17 +8,17 @@ public class WorkRequirement {
 
     private static WorkRequirement workRequirement;
 
-    private final int reqTitleMinLength = 1;
-    private final int reqTitleMaxLength = 20;
+    private final int titleMinLength = 1;
+    private final int titleMaxLength = 20;
 
-    private final int reqLanguageMinLength = 2;
-    private final int reqLanguageMaxLength = 15;
+    private final int languageMinLength = 2;
+    private final int languageMaxLength = 15;
 
-    private final int reqDescMinLength = 1;
-    private final int reqDescMaxLength = 500;
+    private final int descMinLength = 1;
+    private final int descMaxLength = 500;
 
-    private final double reqPriceMin = 0;
-    private final double reqPriceMax = 100000;
+    private final double priceMin = 0;
+    private final double priceMax = 100000;
 
     private WorkRequirement() {
     }
@@ -30,36 +30,36 @@ public class WorkRequirement {
         return workRequirement;
     }
 
-    public int getReqTitleMinLength() {
-        return reqTitleMinLength;
+    public int getTitleMinLength() {
+        return titleMinLength;
     }
 
-    public int getReqTitleMaxLength() {
-        return reqTitleMaxLength;
+    public int getTitleMaxLength() {
+        return titleMaxLength;
     }
 
-    public int getReqLanguageMinLength() {
-        return reqLanguageMinLength;
+    public int getLanguageMinLength() {
+        return languageMinLength;
     }
 
-    public int getReqLanguageMaxLength() {
-        return reqLanguageMaxLength;
+    public int getLanguageMaxLength() {
+        return languageMaxLength;
     }
 
-    public int getReqDescMinLength() {
-        return reqDescMinLength;
+    public int getDescMinLength() {
+        return descMinLength;
     }
 
-    public int getReqDescMaxLength() {
-        return reqDescMaxLength;
+    public int getDescMaxLength() {
+        return descMaxLength;
     }
 
-    public double getReqPriceMin() {
-        return reqPriceMin;
+    public double getPriceMin() {
+        return priceMin;
     }
 
-    public double getReqPriceMax() {
-        return reqPriceMax;
+    public double getPriceMax() {
+        return priceMax;
     }
 
 }
