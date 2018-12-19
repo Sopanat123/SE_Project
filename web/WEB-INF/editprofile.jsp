@@ -38,22 +38,21 @@
 
     <body id="page-top" class="index"> 
 
-        <!-- Navigation -->
-        <nav id="mainNav" class="navbar navbar-default navbar-customs">
+        <nav id="mainNav" class="navbar navbar-default navbar-custom ">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header page-scroll">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand page-scroll" id="welcomenaja" href="#page-top">Translator Marketplace</a>
+                    <a class="navbar-brand page-scroll" href="#page-top">Translator Marketplace</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right force-flex-middle">
                         <li class="nav-item">
-                            <a class="nav-link" id="nav-item-edit" href="home">Home</a>
+                            <a class="nav-link" id="nav-item-edit" href="homepage.jsp">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="nav-item-edit" href="mywork">My Work</a>
@@ -62,7 +61,7 @@
                             <a class="nav-link disabled" id="nav-item-edit" href="mywork" disabled>Doing Work</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" id="nav-item-edit" href="editprofile">Edit Profile</a>
+                            <a class="nav-link" id="nav-item-edit" href="editprofile.jsp">Edit Profile</a>
                         </li
                         <!-- Sign OUT -->
                         <li class="nav-item" >
@@ -71,7 +70,7 @@
                             </form>
                         </li>
                     </ul>
-                </div> 
+                </div>
         </nav>
 
         <form action="editprofile" method="POST" enctype="multipart/form-data" class="was-validated" id="edp">
@@ -88,7 +87,7 @@
                             <h6>Upload a different photo...</h6>
                             <div class="input-group mb-3">
                                 <%-- IMG HEAD --%>          <div class="custom-file">
-                                    <input type="file" name="image" accept="image/*" class="custom-file-input" id="inputFile" onchange="myFunction()" form="edp"/>
+                                    <input type="file" name="image-profile" accept="image/*" class="custom-file-input" id="inputFile" onchange="myFunction()" form="edp"/>
                                     <label class="custom-file-label text-center" id="user-pic" for="inputFile">Choose file</label>
                                     <%-- IMG TAIL --%>          </div>
                             </div>
@@ -110,43 +109,38 @@
                                         <div class="form-group">
                                             <label for="displayname" class="col-4 col-form-label" id="fill-profile">Display Name</label> 
                                             <div class="col-12">
-                                                <input id="displayname" name="displayname" class="form-control here" type="text" pattern="[A-Za-z0-9]{8,25}" form="edp"/>
-                                                <div class="invalid-feedback" id="fill-profile">Please enter the correct display name.</div>
+                                                <input id="displayname" name="displayname" placeholder="Please enter the correct display name." class="form-control here" type="text" pattern="[A-Za-z0-9]{8,25}" form="edp"/>                                        
+                                                <br>
                                             </div>
-                                        </div>
                                         <div class="form-group">
                                             <label for="password" class="col-4 col-form-label" id="fill-profile">Password</label> 
                                             <div class="col-12">
-                                                <input id="password" name="password" class="form-control here" type="password" pattern="[A-Za-z0-9]{8,25}" form="edp"/>
-                                                <div class="invalid-feedback" id="fill-profile">Please enter the correct password.</div>
-                                            </div>
+                                                <input id="password" name="password" class="form-control here" placeholder="Please enter the correct password." type="password" pattern="[A-Za-z0-9]{8,25}" form="edp"/>
+                                                <br>
                                         </div>
                                         <div class="form-group">
                                             <label for="email" class="col-4 col-form-label" id="fill-profile">Email</label> 
                                             <div class="col-12">
-                                                <input id="email" name="email" class="form-control here" type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" form="edp"/>
-                                                <div class="invalid-feedback" id="fill-profile">Please choose a email.</div>
-                                            </div>
+                                                <input id="email" name="email" class="form-control here" placeholder="Please choose a email." type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" form="edp"/>
+                                                <br>
                                         </div>
                                         <div class="form-group">
                                             <label for="phone" class="col-4 col-form-label" id="fill-profile">Phone</label> 
                                             <div class="col-12">
-                                                <input id="phone" name="phone" class="form-control here" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" form="edp"/>
-                                                <div class="invalid-feedback" id="fill-profile">Please choose a phone number.</div>
-                                            </div>
+                                                <input id="phone" name="phone" class="form-control here"placeholder="Please choose a phone number." type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" form="edp"/>
+                                                <br>
                                         </div>
                                         <div class="form-group">
                                             <label for="publicinfo" class="col-4 col-form-label" id="fill-profile">Public Info</label> 
                                             <div class="col-12">
-                                                <textarea id="info" name="info" placeholder="example" cols="40" rows="4" class="form-control" form="edp"></textarea>
+                                                <textarea id="info" name="info" placeholder="explain youself" cols="40" rows="4" class="form-control" form="edp"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="tag" class="col-4 col-form-label" id="fill-profile">Tag</label> 
                                             <div class="col-12">
-                                                <input id="tag" name="tag" class="form-control here" type="text" pattern="[a-zA-Z][A-Za-z0-9]{2,9}" form="edp"/>
-                                                <div class="invalid-feedback" id="fill-profile">Please enter the correct tag.</div>
-                                            </div>
+                                                <input id="tag" name="tag" class="form-control here" placeholder="Please enter the correct tag." type="text" pattern="[a-zA-Z][A-Za-z0-9]{2,9}" form="edp"/>
+                                                <br>
                                         </div>
                                         <!--<div class="form-group row">
                                           <label for="newpass" class="col-4 col-form-label">New Password</label> 
@@ -177,10 +171,10 @@
                                                                         <form action="authentication" method="POST">
                                                                             <div class="form-group">
                                                                                 <label for="username" id="font-authen" class="col-form-label">ID Card:</label>
-                                                                                <input type="file" name="image" accept="image/*" class="custom-file-input" id="inputFile" onchange="myFunction()" form="edp"/>
+                                                                                <input type="file" name="image-id-card" accept="image/*" class="custom-file-input" id="inputFile2" onchange="myFunction()" form="edp"/>
                                                                                 <br>
                                                                                 <label for="password" id="font-authen" class="col-form-label">Selfie with ID Card:</label>
-                                                                                <input type="file" name="image" accept="image/*" class="custom-file-input" id="inputFile" onchange="myFunction()" form="edp"/>
+                                                                                <input type="file" name="image-selfie" accept="image/*" class="custom-file-input" id="inputFile3" onchange="myFunction()" form="edp"/>
                                                                                 <br>
                                                                                 <button type="submit" id="confirm"class="btn btn-primary btn-lg">Confirm</button>
                                                                             </div>

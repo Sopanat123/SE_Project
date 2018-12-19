@@ -1,20 +1,21 @@
-#welcomenaja{
-  font-family: 'Kaushan Script';
-}
 body{
   /*padding-top: 50px;
   padding-bottom: 20px;*/
   overflow: hidden;
   font-family: 'K2D';
+
+
+  right: 0;
 }
 body:after{
+  background-image: url(../img/book3.jpg);
   content: "";
-  background-image: url("../book.jpg");
-  background-repeat: repeat-x;
+  background-repeat: no-repeat;
+  background-size: cover;
   filter: grayscale(55%);
   padding-top: 50px;
   padding-bottom: 20px;
-  opacity: 0.2;
+  opacity: 0.4;
   position: absolute;
   z-index: -1;
   height: 100%;
@@ -49,7 +50,7 @@ body:after{
 width: 738px !important;
 }
 #nav-item-edit{
-  color: black
+  color: rgb(255, 255, 255);
 }
 .force-flex-middle{
   display: flex !important;
@@ -94,5 +95,6 @@ width: 738px !important;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 4px;s
 }
+
