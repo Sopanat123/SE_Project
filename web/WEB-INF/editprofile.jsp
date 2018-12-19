@@ -33,7 +33,7 @@
         <!-- Theme CSS -->
         <link href="assets/css/agency.css" rel="stylesheet">
         <link href="assets/css/Edit_Profile.css" rel="stylesheet">
-        
+
     </head>
 
     <body id="page-top" class="index"> 
@@ -51,134 +51,169 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right force-flex-middle">
-                    <li class="nav-item">
-                        <a class="nav-link" id="nav-item-edit" href="home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="nav-item-edit" href="mywork">My Work</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" id="nav-item-edit" href="mywork" disabled>Doing Work</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" id="nav-item-edit" href="editprofile">Edit Profile</a>
-                    </li
-                    <!-- Sign OUT -->
-                    <li class="nav-item" >
-                        <form action="signout" method="POST" class="form-inline my-2 my-lg-0 ml-5">
-                            <button class="btn btn-danger my-2 my-sm-0" type="submit">Sign Out</button>
-                        </form>
-                    </li>
-                </ul>
-            </div> 
+                    <ul class="nav navbar-nav navbar-right force-flex-middle">
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-item-edit" href="home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-item-edit" href="mywork">My Work</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" id="nav-item-edit" href="mywork" disabled>Doing Work</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" id="nav-item-edit" href="editprofile">Edit Profile</a>
+                        </li
+                        <!-- Sign OUT -->
+                        <li class="nav-item" >
+                            <form action="signout" method="POST" class="form-inline my-2 my-lg-0 ml-5">
+                                <button class="btn btn-danger my-2 my-sm-0" type="submit">Sign Out</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div> 
         </nav>
-            
+
         <form action="editprofile" method="POST" enctype="multipart/form-data" class="was-validated" id="edp">
 
-        <div class="container pt-5">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="row text-center">
-                        <!-- ${user.image}-->
-                        <img src="assets/img/avatar.png" class="avatar img-profile-circle img-thumbnail mx-auto" alt="avatar">
-                        <!--<img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-profile-circle img-thumbnail mx-auto" alt="avatar">-->
-                    </div>
-                    <div class="text-center" id="avatar">
-                        <h6>Upload a different photo...</h6>
-                        <div class="input-group mb-3">
-<%-- IMG HEAD --%>          <div class="custom-file">
-                                <input type="file" name="image" accept="image/*" class="custom-file-input" id="inputFile" onchange="myFunction()" form="edp"/>
-                                <label class="custom-file-label text-center" id="user-pic" for="inputFile">Choose file</label>
-<%-- IMG TAIL --%>          </div>
+            <div class="container pt-5">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="row text-center">
+                            <!-- ${user.image}-->
+                            <img src="assets/img/avatar.png" class="avatar img-profile-circle img-thumbnail mx-auto" alt="avatar">
+                            <!--<img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-profile-circle img-thumbnail mx-auto" alt="avatar">-->
                         </div>
-                        <!--<input type="file" class="text-center center-block file-upload">-->
-                    </div><br>
-                </div>
-                <div class="col-md-9">
-                    <div class="card no-border bg-transparent">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4>Your Profile</h4>
-                                    <hr>
-                                </div>
-<%-- ERROR --%>                 <font color="red">${msg}</font>
+                        <div class="text-center" id="avatar">
+                            <h6>Upload a different photo...</h6>
+                            <div class="input-group mb-3">
+                                <%-- IMG HEAD --%>          <div class="custom-file">
+                                    <input type="file" name="image" accept="image/*" class="custom-file-input" id="inputFile" onchange="myFunction()" form="edp"/>
+                                    <label class="custom-file-label text-center" id="user-pic" for="inputFile">Choose file</label>
+                                    <%-- IMG TAIL --%>          </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12 scroll">
-                                    <div class="form-group">
-                                        <label for="displayname" class="col-4 col-form-label" id="fill-profile">Display Name</label> 
-                                        <div class="col-12">
-                                            <input id="displayname" name="displayname" class="form-control here" type="text" pattern="[A-Za-z0-9]{8,25}" form="edp"/>
-                                            <div class="invalid-feedback" id="fill-profile">Please enter the correct display name.</div>
-                                        </div>
+                            <!--<input type="file" class="text-center center-block file-upload">-->
+                        </div><br>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card no-border bg-transparent">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>Your Profile</h4>
+                                        <hr>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="password" class="col-4 col-form-label" id="fill-profile">Password</label> 
-                                        <div class="col-12">
-                                            <input id="password" name="password" class="form-control here" type="password" pattern="[A-Za-z0-9]{8,25}" form="edp"/>
-                                            <div class="invalid-feedback" id="fill-profile">Please enter the correct password.</div>
+                                    <%-- ERROR --%>                 <font color="red">${msg}</font>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 scroll">
+                                        <div class="form-group">
+                                            <label for="displayname" class="col-4 col-form-label" id="fill-profile">Display Name</label> 
+                                            <div class="col-12">
+                                                <input id="displayname" name="displayname" class="form-control here" type="text" pattern="[A-Za-z0-9]{8,25}" form="edp"/>
+                                                <div class="invalid-feedback" id="fill-profile">Please enter the correct display name.</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email" class="col-4 col-form-label" id="fill-profile">Email</label> 
-                                        <div class="col-12">
-                                            <input id="email" name="email" class="form-control here" type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" form="edp"/>
-                                            <div class="invalid-feedback" id="fill-profile">Please choose a email.</div>
+                                        <div class="form-group">
+                                            <label for="password" class="col-4 col-form-label" id="fill-profile">Password</label> 
+                                            <div class="col-12">
+                                                <input id="password" name="password" class="form-control here" type="password" pattern="[A-Za-z0-9]{8,25}" form="edp"/>
+                                                <div class="invalid-feedback" id="fill-profile">Please enter the correct password.</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="phone" class="col-4 col-form-label" id="fill-profile">Phone</label> 
-                                        <div class="col-12">
-                                            <input id="phone" name="phone" class="form-control here" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" form="edp"/>
-                                            <div class="invalid-feedback" id="fill-profile">Please choose a phone number.</div>
+                                        <div class="form-group">
+                                            <label for="email" class="col-4 col-form-label" id="fill-profile">Email</label> 
+                                            <div class="col-12">
+                                                <input id="email" name="email" class="form-control here" type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" form="edp"/>
+                                                <div class="invalid-feedback" id="fill-profile">Please choose a email.</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="publicinfo" class="col-4 col-form-label" id="fill-profile">Public Info</label> 
-                                        <div class="col-12">
-                                            <textarea id="info" name="info" placeholder="example" cols="40" rows="4" class="form-control" form="edp"></textarea>
+                                        <div class="form-group">
+                                            <label for="phone" class="col-4 col-form-label" id="fill-profile">Phone</label> 
+                                            <div class="col-12">
+                                                <input id="phone" name="phone" class="form-control here" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" form="edp"/>
+                                                <div class="invalid-feedback" id="fill-profile">Please choose a phone number.</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tag" class="col-4 col-form-label" id="fill-profile">Tag</label> 
-                                        <div class="col-12">
-                                            <input id="tag" name="tag" class="form-control here" type="text" pattern="[a-zA-Z][A-Za-z0-9]{2,9}" form="edp"/>
-                                            <div class="invalid-feedback" id="fill-profile">Please enter the correct tag.</div>
+                                        <div class="form-group">
+                                            <label for="publicinfo" class="col-4 col-form-label" id="fill-profile">Public Info</label> 
+                                            <div class="col-12">
+                                                <textarea id="info" name="info" placeholder="example" cols="40" rows="4" class="form-control" form="edp"></textarea>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!--<div class="form-group row">
-                                      <label for="newpass" class="col-4 col-form-label">New Password</label> 
-                                      <div class="col-8">
-                                        <input id="newpass" name="newpass" placeholder="New Password" class="form-control here" type="text">
-                                      </div>
-                                    </div>  -->
-                                    <div class="form-group text-center">
-                                        <div class="mx-auto">
-                                            <button name="submit" type="submit" class="btn btn-primary" form="edp">Update My Profile</button>
+                                        <div class="form-group">
+                                            <label for="tag" class="col-4 col-form-label" id="fill-profile">Tag</label> 
+                                            <div class="col-12">
+                                                <input id="tag" name="tag" class="form-control here" type="text" pattern="[a-zA-Z][A-Za-z0-9]{2,9}" form="edp"/>
+                                                <div class="invalid-feedback" id="fill-profile">Please enter the correct tag.</div>
+                                            </div>
+                                        </div>
+                                        <!--<div class="form-group row">
+                                          <label for="newpass" class="col-4 col-form-label">New Password</label> 
+                                          <div class="col-8">
+                                            <input id="newpass" name="newpass" placeholder="New Password" class="form-control here" type="text">
+                                          </div>
+                                        </div>  -->
+                                        <div class="form-group text-center">
+                                            <div class="mx-auto">
+                                                <button name="submit" type="submit" class="btn btn-primary" form="edp">Update My Profile</button>
+                                                <button type="button" id="authentication" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                                    Authentication
+                                                </button>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-lg-12">
+                                                                        <form action="authentication" method="POST">
+                                                                            <div class="form-group">
+                                                                                <label for="username" class="col-form-label">Username:</label>
+                                                                                <input type="text" name="username" class="form-control" id="in-username" placeholder="username" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
+
+                                                                                <br>
+                                                                                <label for="password" class="col-form-label">Password:</label>
+                                                                                <input type="password" name="password" class="form-control" id="in-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
+                                                                                <br>
+                                                                                <button type="submit" id="confirm"class="btn btn-primary btn-lg">Confirm</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       </form>
-    </body>
-    <script>
-            function myFunction() {
-                var x = document.getElementById("inputFile");
-                txt = "";
-                file = x.files[0];
-                if ('files' in x) {
-                    if ('name' in file) {
-                        txt += file.name;
-                    }
-                }
-                document.getElementById("user-pic").innerHTML = txt;
-            }
-        </script>
-</html>
+                        </form>
+                        </body>
+                        <script>
+                            function myFunction() {
+                                var x = document.getElementById("inputFile");
+                                txt = "";
+                                file = x.files[0];
+                                if ('files' in x) {
+                                    if ('name' in file) {
+                                        txt += file.name;
+                                    }
+                                }
+                                document.getElementById("user-pic").innerHTML = txt;
+                            }
+                        </script>
+                        </html>

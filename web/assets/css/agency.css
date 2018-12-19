@@ -63,6 +63,14 @@ h6 {
   text-transform: uppercase;
   font-weight: 700;
 }
+.btn-secondary {
+  color: white;
+  background-color: red;
+  border-color: red;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,

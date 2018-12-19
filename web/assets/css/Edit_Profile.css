@@ -62,3 +62,19 @@ width: 738px !important;
 #fill-profile{
   font-family: 'Lucida Sans';
 }
+#authentication{
+  color: white;
+  background-color: blue;
+  border-color: blue;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+#confirm{
+    color: white;
+    background-color:chartreuse;
+    border-color: chartreuse;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
