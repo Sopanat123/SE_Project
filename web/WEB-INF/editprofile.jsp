@@ -10,252 +10,165 @@
 <html>
     <c:set var="user" scope="session" value="${cruser}" />
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title id="welcome">Translator Marketplace</title>
+
+        <!-- Bootstrap Core CSS -->
         <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/Edit_Profile.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-        <!--<link href="assets/css/all.min.css" rel="stylesheet">-->
-        <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
+
         <script src="assets/js/jquery-3.3.1.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- Custom Fonts -->
+        <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+        <!-- Theme CSS -->
+        <link href="assets/css/agency.css" rel="stylesheet">
+        <link href="assets/css/Edit_Profile.css" rel="stylesheet">
         
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <title>Edit Profile</title>
     </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Title</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <%-- NAV HEAD --%> <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="mywork">My Work</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="mywork" disabled>Doing Work</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="editprofile">Edit Profile</a>
-                    </li>
-                    <!--                    <form class="form-inline my-2 my-lg-0">
-                                            <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                                        </form>-->
-                    <%-- NAV TAIL --%> </ul>
+    <body id="page-top" class="index"> 
 
-                <%-- sign out HEAD --%> <form action="signout" method="POST" class="form-inline my-2 my-lg-0 ml-5">
-                    <button class="btn btn-danger my-2 my-sm-0" type="submit">Sign Out</button>
-                    <%-- sign out TAIL --%> </form>
-            </div>
+        <!-- Navigation -->
+        <nav id="mainNav" class="navbar navbar-default navbar-customs">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand page-scroll" id="welcomenaja" href="#page-top">Translator Marketplace</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right force-flex-middle">
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-item-edit" href="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="nav-item-edit" href="mywork">My Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" id="nav-item-edit" href="mywork" disabled>Doing Work</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" id="nav-item-edit" href="editprofile">Edit Profile</a>
+                    </li
+                    <!-- Sign OUT -->
+                    <li class="nav-item" >
+                        <form action="signout" method="POST" class="form-inline my-2 my-lg-0 ml-5">
+                            <button class="btn btn-danger my-2 my-sm-0" type="submit">Sign Out</button>
+                        </form>
+                    </li>
+                </ul>
+            </div> 
         </nav>
+            
+        <form action="editprofile" method="POST" enctype="multipart/form-data" class="was-validated" id="edp">
 
-        <form action="editprofile" method="POST" enctype="multipart/form-data" class="was-validated" id="edp"></form>
-
-<div class="container">
-<div class="row">
-      <div class="col-xs-12 col-sm-9">
-        
-        <!-- User profile -->
-        <div class="panel panel-default">
-          <div class="panel-heading">
-          <h4 class="panel-title">User profile</h4>
-          </div>
-          <div class="panel-body">
-            <div class="profile__avatar">
-              <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="row text-center">
+                        <!-- ${user.image}-->
+                        <img src="assets/img/avatar.png" class="avatar img-profile-circle img-thumbnail mx-auto" alt="avatar">
+                        <!--<img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-profile-circle img-thumbnail mx-auto" alt="avatar">-->
+                    </div>
+                    <div class="text-center" id="avatar">
+                        <h6>Upload a different photo...</h6>
+                        <div class="input-group mb-3">
+<%-- IMG HEAD --%>          <div class="custom-file">
+                                <input type="file" name="image" accept="image/*" class="custom-file-input" id="inputFile" onchange="myFunction()" form="edp"/>
+                                <label class="custom-file-label text-center" id="user-pic" for="inputFile">Choose file</label>
+<%-- IMG TAIL --%>          </div>
+                        </div>
+                        <!--<input type="file" class="text-center center-block file-upload">-->
+                    </div><br>
+                </div>
+                <div class="col-md-9">
+                    <div class="card no-border bg-transparent">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Your Profile</h4>
+                                    <hr>
+                                </div>
+<%-- ERROR --%>                 <font color="red">${msg}</font>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 scroll">
+                                    <div class="form-group">
+                                        <label for="displayname" class="col-4 col-form-label" id="fill-profile">Display Name</label> 
+                                        <div class="col-12">
+                                            <input id="displayname" name="displayname" class="form-control here" type="text" pattern="[A-Za-z0-9]{8,25}" form="edp"/>
+                                            <div class="invalid-feedback" id="fill-profile">Please enter the correct display name.</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="col-4 col-form-label" id="fill-profile">Password</label> 
+                                        <div class="col-12">
+                                            <input id="password" name="password" class="form-control here" type="password" pattern="[A-Za-z0-9]{8,25}" form="edp"/>
+                                            <div class="invalid-feedback" id="fill-profile">Please enter the correct password.</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="col-4 col-form-label" id="fill-profile">Email</label> 
+                                        <div class="col-12">
+                                            <input id="email" name="email" class="form-control here" type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" form="edp"/>
+                                            <div class="invalid-feedback" id="fill-profile">Please choose a email.</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone" class="col-4 col-form-label" id="fill-profile">Phone</label> 
+                                        <div class="col-12">
+                                            <input id="phone" name="phone" class="form-control here" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" form="edp"/>
+                                            <div class="invalid-feedback" id="fill-profile">Please choose a phone number.</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="publicinfo" class="col-4 col-form-label" id="fill-profile">Public Info</label> 
+                                        <div class="col-12">
+                                            <textarea id="info" name="info" placeholder="example" cols="40" rows="4" class="form-control" form="edp"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tag" class="col-4 col-form-label" id="fill-profile">Tag</label> 
+                                        <div class="col-12">
+                                            <input id="tag" name="tag" class="form-control here" type="text" pattern="[a-zA-Z][A-Za-z0-9]{2,9}" form="edp"/>
+                                            <div class="invalid-feedback" id="fill-profile">Please enter the correct tag.</div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="form-group row">
+                                      <label for="newpass" class="col-4 col-form-label">New Password</label> 
+                                      <div class="col-8">
+                                        <input id="newpass" name="newpass" placeholder="New Password" class="form-control here" type="text">
+                                      </div>
+                                    </div>  -->
+                                    <div class="form-group text-center">
+                                        <div class="mx-auto">
+                                            <button name="submit" type="submit" class="btn btn-primary" form="edp">Update My Profile</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="profile__header">
-              <h4>Richard Roe <small>Administrator</small></h4>
-              <p class="text-muted">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nostrum odio cum repellat veniam eligendi rem cumque magnam autem delectus qui.
-              </p>
-              <p>
-                <a href="#">bootdey.com</a>
-              </p>
-            </div>
-          </div>
         </div>
-
-        <!-- User info -->
-        <div class="panel panel-default">
-          <div class="panel-heading">
-          <h4 class="panel-title">User info</h4>
-          </div>
-          <div class="panel-body">
-            <table class="table profile__table">
-              <tbody>
-                <tr>
-                  <th><strong>Location</strong></th>
-                  <td>United States</td>
-                </tr>
-                <tr>
-                  <th><strong>Company name</strong></th>
-                  <td>Simpleqode.com</td>
-                </tr>
-                <tr>
-                  <th><strong>Position</strong></th>
-                  <td>Front-end developer</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Community -->
-        <div class="panel panel-default">
-          <div class="panel-heading">
-          <h4 class="panel-title">Community</h4>
-          </div>
-          <div class="panel-body">
-            <table class="table profile__table">
-              <tbody>
-                <tr>
-                  <th><strong>Comments</strong></th>
-                  <td>58584</td>
-                </tr>
-                <tr>
-                  <th><strong>Member since</strong></th>
-                  <td>Jan 01, 2016</td>
-                </tr>
-                <tr>
-                  <th><strong>Last login</strong></th>
-                  <td>1 day ago</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Latest posts -->
-        <div class="panel panel-default">
-          <div class="panel-heading">
-          <h4 class="panel-title">Latest posts</h4>
-          </div>
-          <div class="panel-body">
-            <div class="profile__comments">
-              <div class="profile-comments__item">
-                <div class="profile-comments__controls">
-                  <a href="#"><i class="fa fa-share-square-o"></i></a>
-                  <a href="#"><i class="fa fa-edit"></i></a>
-                  <a href="#"><i class="fa fa-trash-o"></i></a>
-                </div>
-                <div class="profile-comments__avatar">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
-                </div>
-                <div class="profile-comments__body">
-                  <h5 class="profile-comments__sender">
-                    Richard Roe <small>2 hours ago</small>
-                  </h5>
-                  <div class="profile-comments__content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, corporis. Voluptatibus odio perspiciatis non quisquam provident, quasi eaque officia.
-                  </div>
-                </div>
-              </div>
-              <div class="profile-comments__item">
-                <div class="profile-comments__controls">
-                  <a href="#"><i class="fa fa-share-square-o"></i></a>
-                  <a href="#"><i class="fa fa-edit"></i></a>
-                  <a href="#"><i class="fa fa-trash-o"></i></a>
-                </div>
-                <div class="profile-comments__avatar">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="...">
-                </div>
-                <div class="profile-comments__body">
-                  <h5 class="profile-comments__sender">
-                    Richard Roe <small>5 hours ago</small>
-                  </h5>
-                  <div class="profile-comments__content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero itaque dolor laboriosam dolores magnam mollitia, voluptatibus inventore accusamus illo.
-                  </div>
-                </div>
-              </div>
-              <div class="profile-comments__item">
-                <div class="profile-comments__controls">
-                  <a href="#"><i class="fa fa-share-square-o"></i></a>
-                  <a href="#"><i class="fa fa-edit"></i></a>
-                  <a href="#"><i class="fa fa-trash-o"></i></a>
-                </div>
-                <div class="profile-comments__avatar">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="...">
-                </div>
-                <div class="profile-comments__body">
-                  <h5 class="profile-comments__sender">
-                    Richard Roe <small>1 day ago</small>
-                  </h5>
-                  <div class="profile-comments__content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, esse, magni aliquam quisquam modi delectus veritatis est ut culpa minus repellendus.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="col-xs-12 col-sm-3">
-        
-        <!-- Contact user -->
-        <p>
-          <a href="#" class="profile__contact-btn btn btn-lg btn-block btn-info" data-toggle="modal" data-target="#profile__contact-form">
-            Contact user
-          </a>
-        </p>
-
-        <hr class="profile__contact-hr">
-        
-        <!-- Contact info -->
-        <div class="profile__contact-info">
-          <div class="profile__contact-info-item">
-            <div class="profile__contact-info-icon">
-              <i class="fa fa-phone"></i>
-            </div>
-            <div class="profile__contact-info-body">
-              <h5 class="profile__contact-info-heading">Work number</h5>
-              (000)987-65-43
-            </div>
-          </div>
-          <div class="profile__contact-info-item">
-            <div class="profile__contact-info-icon">
-              <i class="fa fa-phone"></i>
-            </div>
-            <div class="profile__contact-info-body">
-              <h5 class="profile__contact-info-heading">Mobile number</h5>
-              (000)987-65-43
-            </div>
-          </div>
-          <div class="profile__contact-info-item">
-            <div class="profile__contact-info-icon">
-              <i class="fa fa-envelope-square"></i>
-            </div>
-            <div class="profile__contact-info-body">
-              <h5 class="profile__contact-info-heading">E-mail address</h5>
-              <a href="mailto:admin@domain.com">admin@domain.com</a>
-            </div>
-          </div>
-          <div class="profile__contact-info-item">
-            <div class="profile__contact-info-icon">
-              <i class="fa fa-map-marker"></i>
-            </div>
-            <div class="profile__contact-info-body">
-              <h5 class="profile__contact-info-heading">Work address</h5>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-</div>
-
-        <script>
+       </form>
+    </body>
+    <script>
             function myFunction() {
                 var x = document.getElementById("inputFile");
                 txt = "";
@@ -268,5 +181,4 @@
                 document.getElementById("user-pic").innerHTML = txt;
             }
         </script>
-    </body>
 </html>

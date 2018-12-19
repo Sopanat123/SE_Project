@@ -22,3 +22,18 @@ and open the template in the editor.
     width: 175px;
     height: 175px;
 }
+#services{
+    background-color: #ffffff;
+    color: black;
+}
+#aboutus{
+    margin-bottom: 75px;
+}
+#about2{
+    margin-bottom: 50px;
+}
+.force-flex-middle{
+    display: flex !important;
+    align-items: center !important;
+  }
+  
