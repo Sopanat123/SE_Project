@@ -18,7 +18,7 @@ import swe.InputService;
 import swe.model.User;
 import swe.referenceinfo.MainDatabaseReferenceInfo;
 import swe.referenceinfo.ServletReferenceInfo;
-import swe.referenceinfo.MainSessionReferenceInfo;
+import swe.referenceinfo.SessionReferenceInfo;
 import swe.referenceinfo.WebPageReferenceInfo;
 import swe.referenceinfo.UserDatabaseReferenceInfo;
 import swe.referenceinfo.UserWebReferenceInfo;
@@ -32,7 +32,7 @@ public class SignInServlet extends HttpServlet {
     private final InputService isv = InputService.getService();
     private final MainDatabaseReferenceInfo dbRef = MainDatabaseReferenceInfo.getMainDatabaseReferenceInfo();
     private final ServletReferenceInfo svlRef = ServletReferenceInfo.getsServletReferenceInfo();
-    private final MainSessionReferenceInfo sesRef = MainSessionReferenceInfo.getMainSessionReferenceInfo();
+    private final SessionReferenceInfo sesRef = SessionReferenceInfo.getSessionReferenceInfo();
     private final UserDatabaseReferenceInfo uDbRef = UserDatabaseReferenceInfo.getUserDatabaseReferenceInfo();
     private final UserWebReferenceInfo uWebRef = UserWebReferenceInfo.getUserWebReferenceInfo();
     private final WebPageReferenceInfo pageRef = WebPageReferenceInfo.getWebPageReferenceInfo();
@@ -118,6 +118,7 @@ public class SignInServlet extends HttpServlet {
             }
         } catch (InterruptedException | ExecutionException ex) {
             Logger.getLogger(SignInServlet.class.getName()).log(Level.SEVERE, null, ex);
+//            request.getRequestDispatcher(pageRef.getWelcome()).forward(request, response);
         }
     }
 

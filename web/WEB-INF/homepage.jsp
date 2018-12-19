@@ -28,7 +28,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-<%-- NAV HEAD --%> <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <%-- NAV HEAD --%> <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active ">
                         <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
                     </li>
@@ -45,23 +45,23 @@
                                             <input class="form-control mr-sm-2" type="search" placeholder="Search">
                                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                                         </form>-->
-<%-- NAV TAIL --%> </ul>
+                    <%-- NAV TAIL --%> </ul>
 
-<%-- 'signout' HEAD --%> <form action="signout" method="POST" class="form-inline my-2 my-lg-0 ml-5">
+                <%-- 'signout' HEAD --%> <form action="signout" method="POST" class="form-inline my-2 my-lg-0 ml-5">
                     <button class="btn btn-danger my-2 my-sm-0" type="submit">Sign Out</button>
-<%-- 'signout' TAIL --%> </form>
+                    <%-- 'signout' TAIL --%> </form>
             </div>
         </nav>
         <div class="container-fluid">
             <div class="row height-100">
                 <div class="col-10 bg-danger pt-3 pl-3" id="post-zone">
-                    
+
                     <div class="card-columns">
                         <c:forEach var="work" items="${works}">
                             <div class="card">
                                 <div class="card-header row">
                                     <div class="col-2">
-                                        <img class="img-circle" src="${sessionScope.cruser.image}"  width="40" height="40" alt="user img">
+                                        <img class="img-circle" src="${sessionScope.sesuser.image}"  width="40" height="40" alt="user img">
                                     </div>
                                     <div class="col-10">
                                         <h3 class="car col-6">${work.title}</h3>
@@ -78,12 +78,12 @@
                     </div>
                 </div>
                 <div class="col-2 bg-info">
-<%-- !Works HEAD --%>
+                    <%-- !Works HEAD --%>
                     <button type="button" class="mt-3 btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#newPost">New Post</button>
-<%-- !Works TAIL --%>
+                    <%-- !Works TAIL --%>
                     <div class="mt-3 pt-1 pb-3 border-top border-bottom">
                         <h1>Filter Category</h1>
-<%-- TAG HEAD --%>
+                        <%-- TAG HEAD --%>
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="customCheck1" onclick="filterSelection('cars')">
                             <label class="custom-control-label" for="customCheck1">Type 1</label>
@@ -100,7 +100,7 @@
                             <input type="checkbox" class="custom-control-input" id="customCheck4" onclick="filterSelection('cars')">
                             <label class="custom-control-label" for="customCheck4">Type 4</label>
                         </div>
-<%-- TAG TAIL --%>
+                        <%-- TAG TAIL --%>
                     </div>
                 </div>
                 <div class="modal fade " id="model" role="dialog">
@@ -125,10 +125,10 @@
                                             </div>
                                             <img class="card-img-top" src="https://semantic-ui.com/images/wireframe/image.png" alt="Card image cap">
                                             <div class="card-body">
-<%-- Interest HEAD --%>
+                                                <%-- Interest HEAD --%>
                                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                                 <button type="button" class="btn btn-primary">Interested</button>
-<%-- Interest TAIL --%>
+                                                <%-- Interest TAIL --%>
                                             </div>
                                         </div>
                                     </div>
@@ -152,7 +152,7 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-12">
-<%-- X HEAD --%>                        <form class="was-validated">
+                                        <%-- X HEAD --%>                        <form class="was-validated">
                                             <div class="form-group">
                                                 <label for="title" class="col-form-label">Title:</label>
                                                 <input type="text" class="form-control" id="post-title" placeholder="exemple" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required>
@@ -166,7 +166,7 @@
                                             <div class="float-right">
                                                 <button type="button" class="btn btn-success btn-lg">Post</button>
                                             </div>
-<%-- X TAIL --%>                        </form>
+                                            <%-- X TAIL --%>                        </form>
                                     </div>
                                 </div>
                             </div>

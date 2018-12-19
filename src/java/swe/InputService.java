@@ -40,7 +40,7 @@ public class InputService {
                 && checkMaxNumber(value, max);
     }
 
-    public boolean verifyNumber(String value, int min, int max) {
+    public boolean verifyNumber(String value, double min, double max) {
         return !checkVoidString(value)
                 && verifyNumber(Double.parseDouble(value), min, max);
     }

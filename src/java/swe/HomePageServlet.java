@@ -1,4 +1,6 @@
-package swe.auth;
+package swe;
+
+import com.google.cloud.firestore.Firestore;
 
 import java.io.IOException;
 
@@ -7,14 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import swe.model.WorkList;
+import swe.referenceinfo.MainDatabaseReferenceInfo;
+import swe.referenceinfo.ServletReferenceInfo;
+import swe.referenceinfo.SessionReferenceInfo;
 import swe.referenceinfo.WebPageReferenceInfo;
 
 /**
  *
  * @author Ben
  */
-public class SignOutServlet extends HttpServlet {
+public class HomePageServlet extends HttpServlet {
 
+    private final String REQ_WORKLIST = "works";
+
+    private final MainDatabaseReferenceInfo dbRef = MainDatabaseReferenceInfo.getMainDatabaseReferenceInfo();
+    private final ServletReferenceInfo svlRef = ServletReferenceInfo.getsServletReferenceInfo();
+    private final SessionReferenceInfo sesRef = SessionReferenceInfo.getSessionReferenceInfo();
     private final WebPageReferenceInfo pageRef = WebPageReferenceInfo.getWebPageReferenceInfo();
 
     /**
@@ -28,8 +39,17 @@ public class SignOutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getSession().invalidate();
-        response.sendRedirect(pageRef.getWelcome());
+
+        if (request.getSession().getAttribute(sesRef.getUser()) == null) {
+            response.sendRedirect(svlRef.getSignIn());
+            return;
+        }
+
+        // Get database
+        Firestore db = (Firestore) request.getServletContext().getAttribute(dbRef.getDatabase());
+        WorkList wl = new WorkList(db);
+        request.setAttribute(REQ_WORKLIST, wl.getList());
+        request.getRequestDispatcher(pageRef.getHome()).forward(request, response);
     }
 
     /**
@@ -43,8 +63,7 @@ public class SignOutServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getSession().invalidate();
-        response.sendRedirect(pageRef.getWelcome());
+
     }
 
     /**
@@ -54,7 +73,7 @@ public class SignOutServlet extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "A servlet for handle user sign out request";
+        return "Short description";
     }
 
 }

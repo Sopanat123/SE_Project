@@ -1,4 +1,4 @@
-package swe.auth;
+package swe;
 
 import java.io.IOException;
 
@@ -7,15 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import swe.referenceinfo.WebPageReferenceInfo;
-
 /**
  *
  * @author Ben
  */
-public class SignOutServlet extends HttpServlet {
-
-    private final WebPageReferenceInfo pageRef = WebPageReferenceInfo.getWebPageReferenceInfo();
+public class MyWorkServlet extends HttpServlet {
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -28,8 +24,6 @@ public class SignOutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getSession().invalidate();
-        response.sendRedirect(pageRef.getWelcome());
     }
 
     /**
@@ -43,8 +37,6 @@ public class SignOutServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getSession().invalidate();
-        response.sendRedirect(pageRef.getWelcome());
     }
 
     /**
@@ -54,7 +46,7 @@ public class SignOutServlet extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "A servlet for handle user sign out request";
+        return "Short description";
     }
 
 }
