@@ -166,7 +166,7 @@
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                                <h5 class="modal-title" id="exampleModalLabel">Authentication Title</h5>
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
@@ -176,12 +176,11 @@
                                                                     <div class="col-lg-12">
                                                                         <form action="authentication" method="POST">
                                                                             <div class="form-group">
-                                                                                <label for="username" class="col-form-label">Username:</label>
-                                                                                <input type="text" name="username" class="form-control" id="in-username" placeholder="username" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
-
+                                                                                <label for="username" id="font-authen" class="col-form-label">ID Card:</label>
+                                                                                <input type="file" name="image" accept="image/*" class="custom-file-input" id="inputFile" onchange="myFunction()" form="edp"/>
                                                                                 <br>
-                                                                                <label for="password" class="col-form-label">Password:</label>
-                                                                                <input type="password" name="password" class="form-control" id="in-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
+                                                                                <label for="password" id="font-authen" class="col-form-label">Selfie with ID Card:</label>
+                                                                                <input type="file" name="image" accept="image/*" class="custom-file-input" id="inputFile" onchange="myFunction()" form="edp"/>
                                                                                 <br>
                                                                                 <button type="submit" id="confirm"class="btn btn-primary btn-lg">Confirm</button>
                                                                             </div>
