@@ -79,50 +79,118 @@
                     <button type="button" class="page-scroll btn btn-xl" data-toggle="modal" data-target="#signUp" id="sign-up">Registration</button>
                 </div>
             </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-stack-2x text-primary">
+                            <img src="assets/img/bath.png" style=" width: 75px; height: 75px;">
+                        </i>
+                        <i class="fa fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Extra Income</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-stack-2x text-primary">
+                            <img src="assets/img/tran.png" style=" width: 75px; height: 75px;">
+                        </i>
+
+                        <i class="fa fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Translate Content</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-stack-2x text-primary">
+                            <img src="assets/img/commu1.png" style=" width: 75px; height: 75px;">
+                        </i>
+                        <i class="fa fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Comunication</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+            </div>
         </header>
 
-        <!-- About Section -->
-        <section id="services">
+        <!-- Team Section -->
+        <section id="team" class="bg-light-gray">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">About US</h2>
+                        <h2 class="section-heading">Our Amazing Team</h2>
+                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                     </div>
                 </div>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fa fa-stack-2x text-primary">
-                                <img src="assets/img/bath.png" style=" width: 75px; height: 75px;">
-                            </i>
-                            <i class="fa fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="service-heading">Extra Income</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="team-member" >
+                            <img src="assets/img/team/ben.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                            <h4>Benja Supoj</h4>
+                            <p class="text-muted">Back-End</p>
+                            <ul class="list-inline social-buttons">
+                                <li><a target="_blank" href="https://www.facebook.com/ben.supoj"><i class="fa fa-facebook" id="tweet" ></i></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fa fa-stack-2x text-primary">
-                                <img src="assets/img/tran.png" style=" width: 75px; height: 75px;">
-                            </i>
-
-                            <i class="fa fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="service-heading">Translate Content</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <div class="col-sm-4">
+                        <div class="team-member">
+                            <img src="assets/img/team/tung.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                            <h4>Sopanat Sinthusonthishat</h4>
+                            <p class="text-muted">Front-End / Design </p>
+                            <ul class="list-inline social-buttons">
+                                <li><a target="_blank" href="https://www.facebook.com/sopanat.sinthusonthshat"><i class="fa fa-facebook" id="tweet"></i></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fa fa-stack-2x text-primary">
-                                <img src="assets/img/commu1.png" style=" width: 75px; height: 75px;">
-                            </i>
-                            <i class="fa fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="service-heading">Comunication</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <div class="col-sm-4">
+                        <div class="team-member" >
+                            <img src="assets/img/team/pim.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                            <h4>Pimpavee urattanamanee</h4>
+                            <p class="text-muted">Design</p>
+                            <ul class="list-inline social-buttons">
+                                <li><a target="_blank" href="https://www.facebook.com/profile.php?id=100011635459721"><i class="fa fa-facebook" id="tweet"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="team-member">
+                            <img src="assets/img/team/kon2.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                            <h4>Kornasak Wongjinda</h4>
+                            <p class="text-muted">Front-End</p>
+                            <ul class="list-inline social-buttons">
+                                <li><a target="_blank" href="https://www.facebook.com/korndva"><i class="fa fa-facebook" id="tweet"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="team-member">
+                            <img src="assets/img/team/a.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                            <h4>Kitthanet Methithawiphithak</h4>
+                            <p class="text-muted">Front-End</p>
+                            <ul class="list-inline social-buttons">
+                                <li><a target="_blank" href="https://m.facebook.com/a.11958"><i class="fa fa-facebook" id="tweet"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="team-member">
+                            <img src="assets/img/team/pond2.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                            <h4>Pornchanok Imong </h4>
+                            <p class="text-muted">Design</p>
+                            <ul class="list-inline social-buttons">
+                                <li><a target="_blank" href="https://www.facebook.com/filckr"><i class="fa fa-facebook" id="tweet"></i></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
         </section>
 
         <!-- Team Section -->
