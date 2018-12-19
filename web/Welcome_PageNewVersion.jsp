@@ -150,7 +150,7 @@
                     <div class="team-member">
                         <img src="assets/img/team/tung.jpg" class="img-responsive img-circle" alt="" id ="team-member">
                         <h4>Sopanat Sinthusonthishat</h4>
-                        <p class="text-muted">Front-End / Design / Back-End/ Project Manager</p>
+                        <p class="text-muted">Front-End / Design </p>
                         <ul class="list-inline social-buttons">
                             <li><a target="_blank" href="https://www.facebook.com/sopanat.sinthusonthshat"><i class="fa fa-facebook" id="tweet"></i></a>
                             </li>
