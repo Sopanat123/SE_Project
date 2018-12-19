@@ -136,91 +136,67 @@
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="assets/img/team/1.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Kay Garland</h4>
-                        <p class="text-muted">Lead Designer</p>
+                    <div class="team-member" >
+                        <img src="assets/img/team/ben.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                        <h4>Benja Supoj</h4>
+                        <p class="text-muted">Back-End</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter" id="tweet"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook" id="tweet"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin" id="tweet"></i></a>
+                            <li><a target="_blank" href="https://www.facebook.com/ben.supoj"><i class="fa fa-facebook" id="tweet" ></i></a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="assets/img/team/2.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Larry Parker</h4>
-                        <p class="text-muted">Lead Marketer</p>
+                        <img src="assets/img/team/tung.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                        <h4>Sopanat Sinthusonthishat</h4>
+                        <p class="text-muted">Front-End / Design / Back-End/ Project Manager</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter" id="tweet"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook" id="tweet"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin" id="tweet"></i></a>
+                            <li><a target="_blank" href="https://www.facebook.com/sopanat.sinthusonthshat"><i class="fa fa-facebook" id="tweet"></i></a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="team-member">
-                        <img src="assets/img/team/3.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
+                    <div class="team-member" >
+                        <img src="assets/img/team/pim.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                        <h4>Pimpavee urattanamanee</h4>
+                        <p class="text-muted">Design</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter" id="tweet"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook" id="tweet"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin" id="tweet"></i></a>
+                            <li><a target="_blank" href="https://www.facebook.com/profile.php?id=100011635459721"><i class="fa fa-facebook" id="tweet"></i></a>
                             </li>
                         </ul>
                     </div>
                 </div>
                  <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="assets/img/team/3.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
+                        <img src="assets/img/team/kon2.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                        <h4>Kornasak Wongjinda</h4>
+                        <p class="text-muted">Front-End</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter" id="tweet"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook" id="tweet"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin" id="tweet"></i></a>
+                            <li><a target="_blank" href="https://www.facebook.com/korndva"><i class="fa fa-facebook" id="tweet"></i></a>
                             </li>
                         </ul>
                     </div>
                 </div>
                  <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="assets/img/team/3.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
+                        <img src="assets/img/team/a.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                        <h4>Kitthanet Methithawiphithak</h4>
+                        <p class="text-muted">Front-End</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter" id="tweet"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook" id="tweet"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin" id="tweet"></i></a>
+                            <li><a target="_blank" href="https://m.facebook.com/a.11958"><i class="fa fa-facebook" id="tweet"></i></a>
                             </li>
                         </ul>
                     </div>
                 </div>
                  <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="assets/img/team/3.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
+                        <img src="assets/img/team/pond2.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                        <h4>Pornchanok Imong </h4>
+                        <p class="text-muted">Design</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter" id="tweet"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook" id="tweet"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin" id="tweet"></i></a>
+                            <li><a target="_blank" href="https://www.facebook.com/filckr"><i class="fa fa-facebook" id="tweet"></i></a>
                             </li>
                         </ul>
                     </div>
