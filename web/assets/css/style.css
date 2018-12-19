@@ -1,0 +1,36 @@
+html, body {
+    width: 100%;
+    background-color: #f9f9f9;
+}
+
+#main { 
+    margin: 25px auto 25px auto;
+}
+
+#grid-container { 
+    margin: 25px auto 40px auto;
+}
+
+#grid-container > .grid-item {
+    padding: 5px;
+}
+
+.grid-item > .grid-inner {
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    padding: 15px;
+}
+
+.grid-inner > .profile-info {
+    margin-bottom: 10px;
+}
+
+.profile-img {
+    width: 64px;
+    height: 64px;
+}
+
+.work-item { 
+    border-bottom: 1px solid #eee;
+    padding: 10px 0 10px 0;
+}

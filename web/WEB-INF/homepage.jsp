@@ -1,230 +1,170 @@
 <%-- 
     Document   : homepage
     Created on : Oct 28, 2018, 6:28:12 PM
-    Author     : 58070001
+    Author     : 58070158
 --%>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/homepage.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-        <!--<link href="assets/css/all.min.css" rel="stylesheet">-->
-        <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
-        <!--<link href="assets/css/propeller.min.css" rel="stylesheet">-->
-        <script src="assets/js/jquery-3.3.1.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <title>Homepage</title>
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Title</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
 
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <%-- NAV HEAD --%> <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active ">
-                        <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="mywork">My Work</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="mywork" disabled>Doing Work</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="editprofile">Edit Profile</a>
-                    </li>
-                    <!--                    <form class="form-inline my-2 my-lg-0">
-                                            <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                                        </form>-->
-                    <%-- NAV TAIL --%> </ul>
-
-                <%-- 'signout' HEAD --%> <form action="signout" method="POST" class="form-inline my-2 my-lg-0 ml-5">
-                    <button class="btn btn-danger my-2 my-sm-0" type="submit">Sign Out</button>
-                    <%-- 'signout' TAIL --%> </form>
-            </div>
-        </nav>
-        <div class="container-fluid">
-            <div class="row height-100">
-                <div class="col-10 bg-danger pt-3 pl-3" id="post-zone">
-
-                    <div class="card-columns">
-                        <c:forEach var="work" items="${works}">
-                            <div class="card">
-                                <div class="card-header row">
-                                    <div class="col-2">
-                                        <img class="img-circle" src="${sessionScope.sesuser.image}"  width="40" height="40" alt="user img">
-                                    </div>
-                                    <div class="col-10">
-                                        <h3 class="car col-6">${work.title}</h3>
-                                        <small class="text-muted col-6">Posted ${work.created}</small>
-                                    </div>
-                                </div>
-                                <img class="card-img-top" src="${work.imgUrl}" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="card-text">${work.desc}</p>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#model">View</button>
-                                </div>
-                            </div>
-                        </c:forEach>
+<body>
+    <div id="main" class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">New Post</div>
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="email" class="form-control" id="title">
                     </div>
-                </div>
-                <div class="col-2 bg-info">
-                    <%-- !Works HEAD --%>
-                    <button type="button" class="mt-3 btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#newPost">New Post</button>
-                    <%-- !Works TAIL --%>
-                    <div class="mt-3 pt-1 pb-3 border-top border-bottom">
-                        <h1>Filter Category</h1>
-                        <%-- TAG HEAD --%>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck1" onclick="filterSelection('cars')">
-                            <label class="custom-control-label" for="customCheck1">Type 1</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck2" onclick="filterSelection('cars')">
-                            <label class="custom-control-label" for="customCheck2">Type 2</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck3" onclick="filterSelection('cars')">
-                            <label class="custom-control-label" for="customCheck3">Type 3</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck4" onclick="filterSelection('cars')">
-                            <label class="custom-control-label" for="customCheck4">Type 4</label>
-                        </div>
-                        <%-- TAG TAIL --%>
+                    <div class="form-group">
+                        <label for="desc">Description</label>
+                        <textarea name="desc" class="form-control" rows="4"></textarea>
                     </div>
-                </div>
-                <div class="modal fade " id="model" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title model-center welcome-text">Title</h4>
-                                <button type="button" class="close fmargin" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <div class="card">
-                                            <div class="card-header row no-margin">
-                                                <div class="col-3 no-pl">
-                                                    <img class="img-circle" src="http://semantic-ui.com/images/avatar/large/elliot.jpg"  width="40" height="40" alt="user img">
-                                                </div>
-                                                <div class="col-9 no-pl">
-                                                    <h3 class="car">Card title</h3>
-                                                </div>
-                                            </div>
-                                            <img class="card-img-top" src="https://semantic-ui.com/images/wireframe/image.png" alt="Card image cap">
-                                            <div class="card-body">
-                                                <%-- Interest HEAD --%>
-                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                <button type="button" class="btn btn-primary">Interested</button>
-                                                <%-- Interest TAIL --%>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-8">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Modal -->
-                <div class="modal fade" id="newPost" role="dialog">
-                    <div class="modal-dialog modal-lg">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title model-center welcome-text">New Post</h4>
-                                <button type="button" class="close fmargin" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <%-- X HEAD --%>                        <form class="was-validated">
-                                            <div class="form-group">
-                                                <label for="title" class="col-form-label">Title:</label>
-                                                <input type="text" class="form-control" id="post-title" placeholder="exemple" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="description" class="col-4 no-pd-l col-form-label">Description:</label> 
-                                                <div class="col-12 no-pl">
-                                                    <textarea id="info" name="description" placeholder="exemple" cols="40" rows="4" class="form-control" required></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="float-right">
-                                                <button type="button" class="btn btn-success btn-lg">Post</button>
-                                            </div>
-                                            <%-- X TAIL --%>                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <button type="submit" class="btn btn-default">Post</button>
+                </form>
             </div>
         </div>
-        <script>
-//            filterSelection("all")
-//            function filterSelection(c) {
-//                var x, i;
-//                x = document.getElementsByClassName("filterDiv");
-//                if (c == "all")
-//                    c = "";
-//                // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-//                for (i = 0; i < x.length; i++) {
-//                    w3RemoveClass(x[i], "show");
-//                    if (x[i].className.indexOf(c) > -1)
-//                        w3AddClass(x[i], "show");
-//                }
-//            }
-//
-//// Show filtered elements
-//            function w3AddClass(element, name) {
-//                var i, arr1, arr2;
-//                arr1 = element.className.split(" ");
-//                arr2 = name.split(" ");
-//                for (i = 0; i < arr2.length; i++) {
-//                    if (arr1.indexOf(arr2[i]) == -1) {
-//                        element.className += " " + arr2[i];
-//                    }
-//                }
-//            }
-//
-//// Hide elements that are not selected
-//            function w3RemoveClass(element, name) {
-//                var i, arr1, arr2;
-//                arr1 = element.className.split(" ");
-//                arr2 = name.split(" ");
-//                for (i = 0; i < arr2.length; i++) {
-//                    while (arr1.indexOf(arr2[i]) > -1) {
-//                        arr1.splice(arr1.indexOf(arr2[i]), 1);
-//                    }
-//                }
-//                element.className = arr1.join(" ");
-//            }
-//
-//// Add active class to the current control button (highlight it)
-//            var btnContainer = document.getElementById("myBtnContainer");
-//            var btns = btnContainer.getElementsByClassName("btn");
-//            for (var i = 0; i < btns.length; i++) {
-//                btns[i].addEventListener("click", function () {
-//                    var current = document.getElementsByClassName("active");
-//                    current[0].className = current[0].className.replace(" active", "");
-//                    this.className += " active";
-//                });
-//            }
-        </script>
-    </body>
+    </div>
+
+    <div id="grid-container" class="container row">
+        <div class="grid-item col-sm-3">
+            <div class="grid-inner">
+                <div class="media profile-info">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object profile-img" src="assets/img/img.jpg" alt="profile">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Name Surname</h4>
+                        Posted: 12/05/2018 10:49
+                    </div>
+                </div>
+
+                <a href="#" class="thumbnail">
+                    <img src="assets/img/img.jpg" alt="post-image">
+                </a>
+                <button type="submit" class="btn btn-success">View</button>
+            </div>
+        </div>
+
+        <div class="grid-item col-sm-3">
+            <div class="grid-inner">
+                <div class="media profile-info">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object profile-img" src="assets/img/img.jpg" alt="profile">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Name Surname</h4>
+                        Posted: 12/05/2018 10:49
+                    </div>
+                </div>
+
+                <a href="#" class="thumbnail">
+                    <img src="assets/img/img.jpg" alt="post-image">
+                </a>
+                <button type="submit" class="btn btn-success">View</button>
+            </div>
+        </div>
+
+        <div class="grid-item col-sm-3">
+            <div class="grid-inner">
+                <div class="media profile-info">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object profile-img" src="assets/img/img.jpg" alt="profile">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Name Surname</h4>
+                        Posted: 12/05/2018 10:49
+                    </div>
+                </div>
+
+                <a href="#" class="thumbnail">
+                    <img src="assets/img/img.jpg" alt="post-image">
+                </a>
+                <button type="submit" class="btn btn-success">View</button>
+            </div>
+        </div>
+
+        <div class="grid-item col-sm-3">
+            <div class="grid-inner">
+                <div class="media profile-info">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object profile-img" src="assets/img/img.jpg" alt="profile">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Name Surname</h4>
+                        Posted: 12/05/2018 10:49
+                    </div>
+                </div>
+
+                <a href="#" class="thumbnail">
+                    <img src="assets/img/img.jpg" alt="post-image">
+                </a>
+                <button type="submit" class="btn btn-success">View</button>
+            </div>
+        </div>
+
+        <div class="grid-item col-sm-3">
+            <div class="grid-inner">
+                <div class="media profile-info">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object profile-img" src="assets/img/img.jpg" alt="profile">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Name Surname</h4>
+                        Posted: 12/05/2018 10:49
+                    </div>
+                </div>
+
+                <a href="#" class="thumbnail">
+                    <img src="assets/img/img.jpg" alt="post-image">
+                </a>
+                <button type="submit" class="btn btn-success">View</button>
+            </div>
+        </div>
+
+        <div class="grid-item col-sm-3">
+            <div class="grid-inner">
+                <div class="media profile-info">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object profile-img" src="assets/img/img.jpg" alt="profile">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Name Surname</h4>
+                        Posted: 12/05/2018 10:49
+                    </div>
+                </div>
+
+                <a href="#" class="thumbnail">
+                    <img src="assets/img/img.jpg" alt="post-image">
+                </a>
+                <button type="submit" class="btn btn-success">View</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
 </html>
