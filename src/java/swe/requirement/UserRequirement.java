@@ -27,7 +27,7 @@ public class UserRequirement {
     private final int emailMaxLength = 255;
 
     private final int phoneMinLength = 9;
-    private final int rphoneMaxLength = 10;
+    private final int phoneMaxLength = 10;
 
     private final int infoMinLength = 1;
     private final int infoMaxLength = 999;
@@ -94,8 +94,8 @@ public class UserRequirement {
         return phoneMinLength;
     }
 
-    public int getRphoneMaxLength() {
-        return rphoneMaxLength;
+    public int getPhoneMaxLength() {
+        return phoneMaxLength;
     }
 
     public int getInfoMinLength() {
