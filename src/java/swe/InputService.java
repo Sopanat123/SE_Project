@@ -25,7 +25,7 @@ public class InputService {
     }
 
     public final boolean verifyString(String string, int min, int max) {
-        return checkVoidString(string)
+        return !checkVoidString(string)
                 && checkMinLengthString(string, min)
                 && checkMaxLengthString(string, max);
     }
@@ -41,12 +41,16 @@ public class InputService {
     }
 
     public boolean verifyNumber(String value, int min, int max) {
-        return checkVoidString(value)
+        return !checkVoidString(value)
                 && verifyNumber(Double.parseDouble(value), min, max);
     }
 
+    /**
+     * @param string
+     * @return true if string is null or empty, false otherwise
+     */
     public boolean checkVoidString(String string) {
-        return !(string == null || string.isEmpty());
+        return string == null || string.isEmpty();
     }
 
     public boolean checkMinLengthString(String string, int min) {
