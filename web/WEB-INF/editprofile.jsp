@@ -102,7 +102,7 @@
                                     <div class="form-group">
                                         <label for="displayname" class="col-4 col-form-label" id="fill-profile">Display Name</label> 
                                         <div class="col-12">
-                                            <input id="displayname" name="displayname" placeholder="Please enter the correct display name." class="form-control here" type="text" pattern="[A-Za-z0-9]{8,25}" form="edp"/>                                        
+                                            <input id="displayname" name="displayname" placeholder="${user.displayname}" class="form-control here" type="text" pattern="[A-Za-z0-9]{8,25}" form="edp"/>                                        
                                             <br>
                                         </div>
                                         <div class="form-group">
@@ -114,25 +114,25 @@
                                             <div class="form-group">
                                                 <label for="email" class="col-4 col-form-label" id="fill-profile">Email</label> 
                                                 <div class="col-12">
-                                                    <input id="email" name="email" class="form-control here" placeholder="Please choose a email." type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" form="edp"/>
+                                                    <input id="email" name="email" class="form-control here" placeholder="${user.email}" type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" form="edp"/>
                                                     <br>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="phone" class="col-4 col-form-label" id="fill-profile">Phone</label> 
                                                     <div class="col-12">
-                                                        <input id="phone" name="phone" class="form-control here" placeholder="Please choose a phone number." type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" form="edp"/>
+                                                        <input id="phone" name="phone" class="form-control here" placeholder="${user.phone}" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" form="edp"/>
                                                         <br>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="publicinfo" class="col-4 col-form-label" id="fill-profile">Public Info</label> 
                                                         <div class="col-12">
-                                                            <textarea id="info" name="info" placeholder="explain youself" cols="40" rows="4" class="form-control" form="edp"></textarea>
+                                                            <textarea id="info" name="info" placeholder="${user.info}" cols="40" rows="4" class="form-control" form="edp"></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="tag" class="col-4 col-form-label" id="fill-profile">Tag</label> 
                                                         <div class="col-12">
-                                                            <input id="tag" name="tag" class="form-control here" placeholder="Please enter the correct tag." type="text" pattern="[a-zA-Z][A-Za-z0-9]{2,9}" form="edp"/>
+                                                            <input id="tag" name="tag" class="form-control here" placeholder="${user.tag}" type="text" pattern="[a-zA-Z][A-Za-z0-9]{2,9}" form="edp"/>
                                                             <br>
                                                         </div>
                                                         <div class="form-group text-center">

@@ -223,7 +223,7 @@
                                     <!-- 'sign up' HEAD -->       
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <form action="signup" method="POST">
+                                            <form action="signup" method="POST" id="sup">
                                                 <div class="form-group col-lg-12">
                                                     <div class="row">
                                                         <label for="firstname" class="col-form-label">First name:</label>
@@ -291,7 +291,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                            <button type="submit" class="btn btn-primary" form="sup">Save changes</button>
                                         </div>
                                     </div>
                                 </div>
