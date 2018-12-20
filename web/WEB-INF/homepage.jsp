@@ -39,7 +39,7 @@
 
     <body>
         <!-- Navigation -->
-        <nav id="mainNav" class="navbar navbar-default navbar-custom ">
+        <nav id="mainNav" class="navbar navbar-default navbar-custom">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header page-scroll">
@@ -56,19 +56,14 @@
                             <a class="nav-link" id="nav-item-edit" href="home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="nav-item-edit" href="mywork">My Work</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" id="nav-item-edit" href="mywork">Doing Work</a>
+                            <a class="nav-link" id="nav-item-edit" href="mywork">My Tasks</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" id="nav-item-edit" href="editprofile">Edit Profile</a>
                         </li>
                         <!-- Sign OUT -->
-                        <li class="nav-item" >
-                            <form action="signout" method="POST" class="form-inline my-2 my-lg-0 ml-5">
-                                <button class="btn btn-danger my-2 my-sm-0" type="submit">Sign Out</button>
-                            </form>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-danger" id="nav-item-edit" role="button" href="signout">Sign Out</a>
                         </li>
                     </ul>
                 </div>
@@ -128,10 +123,62 @@
                                 </c:otherwise>
                             </c:choose>
                         </a>
-                        <button type="submit" class="btn btn-success">View</button>
+                        <!-- Button trigger modal -->
+                        <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">View</button>
                     </div>
                 </div>
             </c:forEach>
+        </div>
+        <!-- modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Detail Content</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+<form>
+          <div class="form-group">
+            <label  class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="Title" placeholder="หัวข้อ"/s>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">From language:</label>
+            <textarea class="form-control" id="message-text" placeholder="ภาษาต้นฉับบ"></textarea>
+          </div>
+    <div class="form-group">
+            <label for="message-text" class="col-form-label">To language:</label>
+            <textarea class="form-control" id="message-text" placeholder="ภาษาที่ต้องการให้แปล"></textarea>
+          </div>
+    <div class="form-group">
+            <label for="message-text" class="col-form-label">Description:</label>
+            <textarea class="form-control" id="message-text" placeholder="รายละเอียดเพิ่มเติม เช่น ขอแบบผ่านการเกลาคำไม่จำเป็นต้องแปลตรงตัว"></textarea>
+          </div>
+    <div class="form-group">
+            <label for="message-text" class="col-form-label">Tag:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+    <div class="form-group">
+            <label for="message-text" class="col-form-label">Deadline:</label>
+            <textarea class="form-control" id="message-text" placeholder="ส่งภายในวันที่"></textarea>
+          </div>
+    <div class="form-group">
+            <label for="message-text" class="col-form-label">Price:</label>
+            <textarea class="form-control" id="message-text" placeholder="ราคา"></textarea>
+          </div>
+    
+        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Accept</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script src="assets/js/jquery-3.3.1.min.js"></script>
