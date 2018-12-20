@@ -12,10 +12,10 @@ public class UserRequirement {
     private final int usernameMaxLength = 25;
 
     private final int passwordMinLength = 8;
-    private final int passwordMaxLength = 30;
+    private final int passwordMaxLength = 25;
 
     private final int displaynameMinLength = 5;
-    private final int displaynameMaxLength = 20;
+    private final int displaynameMaxLength = 30;
 
     private final int firstnameMinLength = 1;
     private final int firstnameMaxLength = 255;
@@ -26,8 +26,8 @@ public class UserRequirement {
     private final int emailMinLength = 5;
     private final int emailMaxLength = 255;
 
-    private final int phoneMinLength = 9;
-    private final int phoneMaxLength = 10;
+    private final int phoneMinLength = 8;
+    private final int phoneMaxLength = 15;
 
     private final int infoMinLength = 1;
     private final int infoMaxLength = 999;

@@ -29,7 +29,6 @@ import swe.referenceinfo.ServletReferenceInfo;
 import swe.referenceinfo.UserDatabaseReferenceInfo;
 import swe.referenceinfo.UserWebReferenceInfo;
 import swe.referenceinfo.WebPageReferenceInfo;
-import swe.requirement.GeneralRequirement;
 import swe.requirement.UserRequirement;
 
 /**
@@ -40,13 +39,12 @@ public class SignUpServlet extends HttpServlet {
 
     private final InputService isv = InputService.getService();
     private final MainDatabaseReferenceInfo dbRef = MainDatabaseReferenceInfo.getMainDatabaseReferenceInfo();
-    private final ServletReferenceInfo svlRef = ServletReferenceInfo.getsServletReferenceInfo();
+    private final ServletReferenceInfo svlRef = ServletReferenceInfo.getServletReferenceInfo();
     private final SessionReferenceInfo sesRef = SessionReferenceInfo.getSessionReferenceInfo();
     private final UserDatabaseReferenceInfo uDbRef = UserDatabaseReferenceInfo.getUserDatabaseReferenceInfo();
     private final UserWebReferenceInfo uWebRef = UserWebReferenceInfo.getUserWebReferenceInfo();
     private final WebPageReferenceInfo pageRef = WebPageReferenceInfo.getWebPageReferenceInfo();
 
-    private final GeneralRequirement gReq = GeneralRequirement.getGeneralRequirement();
     private final UserRequirement uReq = UserRequirement.getUserRequirement();
 
     /**
@@ -96,12 +94,13 @@ public class SignUpServlet extends HttpServlet {
         String phone = request.getParameter(uWebRef.getPhone());
 
         // Check user input
-        if (isv.verifyString(username, uReq.getUsernameMinLength(), uReq.getUsernameMaxLength())
-                || isv.verifyString(password, uReq.getPasswordMinLength(), uReq.getPasswordMaxLength())
-                || isv.verifyString(firstname, uReq.getFirstnameMinLength(), uReq.getFirstnameMaxLength())
-                || isv.verifyString(lastname, uReq.getLastnameMinLength(), uReq.getLastnameMaxLength())
-                || isv.verifyString(email, uReq.getEmailMinLength(), uReq.getEmailMaxLength())
-                || isv.verifyString(phone, uReq.getPhoneMinLength(), uReq.getPhoneMaxLength())) {
+        if (!isv.verifyString(username, uReq.getUsernameMinLength(), uReq.getUsernameMaxLength())
+                || !isv.verifyString(password, uReq.getPasswordMinLength(), uReq.getPasswordMaxLength())
+                || !isv.verifyString(firstname, uReq.getFirstnameMinLength(), uReq.getFirstnameMaxLength())
+                || !isv.verifyString(lastname, uReq.getLastnameMinLength(), uReq.getLastnameMaxLength())
+                || !isv.verifyString(email, uReq.getEmailMinLength(), uReq.getEmailMaxLength())
+                || !isv.verifyString(phone, uReq.getPhoneMinLength(), uReq.getPhoneMaxLength())) {
+            request.getRequestDispatcher(pageRef.getWelcome()).forward(request, response);
             return;
         }
 
@@ -139,6 +138,7 @@ public class SignUpServlet extends HttpServlet {
             map.put(uDbRef.getDocImage(), uDbRef.getAttDefProImage());
             map.put(uDbRef.getDocCreateTime(), FieldValue.serverTimestamp());
             map.put(uDbRef.getDocPrivilege(), uDbRef.getAttPrivilegeMember());
+            map.put(uDbRef.getDocCoin(), uDbRef.getAttDefCoin());
 
             // Add map into users collection, using username as key value
             // Username already set to be the document id
@@ -152,6 +152,7 @@ public class SignUpServlet extends HttpServlet {
             user.setEmail(email);
             user.setPhone(phone);
             user.setImage(uDbRef.getAttDefProImage());
+            user.setCoin(uDbRef.getAttDefCoin());
             user.setPrivilege(uDbRef.getAttPrivilegeMember());
             request.getSession().setAttribute(sesRef.getUser(), user);
 

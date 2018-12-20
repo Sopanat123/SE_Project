@@ -1,10 +1,14 @@
 package swe.auth;
 
+import com.google.cloud.Timestamp;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,9 +33,11 @@ import swe.referenceinfo.UserWebReferenceInfo;
  */
 public class SignInServlet extends HttpServlet {
 
+    private final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
     private final InputService isv = InputService.getService();
     private final MainDatabaseReferenceInfo dbRef = MainDatabaseReferenceInfo.getMainDatabaseReferenceInfo();
-    private final ServletReferenceInfo svlRef = ServletReferenceInfo.getsServletReferenceInfo();
+    private final ServletReferenceInfo svlRef = ServletReferenceInfo.getServletReferenceInfo();
     private final SessionReferenceInfo sesRef = SessionReferenceInfo.getSessionReferenceInfo();
     private final UserDatabaseReferenceInfo uDbRef = UserDatabaseReferenceInfo.getUserDatabaseReferenceInfo();
     private final UserWebReferenceInfo uWebRef = UserWebReferenceInfo.getUserWebReferenceInfo();
@@ -107,6 +113,11 @@ public class SignInServlet extends HttpServlet {
                     user.setPrivilege(doc.getString(uDbRef.getDocPrivilege()));
                     user.setInfo(doc.getString(uDbRef.getDocInfo()));
                     user.setTag(doc.getString(uDbRef.getDocTag()));
+                    user.setCoin(doc.getDouble(uDbRef.getDocCoin()));
+
+                    Date date = (Date) doc.get(uDbRef.getDocCreateTime());
+                    user.setCreate(df.format(date));
+
                     request.getSession().setAttribute(sesRef.getUser(), user);
                     response.sendRedirect(svlRef.getHome());
                 } else {

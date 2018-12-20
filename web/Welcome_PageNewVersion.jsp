@@ -80,261 +80,263 @@
                 </div>
             </div>
         </header>
-             <!-- About Section -->
-            <section id="services">
-                <div clasa="container">
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <h2 class="section-heading" id="aboutus">About Us</h2>
-                        </div>
-                    </div>
-            <div class="row text-center">
-                <div class="col-md-4" id="about2">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-stack-2x text-primary">
-                            <img src="assets/img/bath.png" style=" width: 75px; height: 75px;">
-                        </i>
-                        <i class="fa fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Extra Income</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4" id="about2">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-stack-2x text-primary">
-                            <img src="assets/img/tran.png" style=" width: 75px; height: 75px;">
-                        </i>
-
-                        <i class="fa fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Translate Content</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4" id="about2">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-stack-2x text-primary">
-                            <img src="assets/img/commu1.png" style=" width: 75px; height: 75px;">
-                        </i>
-                        <i class="fa fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Comunication</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-            </div>
-                    
-                
-        <!-- Team Section -->
-        <section id="team" class="bg-light-gray">
+        <!-- About Section -->
+        <section id="services">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Our Amazing Team</h2>
-                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                        <h2 class="section-heading" id="aboutus">About Us</h2>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="team-member" >
-                            <img src="assets/img/team/ben.jpg" class="img-responsive img-circle" alt="" id ="team-member">
-                            <h4>Benja Supoj</h4>
-                            <p class="text-muted">Front-End / Design /Back-End</p>
-                            <ul class="list-inline social-buttons">
-                                <li><a target="_blank" href="https://www.facebook.com/ben.supoj"><i class="fa fa-facebook" id="tweet" ></i></a>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="row text-center">
+                    <div class="col-md-4" id="about2">
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-stack-2x text-primary">
+                                <img src="assets/img/bath.png" style=" width: 75px; height: 75px;">
+                            </i>
+                            <i class="fa fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">Extra Income</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="team-member">
-                            <img src="assets/img/team/tung.jpg" class="img-responsive img-circle" alt="" id ="team-member">
-                            <h4>Sopanat Sinthusonthishat</h4>
-                            <p class="text-muted">Front-End / Design /Back-End</p>
-                            <ul class="list-inline social-buttons">
-                                <li><a target="_blank" href="https://www.facebook.com/sopanat.sinthusonthshat"><i class="fa fa-facebook" id="tweet"></i></a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="col-md-4" id="about2">
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-stack-2x text-primary">
+                                <img src="assets/img/tran.png" style=" width: 75px; height: 75px;">
+                            </i>
+
+                            <i class="fa fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">Translate Content</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="team-member" >
-                            <img src="assets/img/team/pim.jpg" class="img-responsive img-circle" alt="" id ="team-member">
-                            <h4>Pimpavee urattanamanee</h4>
-                            <p class="text-muted">Design</p>
-                            <ul class="list-inline social-buttons">
-                                <li><a target="_blank" href="https://www.facebook.com/profile.php?id=100011635459721"><i class="fa fa-facebook" id="tweet"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="team-member">
-                            <img src="assets/img/team/kon2.jpg" class="img-responsive img-circle" alt="" id ="team-member">
-                            <h4>Kornasak Wongjinda</h4>
-                            <p class="text-muted">Front-End</p>
-                            <ul class="list-inline social-buttons">
-                                <li><a target="_blank" href="https://www.facebook.com/korndva"><i class="fa fa-facebook" id="tweet"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="team-member">
-                            <img src="assets/img/team/a.jpg" class="img-responsive img-circle" alt="" id ="team-member">
-                            <h4>Kitthanet Methithawiphithak</h4>
-                            <p class="text-muted">Front-End</p>
-                            <ul class="list-inline social-buttons">
-                                <li><a target="_blank" href="https://m.facebook.com/a.11958"><i class="fa fa-facebook" id="tweet"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="team-member">
-                            <img src="assets/img/team/pond2.jpg" class="img-responsive img-circle" alt="" id ="team-member">
-                            <h4>Pornchanok Imong </h4>
-                            <p class="text-muted">Design</p>
-                            <ul class="list-inline social-buttons">
-                                <li><a target="_blank" href="https://www.facebook.com/filckr"><i class="fa fa-facebook" id="tweet"></i></a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="col-md-4" id="about2">
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-stack-2x text-primary">
+                                <img src="assets/img/commu1.png" style=" width: 75px; height: 75px;">
+                            </i>
+                            <i class="fa fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">Comunication</h4>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                     </div>
                 </div>
-        </section>
 
-         <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <span class="copyright">Copyright &copy; Your Website 2018</span>
-                    </div>
 
-                    <!-- Model: SignUP -->
-                    <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Registration</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>   
-                                <div id="modal-body" class="modal-body">
-                                    <!-- 'sign up' HEAD -->       
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <form action="signup" method="POST">
-                                                <div class="form-group col-lg-12">
-                                                    <div class="row">
-                                                        <label for="firstname" class="col-form-label">First name:</label>
-                                                    </div>
-                                                    <div class="row ">
-                                                        <input type="text" name="firstname" class="col-7 form-control" id="out-fullname" placeholder="firstname" autocomplete="off" pattern="[A-Za-z0-9]{1,}" required/>
-                                                        <span class="col-1 text-center validity"></span>
-                                                    </div>
+                <!-- Team Section -->
+                <section id="team" class="bg-light-gray">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <h2 class="section-heading">Our Amazing Team</h2>
+                                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="team-member" >
+                                    <img src="assets/img/team/ben.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                                    <h4>Benja Supoj</h4>
+                                    <p class="text-muted">Front-End / Design /Back-End</p>
+                                    <ul class="list-inline social-buttons">
+                                        <li><a target="_blank" href="https://www.facebook.com/ben.supoj"><i class="fa fa-facebook" id="tweet" ></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="team-member">
+                                    <img src="assets/img/team/tung.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                                    <h4>Sopanat Sinthusonthishat</h4>
+                                    <p class="text-muted">Front-End / Design /Back-End</p>
+                                    <ul class="list-inline social-buttons">
+                                        <li><a target="_blank" href="https://www.facebook.com/sopanat.sinthusonthshat"><i class="fa fa-facebook" id="tweet"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="team-member" >
+                                    <img src="assets/img/team/pim.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                                    <h4>Pimpavee urattanamanee</h4>
+                                    <p class="text-muted">Design</p>
+                                    <ul class="list-inline social-buttons">
+                                        <li><a target="_blank" href="https://www.facebook.com/profile.php?id=100011635459721"><i class="fa fa-facebook" id="tweet"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="team-member">
+                                    <img src="assets/img/team/kon2.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                                    <h4>Kornasak Wongjinda</h4>
+                                    <p class="text-muted">Front-End</p>
+                                    <ul class="list-inline social-buttons">
+                                        <li><a target="_blank" href="https://www.facebook.com/korndva"><i class="fa fa-facebook" id="tweet"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="team-member">
+                                    <img src="assets/img/team/a.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                                    <h4>Kitthanet Methithawiphithak</h4>
+                                    <p class="text-muted">Front-End</p>
+                                    <ul class="list-inline social-buttons">
+                                        <li><a target="_blank" href="https://m.facebook.com/a.11958"><i class="fa fa-facebook" id="tweet"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="team-member">
+                                    <img src="assets/img/team/pond2.jpg" class="img-responsive img-circle" alt="" id ="team-member">
+                                    <h4>Pornchanok Imong </h4>
+                                    <p class="text-muted">Design</p>
+                                    <ul class="list-inline social-buttons">
+                                        <li><a target="_blank" href="https://www.facebook.com/filckr"><i class="fa fa-facebook" id="tweet"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+
+                <footer>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <span class="copyright">Copyright &copy; Your Website 2018</span>
+                            </div>
+
+                            <!-- Model: SignUP -->
+                            <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Registration</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>   
+                                        <div id="modal-body" class="modal-body">
+                                            <!-- 'sign up' HEAD -->       
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <form action="signup" method="POST" id="sup">
+                                                        <div class="form-group col-lg-12">
+                                                            <div class="row">
+                                                                <label for="firstname" class="col-form-label">First name:</label>
+                                                            </div>
+                                                            <div class="row ">
+                                                                <input type="text" name="firstname" class="col-7 form-control" id="out-fullname" placeholder="firstname" autocomplete="off" pattern="[A-Za-z0-9]{1,}" required/>
+                                                                <span class="col-1 text-center validity"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <div class="row">
+                                                                <label for="lastname" class="col-form-label">Last name:</label>
+                                                            </div>
+                                                            <div class="row pl-3 pr-3">
+                                                                <input type="text" name="lastname" class="col-11 form-control" id="out-lastname" placeholder="lastname" autocomplete="off" pattern="[A-Za-z0-9]{1,}" required/>
+                                                                <span class="col-1 text-center validity"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <div class="row">
+                                                                <label for="username" class="col-form-label">Username:</label>
+                                                            </div>
+                                                            <div class="row pl-3 pr-3">
+                                                                <input type="text" name="username" class="col-11 form-control" id="out-username" placeholder="username" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
+                                                                <span class="col-1 text-center validity"></span>
+                                                                <small id="usernameHelpBlock" class="form-text text-muted">
+                                                                    Your username must be 8-25 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <div class="row">
+                                                                <label for="password" class="col-form-label">Password:</label>
+                                                            </div>
+                                                            <div class="row pl-3 pr-3">
+                                                                <button class="col-1 btn btn-default" type="button" onmousedown="mouseDown()" onmouseup="mouseUp()">
+                                                                </button>
+                                                                <input type="password" name="password" class="col-10 form-control" id="out-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
+                                                                <span class="col-1 text-center validity"></span>
+                                                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                                                    Your password must be 8-25 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <div class="row">
+                                                                <label for="email" class="col-form-label">Email:</label>
+                                                            </div>
+                                                            <div class="row pl-3 pr-3">
+                                                                <input type="email" name="email" class="col-11 form-control" id="out-email" placeholder="example@mail.com" autocomplete="off" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required/>
+                                                                <span class="col-1 text-center validity"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <div class="row">
+                                                                <label for="phonenumber" class="col-form-label">Phone:</label>
+                                                            </div>
+                                                            <div class="row pl-3 pr-3">
+                                                                <input type="tel" name="phone" class="col-11 form-control" id="out-phone" placeholder="099-999-9999" autocomplete="off" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
+                                                                <span class="col-1 text-center validity"></span>
+                                                                <small id="phoneHelpBlock" class="form-text text-muted">
+                                                                    Your password must be 8-25 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                 </div>
-                                                <div class="form-group col-lg-12">
-                                                    <div class="row">
-                                                        <label for="lastname" class="col-form-label">Last name:</label>
-                                                    </div>
-                                                    <div class="row pl-3 pr-3">
-                                                        <input type="text" name="lastname" class="col-11 form-control" id="out-lastname" placeholder="lastname" autocomplete="off" pattern="[A-Za-z0-9]{1,}" required/>
-                                                        <span class="col-1 text-center validity"></span>
-                                                    </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary" form="sup">Save changes</button>
                                                 </div>
-                                                <div class="form-group col-lg-12">
-                                                    <div class="row">
-                                                        <label for="username" class="col-form-label">Username:</label>
-                                                    </div>
-                                                    <div class="row pl-3 pr-3">
-                                                        <input type="text" name="username" class="col-11 form-control" id="out-username" placeholder="username" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
-                                                        <span class="col-1 text-center validity"></span>
-                                                        <small id="usernameHelpBlock" class="form-text text-muted">
-                                                            Your username must be 8-25 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group col-lg-12">
-                                                    <div class="row">
-                                                        <label for="password" class="col-form-label">Password:</label>
-                                                    </div>
-                                                    <div class="row pl-3 pr-3">
-                                                        <button class="col-1 btn btn-default" type="button" onmousedown="mouseDown()" onmouseup="mouseUp()">
-                                                        </button>
-                                                        <input type="password" name="password" class="col-10 form-control" id="out-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
-                                                        <span class="col-1 text-center validity"></span>
-                                                        <small id="passwordHelpBlock" class="form-text text-muted">
-                                                            Your password must be 8-25 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group col-lg-12">
-                                                    <div class="row">
-                                                        <label for="email" class="col-form-label">Email:</label>
-                                                    </div>
-                                                    <div class="row pl-3 pr-3">
-                                                        <input type="email" name="email" class="col-11 form-control" id="out-email" placeholder="example@mail.com" autocomplete="off" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required/>
-                                                        <span class="col-1 text-center validity"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group col-lg-12">
-                                                    <div class="row">
-                                                        <label for="phonenumber" class="col-form-label">Phone:</label>
-                                                    </div>
-                                                    <div class="row pl-3 pr-3">
-                                                        <input type="tel" name="phone" class="col-11 form-control" id="out-phone" placeholder="099-999-9999" autocomplete="off" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
-                                                        <span class="col-1 text-center validity"></span>
-                                                        <small id="phoneHelpBlock" class="form-text text-muted">
-                                                            Your password must be 8-25 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                            </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Model: Log in -->
+                            <div class="modal fade" id="signIN" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Log IN</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <form action="signin" method="POST">
+                                                        <div class="form-group">
+                                                            <label for="username" class="col-form-label">Username:</label>
+                                                            <input type="text" name="username" class="form-control" id="in-username" placeholder="username" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
+
+                                                            <br>
+                                                            <label for="password" class="col-form-label">Password:</label>
+                                                            <input type="password" name="password" class="form-control" id="in-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
+                                                            <br>
+                                                            <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
+                                                        </div>
+                                                    </form>
+                                                    <!-- /.navbar-collapse -->
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Model: Log in -->
-                    <div class="modal fade" id="signIN" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Log IN</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <form action="signin" method="POST">
-                                                <div class="form-group">
-                                                    <label for="username" class="col-form-label">Username:</label>
-                                                    <input type="text" name="username" class="form-control" id="in-username" placeholder="username" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
-
-                                                    <br>
-                                                    <label for="password" class="col-form-label">Password:</label>
-                                                    <input type="password" name="password" class="form-control" id="in-password" placeholder="password" autocomplete="off" pattern="[A-Za-z0-9]{8,25}" required/>
-                                                    <br>
-                                                    <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
-                                                </div>
-                                            </form>
-                                            <!-- /.navbar-collapse -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </footer>
             </div>
-        </footer>
+        </section>
 
         <!-- jQuery -->
         <script src="assets/vendor/jquery/jquery.min.js"></script>
@@ -357,26 +359,26 @@
 </html>
 
 <script>
-                                                            function mouseDown() {
-                                                                document.getElementById("out-password").type = "text";
-                                                            }
-                                                            function mouseUp() {
-                                                                document.getElementById("out-password").type = "password";
-                                                            }
-                                                            function goSignUp() {
-                                                                document.getElementById("signUp").style.overflow = "auto";
-                                                            }
-                                                            //    $('div, #intro').load(
-                                                            //            function ()
-                                                            //            {
-                                                            //                $(this).addClass('.introafter');
-                                                            //            }
-                                                            //    );
-                                                            //    $(function () {
-                                                            //        var x = 0;
-                                                            //        setInterval(function () {
-                                                            //            x -= 1;
-                                                            //            $('.introafter').css('background-position', x + 'px 0');
-                                                            //        }, 10);
-                                                            //    })
+                                                                    function mouseDown() {
+                                                                        document.getElementById("out-password").type = "text";
+                                                                    }
+                                                                    function mouseUp() {
+                                                                        document.getElementById("out-password").type = "password";
+                                                                    }
+                                                                    function goSignUp() {
+                                                                        document.getElementById("signUp").style.overflow = "auto";
+                                                                    }
+                                                                    //    $('div, #intro').load(
+                                                                    //            function ()
+                                                                    //            {
+                                                                    //                $(this).addClass('.introafter');
+                                                                    //            }
+                                                                    //    );
+                                                                    //    $(function () {
+                                                                    //        var x = 0;
+                                                                    //        setInterval(function () {
+                                                                    //            x -= 1;
+                                                                    //            $('.introafter').css('background-position', x + 'px 0');
+                                                                    //        }, 10);
+                                                                    //    })
 </script>

@@ -22,6 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,15 +43,16 @@ import swe.requirement.UserRequirement;
  *
  * @author Ben
  */
+@MultipartConfig
 public class EditProfileServlet extends HttpServlet {
 
     private final String CLEAR = "CLEAR";
 
     private final InputService isv = InputService.getService();
     private final MainDatabaseReferenceInfo dbRef = MainDatabaseReferenceInfo.getMainDatabaseReferenceInfo();
-    private final SessionReferenceInfo sesRef = SessionReferenceInfo.getSessionReferenceInfo();
     private final MainStorageReferenceInfo strRef = MainStorageReferenceInfo.getMainStorageReferenceInfo();
-    private final ServletReferenceInfo svlRef = ServletReferenceInfo.getsServletReferenceInfo();
+    private final ServletReferenceInfo svlRef = ServletReferenceInfo.getServletReferenceInfo();
+    private final SessionReferenceInfo sesRef = SessionReferenceInfo.getSessionReferenceInfo();
     private final UserDatabaseReferenceInfo uDbRef = UserDatabaseReferenceInfo.getUserDatabaseReferenceInfo();
     private final UserWebReferenceInfo uWebRef = UserWebReferenceInfo.getUserWebReferenceInfo();
     private final WebPageReferenceInfo pageRef = WebPageReferenceInfo.getWebPageReferenceInfo();
@@ -90,6 +92,7 @@ public class EditProfileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        System.out.println("swe.profile.EditProfileServlet.doPost(ascaccsacacas)");
         // Get user from session
         swe.model.User user = (swe.model.User) request.getSession().getAttribute(sesRef.getUser());
 
@@ -106,8 +109,12 @@ public class EditProfileServlet extends HttpServlet {
         String phone = request.getParameter(uWebRef.getPhone());
         String info = request.getParameter(uWebRef.getInfo());
         Part image = request.getPart(uWebRef.getImage());
-        String imgName = Paths.get(image.getSubmittedFileName()).getFileName().toString();
         String tag = request.getParameter(uWebRef.getTag());
+
+        String imgName = "";
+        if (image != null) {
+            imgName = Paths.get(image.getSubmittedFileName()).getFileName().toString();
+        }
 
         // Web parameter flags
         boolean displaynameFlag = !isv.checkVoidString(displayname);
@@ -196,13 +203,13 @@ public class EditProfileServlet extends HttpServlet {
             }
             if (imageFlag) {
                 Bucket bk = (Bucket) request.getServletContext().getAttribute(strRef.getStorage());
-                String imgLink = strRef.getUrlGCS() + strRef.getUrlExtProfileImage() + user.getUsername() + "-" + imgName;
+                String imgLink = strRef.getUrlExtProfileImage() + user.getUsername() + "-" + imgName;
 
                 bk.getStorage().create(BlobInfo.newBuilder(bk.getName(), imgLink)
                         .setAcl(new ArrayList<>(Arrays.asList(Acl.of(Acl.User.ofAllUsers(), Acl.Role.READER))))
                         .build(), image.getInputStream());
 
-                map.put(uDbRef.getDocImage(), imgLink);
+                map.put(uDbRef.getDocImage(), strRef.getUrlGCS() + imgLink);
             }
             if (tagFlag) {
                 map.put(uDbRef.getDocTag(), tag);

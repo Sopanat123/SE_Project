@@ -16,6 +16,7 @@ public class Work {
     private String imgUrl;
     private String sampleUrl; // sample file
     private String fileUrl; // full file
+    private String cmpFileUrl; // complete file
     private String translator; // translator username, separate by comma (,) in auction phase
     private String status; // new - deal - completed
     private String deadline; // user define finish time
@@ -167,6 +168,14 @@ public class Work {
 
     public void setHidden(String hidden) {
         this.hidden = hidden;
+    }
+
+    public String getCmpFileUrl() {
+        return cmpFileUrl;
+    }
+
+    public void setCmpFileUrl(String cmpFileUrl) {
+        this.cmpFileUrl = cmpFileUrl;
     }
 
 }

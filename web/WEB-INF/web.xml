@@ -21,20 +21,20 @@
         <servlet-class>swe.profile.EditProfileServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AddWorkServlet</servlet-name>
-        <servlet-class>swe.AddWorkServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>HomePageServlet</servlet-name>
         <servlet-class>swe.HomePageServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>MyWorkServlet</servlet-name>
-        <servlet-class>swe.MyWorkServlet</servlet-class>
+        <servlet-name>BeTranslatorServlet</servlet-name>
+        <servlet-class>swe.profile.BeTranslatorServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>UserProfileServlet</servlet-name>
-        <servlet-class>swe.profile.UserProfileServlet</servlet-class>
+        <servlet-name>AddNewWorkServlet</servlet-name>
+        <servlet-class>swe.work.AddNewWorkServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MyWorkServlet</servlet-name>
+        <servlet-class>swe.work.MyWorkServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
@@ -53,20 +53,20 @@
         <url-pattern>/editprofile</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AddWorkServlet</servlet-name>
-        <url-pattern>/addwork</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>HomePageServlet</servlet-name>
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>MyWorkServlet</servlet-name>
-        <url-pattern>/mywork</url-pattern>
+        <servlet-name>BeTranslatorServlet</servlet-name>
+        <url-pattern>/betranslator</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UserProfileServlet</servlet-name>
-        <url-pattern>/user</url-pattern>
+        <servlet-name>AddNewWorkServlet</servlet-name>
+        <url-pattern>/addnewwork</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyWorkServlet</servlet-name>
+        <url-pattern>/mywork</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -75,6 +75,5 @@
     </session-config>
     <welcome-file-list>
         <welcome-file>Welcome_PageNewVersion.jsp</welcome-file>
-        <welcome-file>welcome.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

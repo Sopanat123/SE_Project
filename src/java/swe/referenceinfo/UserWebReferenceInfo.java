@@ -17,7 +17,8 @@ public class UserWebReferenceInfo {
     private final String phone = "phone";
     private final String image = "image";
     private final String info = "info";
-    private final String tag = "usertag";
+    private final String tag = "tag";
+    private final String coin = "coin";
     private final String idCardImage = "idcardimg";
     private final String idSelfieImage = "idselfieimg";
 
@@ -69,6 +70,10 @@ public class UserWebReferenceInfo {
 
     public String getTag() {
         return tag;
+    }
+
+    public String getCoin() {
+        return coin;
     }
 
     public String getIdCardImage() {

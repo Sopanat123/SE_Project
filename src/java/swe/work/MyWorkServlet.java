@@ -1,4 +1,4 @@
-package se.servlet;
+package swe.work;
 
 import java.io.IOException;
 
@@ -6,13 +6,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import swe.referenceinfo.ServletReferenceInfo;
+import swe.referenceinfo.SessionReferenceInfo;
+import swe.referenceinfo.WebPageReferenceInfo;
 
 /**
  *
  * @author Ben
  */
-public class UserProfileServlet extends HttpServlet {
-    
+public class MyWorkServlet extends HttpServlet {
+
+    private final ServletReferenceInfo svlRef = ServletReferenceInfo.getServletReferenceInfo();
+    private final SessionReferenceInfo sesRef = SessionReferenceInfo.getSessionReferenceInfo();
+    private final WebPageReferenceInfo pageRef = WebPageReferenceInfo.getWebPageReferenceInfo();
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -24,12 +31,13 @@ public class UserProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Get username from url */user/*username*
-        String pathUsername = request.getPathInfo();
-        
-        // Get database
-        
-        // Forward to user page
+
+        if (request.getSession().getAttribute(sesRef.getUser()) == null) {
+            response.sendRedirect(svlRef.getSignIn());
+            return;
+        }
+
+        request.getRequestDispatcher(pageRef.getMywork()).forward(request, response);
     }
 
     /**
@@ -52,6 +60,7 @@ public class UserProfileServlet extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "A servlet for manage content on userprofile.jsp";
+        return "Short description";
     }
+
 }

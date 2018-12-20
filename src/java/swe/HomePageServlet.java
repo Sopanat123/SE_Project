@@ -24,7 +24,7 @@ public class HomePageServlet extends HttpServlet {
     private final String REQ_WORKLIST = "works";
 
     private final MainDatabaseReferenceInfo dbRef = MainDatabaseReferenceInfo.getMainDatabaseReferenceInfo();
-    private final ServletReferenceInfo svlRef = ServletReferenceInfo.getsServletReferenceInfo();
+    private final ServletReferenceInfo svlRef = ServletReferenceInfo.getServletReferenceInfo();
     private final SessionReferenceInfo sesRef = SessionReferenceInfo.getSessionReferenceInfo();
     private final WebPageReferenceInfo pageRef = WebPageReferenceInfo.getWebPageReferenceInfo();
 

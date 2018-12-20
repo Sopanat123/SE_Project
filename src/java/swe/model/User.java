@@ -16,6 +16,9 @@ public class User {
     private String image;
     private String info;
     private String tag;
+    private double coin;
+    private String create;
+    private String verify;
 
     /**
      * Create user object, identify by username
@@ -104,5 +107,29 @@ public class User {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public double getCoin() {
+        return coin;
+    }
+
+    public void setCoin(double coin) {
+        this.coin = coin;
+    }
+
+    public String getCreate() {
+        return create;
+    }
+
+    public void setCreate(String create) {
+        this.create = create;
+    }
+
+    public String getVerify() {
+        return verify;
+    }
+
+    public void setVerify(String verify) {
+        this.verify = verify;
     }
 }

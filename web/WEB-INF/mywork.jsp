@@ -34,43 +34,44 @@
 
         <title>Homepage</title>
     </head>
-    <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-custom ">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Translator Marketplace</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right force-flex-middle">
-                    <li class="nav-item">
-                        <a class="nav-link" id="nav-item-edit" href="homepage.jsp">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="nav-item-edit" href="mywork">My Work</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="nav-item-edit" href="mywork" disabled>Doing Work</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" id="nav-item-edit" href="editprofile">Edit Profile</a>
-                    </li
-                    <!-- Sign OUT -->
-                    <li class="nav-item" >
-                        <form action="signout" method="POST" class="form-inline my-2 my-lg-0 ml-5">
-                            <button class="btn btn-danger my-2 my-sm-0" type="submit">Sign Out</button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-    </nav>
 
     <body>
+        <!-- Navigation -->
+        <nav id="mainNav" class="navbar navbar-default navbar-custom ">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top">Translator Marketplace</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right force-flex-middle">
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-item-edit" href="home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-item-edit" href="mywork">My Work</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-item-edit" href="mywork" >Doing Work</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" id="nav-item-edit" href="editprofile">Edit Profile</a>
+                        </li>
+                        <!-- Sign OUT -->
+                        <li class="nav-item" >
+                            <form action="signout" method="POST" class="form-inline my-2 my-lg-0 ml-5">
+                                <button class="btn btn-danger my-2 my-sm-0" type="submit">Sign Out</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+        </nav>
+
         <div id="main" class="container">
             <div>
 
@@ -209,18 +210,16 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
+
+        <script src="assets/js/jquery-3.3.1.min.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script>
+            $('#myTabs a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+        </script>
     </body>
-
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script>
-        $('#myTabs a').click(function (e) {
-            e.preventDefault()
-            $(this).tab('show')
-        })
-    </script>
-
 </html>

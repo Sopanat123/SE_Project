@@ -23,6 +23,7 @@ public class WorkDatabaseReferenceInfo {
     private final String docImage = "image";
     private final String docSample = "sample";
     private final String docFile = "file";
+    private final String docCmpFile = "cmpfile";
     private final String docPrice = "price";
     private final String docHidden = "hidden";
     private final String docStatus = "status";
@@ -97,6 +98,10 @@ public class WorkDatabaseReferenceInfo {
 
     public String getDocFile() {
         return docFile;
+    }
+
+    public String getDocCmpFile() {
+        return docCmpFile;
     }
 
     public String getDocPrice() {

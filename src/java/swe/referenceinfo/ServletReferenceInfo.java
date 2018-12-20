@@ -14,10 +14,15 @@ public class ServletReferenceInfo {
 
     private final String home = "home";
 
+    private final String editprofile = "editprofile";
+
+    private final String addNewWork = "addnewwork";
+    private final String myWork = "mywork";
+
     private ServletReferenceInfo() {
     }
 
-    public static ServletReferenceInfo getsServletReferenceInfo() {
+    public static ServletReferenceInfo getServletReferenceInfo() {
         if (servletReferenceInfo == null) {
             servletReferenceInfo = new ServletReferenceInfo();
         }
@@ -38,6 +43,18 @@ public class ServletReferenceInfo {
 
     public String getHome() {
         return home;
+    }
+
+    public String getEditprofile() {
+        return editprofile;
+    }
+
+    public String getAddNewWork() {
+        return addNewWork;
+    }
+
+    public String getMyWork() {
+        return myWork;
     }
 
 }

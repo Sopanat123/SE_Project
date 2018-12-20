@@ -9,7 +9,6 @@ import com.google.cloud.firestore.QuerySnapshot;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +16,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import swe.referenceinfo.UserDatabaseReferenceInfo;
+
 import swe.referenceinfo.WorkDatabaseReferenceInfo;
 
 /**
@@ -55,12 +54,12 @@ public class WorkList {
                 work.setTag((String) map.get(wDbRef.getDocTag()));
                 work.setImgUrl((String) map.get(wDbRef.getDocImage()));
                 work.setSampleUrl((String) map.get(wDbRef.getDocSample()));
-                if (map.get(wDbRef.getDocFile()) != null) {
-                    work.setFileUrl((String) map.get(wDbRef.getDocFile()));
-                }
                 work.setTranslator((String) map.get(wDbRef.getDocTranslator()));
                 work.setStatus((String) map.get(wDbRef.getDocStatus()));
                 work.setDeadline((String) map.get(wDbRef.getDocDeadline()));
+                work.setPrice((String) map.get(wDbRef.getDocPrice()));
+                work.setHidden((String) map.get(wDbRef.getDocHidden()));
+
                 Date cDate = (Date) map.get(wDbRef.getDocCreateTime());
                 work.setCreated(df.format(cDate));
                 if (map.get(wDbRef.getDocAcceptTime()) != null) {
@@ -71,8 +70,13 @@ public class WorkList {
                     Date fDate = (Date) map.get(wDbRef.getDocFinishTime());
                     work.setFinished(df.format(fDate));
                 }
-                work.setPrice((String) map.get(wDbRef.getDocPrice()));
-                work.setHidden((String) map.get(wDbRef.getDocHidden()));
+
+                if (map.get(wDbRef.getDocFile()) != null) {
+                    work.setFileUrl((String) map.get(wDbRef.getDocFile()));
+                }
+                if (map.get(wDbRef.getDocCmpFile()) != null) {
+                    work.setCmpFileUrl((String) map.get(wDbRef.getDocCmpFile()));
+                }
 
                 list.add(work);
             }

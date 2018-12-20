@@ -19,11 +19,12 @@ public class UserDatabaseReferenceInfo {
     private final String docLastname = "lastname";
     private final String docEmail = "email";
     private final String docPhone = "phone";
-    private final String docCreateTime = "create";
+    private final String docCreateTime = "created";
     private final String docPrivilege = "privilege";
     private final String docImage = "image";
     private final String docInfo = "info";
     private final String docTag = "tag";
+    private final String docCoin = "coin";
 
     // Additional for translator
     private final String docIdCard = "idcard";
@@ -31,8 +32,9 @@ public class UserDatabaseReferenceInfo {
     private final String docVerify = "verify";
     private final String docVerifyTime = "verifytime";
 
-    // Default profile image
-    private final String attDefProImage = "assets/def_pro_img.png";
+    // Default
+    private final String attDefProImage = "assets/img/avatar.png";
+    private final double attDefCoin = 0;
 
     // User privilege value
     private final String attPrivilegeMember = "member";
@@ -107,6 +109,10 @@ public class UserDatabaseReferenceInfo {
         return docTag;
     }
 
+    public String getDocCoin() {
+        return docCoin;
+    }
+
     public String getDocIdCard() {
         return docIdCard;
     }
@@ -125,6 +131,10 @@ public class UserDatabaseReferenceInfo {
 
     public String getAttDefProImage() {
         return attDefProImage;
+    }
+
+    public double getAttDefCoin() {
+        return attDefCoin;
     }
 
     public String getAttPrivilegeMember() {
