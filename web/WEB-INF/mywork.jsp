@@ -54,10 +54,8 @@
                             <a class="nav-link" id="nav-item-edit" href="home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="nav-item-edit" href="mywork">My Tasks</a>
-                        </li>
                         <li class="nav-item ">
-                            <a class="nav-link" id="nav-item-edit" href="editprofile">Edit Profile</a>
+                            <a class="nav-link" id="nav-item-edit" href="editprofile">Profile</a>
                         </li>
                         <!-- Sign OUT -->
                         <li class="nav-item" >

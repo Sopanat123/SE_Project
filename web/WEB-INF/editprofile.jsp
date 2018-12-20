@@ -58,9 +58,6 @@
                         <li class="nav-item">
                             <a class="nav-link" id="nav-item-edit" href="mywork">My Tasks</a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" id="nav-item-edit" href="editprofile">Edit Profile</a>
-                        </li>
                         <li class="nav-item" >
                             <a class="nav-link btn btn-danger" id="nav-item-edit" role="button" href="signout">Sign Out</a>
                         </li>
