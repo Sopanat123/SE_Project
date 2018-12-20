@@ -54,19 +54,14 @@
                             <a class="nav-link" id="nav-item-edit" href="home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="nav-item-edit" href="mywork">My Work</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="nav-item-edit" href="mywork" >Doing Work</a>
+                            <a class="nav-link" id="nav-item-edit" href="mywork">My Tasks</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" id="nav-item-edit" href="editprofile">Edit Profile</a>
                         </li>
                         <!-- Sign OUT -->
                         <li class="nav-item" >
-                            <form action="signout" method="POST" class="form-inline my-2 my-lg-0 ml-5">
-                                <button class="btn btn-danger my-2 my-sm-0" type="submit">Sign Out</button>
-                            </form>
+                            <a class="nav-link btn btn-danger" id="nav-item-edit" role="button" href="signout">Sign Out</a>
                         </li>
                     </ul>
                 </div>

@@ -39,7 +39,7 @@
 
     <body>
         <!-- Navigation -->
-        <nav id="mainNav" class="navbar navbar-default navbar-custom ">
+        <nav id="mainNav" class="navbar navbar-default navbar-custom" ">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header page-scroll">
@@ -56,19 +56,14 @@
                             <a class="nav-link" id="nav-item-edit" href="home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="nav-item-edit" href="mywork">My Work</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" id="nav-item-edit" href="mywork">Doing Work</a>
+                            <a class="nav-link" id="nav-item-edit" href="mywork">My Tasks</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" id="nav-item-edit" href="editprofile">Edit Profile</a>
                         </li>
                         <!-- Sign OUT -->
-                        <li class="nav-item" >
-                            <form action="signout" method="POST" class="form-inline my-2 my-lg-0 ml-5">
-                                <button class="btn btn-danger my-2 my-sm-0" type="submit">Sign Out</button>
-                            </form>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-danger" id="nav-item-edit" role="button" href="signout">Sign Out</a>
                         </li>
                     </ul>
                 </div>

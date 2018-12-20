@@ -16,7 +16,12 @@ import swe.referenceinfo.WebPageReferenceInfo;
 public class SignOutServlet extends HttpServlet {
 
     private final WebPageReferenceInfo pageRef = WebPageReferenceInfo.getWebPageReferenceInfo();
-
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.getSession().invalidate();
+        response.sendRedirect(pageRef.getWelcome());
+    }
     /**
      * Handles the HTTP <code>POST</code> method.
      *
