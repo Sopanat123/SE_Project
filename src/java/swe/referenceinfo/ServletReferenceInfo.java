@@ -15,6 +15,7 @@ public class ServletReferenceInfo {
     private final String home = "home";
 
     private final String editprofile = "editprofile";
+    private final String betranslator = "betranslator";
 
     private final String addNewWork = "addnewwork";
     private final String myWork = "mywork";
@@ -55,6 +56,10 @@ public class ServletReferenceInfo {
 
     public String getMyWork() {
         return myWork;
+    }
+
+    public String getBetranslator() {
+        return betranslator;
     }
 
 }
