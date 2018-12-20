@@ -143,7 +143,7 @@
 <form>
           <div class="form-group">
             <label  class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="Title" placeholder="หัวข้อ"/s>
+            <input type="text" class="form-control" id="Title" placeholder="หัวข้อ">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">From language:</label>
@@ -175,7 +175,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Accept</button>
+                        <button type="button" id="accept" class="btn btn-primary">Accept</button>
                     </div>
                 </div>
             </div>
