@@ -36,6 +36,14 @@
         <servlet-name>MyWorkServlet</servlet-name>
         <servlet-class>swe.work.MyWorkServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ApproveTranslatorRequestServlet</servlet-name>
+        <servlet-class>swe.profile.ApproveTranslatorRequestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>WorkDetailServlet</servlet-name>
+        <servlet-class>swe.work.WorkDetailServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/signin</url-pattern>
@@ -67,6 +75,14 @@
     <servlet-mapping>
         <servlet-name>MyWorkServlet</servlet-name>
         <url-pattern>/mywork</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ApproveTranslatorRequestServlet</servlet-name>
+        <url-pattern>/approvetranslator</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WorkDetailServlet</servlet-name>
+        <url-pattern>/workdetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

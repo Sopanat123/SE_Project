@@ -48,7 +48,7 @@ public class WorkList {
                 work.setId((String) map.get(wDbRef.getDocId()));
                 work.setOwner((String) map.get(wDbRef.getDocOwner()));
                 work.setTitle((String) map.get(wDbRef.getDocTitle()));
-                work.setOriLang((String) map.get(wDbRef.getDocOrigLang()));
+                work.setOrigLang((String) map.get(wDbRef.getDocOrigLang()));
                 work.setTargLang((String) map.get(wDbRef.getDocTargLang()));
                 work.setDesc((String) map.get(wDbRef.getDocDesc()));
                 work.setTag((String) map.get(wDbRef.getDocTag()));
@@ -59,6 +59,7 @@ public class WorkList {
                 work.setDeadline((String) map.get(wDbRef.getDocDeadline()));
                 work.setPrice((String) map.get(wDbRef.getDocPrice()));
                 work.setHidden((String) map.get(wDbRef.getDocHidden()));
+                work.setOwnerImage((String) map.get(wDbRef.getDocOwnerImage()));
 
                 Date cDate = (Date) map.get(wDbRef.getDocCreateTime());
                 work.setCreated(df.format(cDate));

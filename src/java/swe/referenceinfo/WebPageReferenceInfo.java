@@ -12,6 +12,7 @@ public class WebPageReferenceInfo {
     private final String home = "WEB-INF/homepage.jsp";
     private final String editprofile = "WEB-INF/editprofile.jsp";
     private final String mywork = "WEB-INF/mywork.jsp";
+    private final String approvetranslator = "WEB-INF/approvetranslator.jsp";
 
     private WebPageReferenceInfo() {
     }
@@ -37,6 +38,10 @@ public class WebPageReferenceInfo {
 
     public String getMywork() {
         return mywork;
+    }
+
+    public String getApprovetranslator() {
+        return approvetranslator;
     }
 
 }

@@ -92,7 +92,6 @@ public class EditProfileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("swe.profile.EditProfileServlet.doPost(ascaccsacacas)");
         // Get user from session
         swe.model.User user = (swe.model.User) request.getSession().getAttribute(sesRef.getUser());
 

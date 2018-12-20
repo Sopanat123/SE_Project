@@ -103,17 +103,17 @@
                             <div class="media-left">
                                 <a href="#">
                                     <c:choose>
-                                        <c:when test="${empty work.imgUrl}">
+                                        <c:when test="${empty work.ownerImage}">
                                             <img class="media-object profile-img" src="assets/img/img.jpg" alt="profile">
                                         </c:when>
                                         <c:otherwise>
-                                            <img class="media-object profile-img" src="${work.imgUrl}" alt="profile">
+                                            <img class="media-object profile-img" src="${work.ownerImage}" alt="profile">
                                         </c:otherwise>
                                     </c:choose>
                                 </a>
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading">${work.owner}</h4>
+                                <h4 class="media-heading">${work.title}</h4>
                                 Posted: ${work.created}
                             </div>
                         </div>

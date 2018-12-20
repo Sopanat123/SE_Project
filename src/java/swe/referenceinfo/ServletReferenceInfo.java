@@ -16,9 +16,11 @@ public class ServletReferenceInfo {
 
     private final String editprofile = "editprofile";
     private final String betranslator = "betranslator";
+    private final String approvetranslator = "approvetranslator";
 
     private final String addNewWork = "addnewwork";
     private final String myWork = "mywork";
+    private final String workDetail = "workdetail";
 
     private ServletReferenceInfo() {
     }
@@ -60,6 +62,14 @@ public class ServletReferenceInfo {
 
     public String getBetranslator() {
         return betranslator;
+    }
+
+    public String getApprovetranslator() {
+        return approvetranslator;
+    }
+
+    public String getWorkDetail() {
+        return workDetail;
     }
 
 }

@@ -32,6 +32,9 @@ public class WorkDatabaseReferenceInfo {
     private final String docAcceptTime = "accepted";
     private final String docFinishTime = "finished";
 
+    // Addition
+    private final String docOwnerImage = "ownerimage";
+
     // Work hidden flag
     private final String attHideFalse = "no";
     private final String attHideTrue = "yes";
@@ -154,6 +157,10 @@ public class WorkDatabaseReferenceInfo {
 
     public String getAttStatusComplete() {
         return attStatusComplete;
+    }
+
+    public String getDocOwnerImage() {
+        return docOwnerImage;
     }
 
 }

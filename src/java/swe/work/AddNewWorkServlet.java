@@ -75,6 +75,7 @@ public class AddNewWorkServlet extends HttpServlet {
         map.put(wDbRef.getDocOwner(), user.getUsername());
         map.put(wDbRef.getDocTitle(), title);
         map.put(wDbRef.getDocDesc(), desc);
+        map.put(wDbRef.getDocOwnerImage(), user.getImage());
         map.put(wDbRef.getDocStatus(), wDbRef.getAttStatusNew());
         map.put(wDbRef.getDocCreateTime(), FieldValue.serverTimestamp());
 

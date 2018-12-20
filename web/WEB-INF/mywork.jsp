@@ -95,70 +95,16 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-xs-12 work-item">
-                                        <div class="col-xs-2 col-sm-1"><img class="profile-img" src="img/img.jpg" /></div>
-                                        <div class="col-xs-10 col-sm-11">
-                                            <div class="col-xs-12 col-sm-3"><a href="#">Work title Lorem ipsum dolor sit
-                                                    amet.</a></div>
-                                            <div class="col-xs-12 col-sm-7">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing elit. Sint amet blanditiis ea quod consequatur eius dignissimos
-                                                veritatis tempore voluptates aspernatur distinctio nam inventore eaque
-                                                minus voluptatem ex, exercitationem facilis accusamus.</div>
-                                            <div class="col-xs-12 col-sm-2 text-right">3 min ago</div>
+                                    <c:forEach var="work" items="${rwork}">
+                                        <div class="col-xs-12 work-item">
+                                            <div class="col-xs-2 col-sm-1"><img class="profile-img" src="${work.ownerImage}" /></div>
+                                            <div class="col-xs-10 col-sm-11">
+                                                <div class="col-xs-12 col-sm-3"><a href="#">${work.title}</a></div>
+                                                <div class="col-xs-12 col-sm-7">${work.desc}</div>
+                                                <div class="col-xs-12 col-sm-2 text-right">${work.created}</div>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div class="col-xs-12 work-item">
-                                        <div class="col-xs-2 col-sm-1"><img class="profile-img" src="img/img.jpg" /></div>
-                                        <div class="col-xs-10 col-sm-11">
-                                            <div class="col-xs-12 col-sm-3"><a href="#">Work title Lorem ipsum dolor sit
-                                                    amet.</a></div>
-                                            <div class="col-xs-12 col-sm-7">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing elit. Sint amet blanditiis ea quod consequatur eius dignissimos
-                                                veritatis tempore voluptates aspernatur distinctio nam inventore eaque
-                                                minus voluptatem ex, exercitationem facilis accusamus.</div>
-                                            <div class="col-xs-12 col-sm-2 text-right">3 min ago</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 work-item">
-                                        <div class="col-xs-2 col-sm-1"><img class="profile-img" src="img/img.jpg" /></div>
-                                        <div class="col-xs-10 col-sm-11">
-                                            <div class="col-xs-12 col-sm-3"><a href="#">Work title Lorem ipsum dolor sit
-                                                    amet.</a></div>
-                                            <div class="col-xs-12 col-sm-7">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing elit. Sint amet blanditiis ea quod consequatur eius dignissimos
-                                                veritatis tempore voluptates aspernatur distinctio nam inventore eaque
-                                                minus voluptatem ex, exercitationem facilis accusamus.</div>
-                                            <div class="col-xs-12 col-sm-2 text-right">3 min ago</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 work-item">
-                                        <div class="col-xs-2 col-sm-1"><img class="profile-img" src="img/img.jpg" /></div>
-                                        <div class="col-xs-10 col-sm-11">
-                                            <div class="col-xs-12 col-sm-3"><a href="#">Work title Lorem ipsum dolor sit
-                                                    amet.</a></div>
-                                            <div class="col-xs-12 col-sm-7">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing elit. Sint amet blanditiis ea quod consequatur eius dignissimos
-                                                veritatis tempore voluptates aspernatur distinctio nam inventore eaque
-                                                minus voluptatem ex, exercitationem facilis accusamus.</div>
-                                            <div class="col-xs-12 col-sm-2 text-right">3 min ago</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 work-item">
-                                        <div class="col-xs-2 col-sm-1"><img class="profile-img" src="img/img.jpg" /></div>
-                                        <div class="col-xs-10 col-sm-11">
-                                            <div class="col-xs-12 col-sm-3"><a href="#">Work title Lorem ipsum dolor sit
-                                                    amet.</a></div>
-                                            <div class="col-xs-12 col-sm-7">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing elit. Sint amet blanditiis ea quod consequatur eius dignissimos
-                                                veritatis tempore voluptates aspernatur distinctio nam inventore eaque
-                                                minus voluptatem ex, exercitationem facilis accusamus.</div>
-                                            <div class="col-xs-12 col-sm-2 text-right">3 min ago</div>
-                                        </div>
-                                    </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
@@ -167,44 +113,16 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-xs-12 work-item">
-                                        <div class="col-xs-2 col-sm-1"><img class="profile-img" src="img/img.jpg" /></div>
-                                        <div class="col-xs-10 col-sm-11">
-                                            <div class="col-xs-12 col-sm-3"><a href="#">Work title Lorem ipsum dolor sit
-                                                    amet.</a></div>
-                                            <div class="col-xs-12 col-sm-7">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing elit. Sint amet blanditiis ea quod consequatur eius dignissimos
-                                                veritatis tempore voluptates aspernatur distinctio nam inventore eaque
-                                                minus voluptatem ex, exercitationem facilis accusamus.</div>
-                                            <div class="col-xs-12 col-sm-2 text-right">3 min ago</div>
+                                    <c:forEach var="work" items="${twork}">
+                                        <div class="col-xs-12 work-item">
+                                            <div class="col-xs-2 col-sm-1"><img class="profile-img" src="${work.ownerImage}" /></div>
+                                            <div class="col-xs-10 col-sm-11">
+                                                <div class="col-xs-12 col-sm-3"><a href="#">${work.title}</a></div>
+                                                <div class="col-xs-12 col-sm-7">${work.desc}</div>
+                                                <div class="col-xs-12 col-sm-2 text-right">${work.accepted}</div>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div class="col-xs-12 work-item">
-                                        <div class="col-xs-2 col-sm-1"><img class="profile-img" src="img/img.jpg" /></div>
-                                        <div class="col-xs-10 col-sm-11">
-                                            <div class="col-xs-12 col-sm-3"><a href="#">Work title Lorem ipsum dolor sit
-                                                    amet.</a></div>
-                                            <div class="col-xs-12 col-sm-7">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing elit. Sint amet blanditiis ea quod consequatur eius dignissimos
-                                                veritatis tempore voluptates aspernatur distinctio nam inventore eaque
-                                                minus voluptatem ex, exercitationem facilis accusamus.</div>
-                                            <div class="col-xs-12 col-sm-2 text-right">3 min ago</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-12 work-item">
-                                        <div class="col-xs-2 col-sm-1"><img class="profile-img" src="img/img.jpg" /></div>
-                                        <div class="col-xs-10 col-sm-11">
-                                            <div class="col-xs-12 col-sm-3"><a href="#">Work title Lorem ipsum dolor sit
-                                                    amet.</a></div>
-                                            <div class="col-xs-12 col-sm-7">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing elit. Sint amet blanditiis ea quod consequatur eius dignissimos
-                                                veritatis tempore voluptates aspernatur distinctio nam inventore eaque
-                                                minus voluptatem ex, exercitationem facilis accusamus.</div>
-                                            <div class="col-xs-12 col-sm-2 text-right">3 min ago</div>
-                                        </div>
-                                    </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>

@@ -9,7 +9,7 @@ public class Work {
     private String id; // username + "work" + number of work
     private String owner; // owner username
     private String title;
-    private String oriLang;
+    private String origLang;
     private String targLang;
     private String desc;
     private String tag; // separate by comma (,)
@@ -25,6 +25,8 @@ public class Work {
     private String finished; // actual deal closed time;
     private String price; // full price
     private String hidden; // hide work, access by direct url
+
+    private String ownerImage; // Convenient
 
     public String getId() {
         return id;
@@ -50,12 +52,12 @@ public class Work {
         this.title = title;
     }
 
-    public String getOriLang() {
-        return oriLang;
+    public String getOrigLang() {
+        return origLang;
     }
 
-    public void setOriLang(String oriLang) {
-        this.oriLang = oriLang;
+    public void setOrigLang(String origLang) {
+        this.origLang = origLang;
     }
 
     public String getTargLang() {
@@ -176,6 +178,14 @@ public class Work {
 
     public void setCmpFileUrl(String cmpFileUrl) {
         this.cmpFileUrl = cmpFileUrl;
+    }
+
+    public String getOwnerImage() {
+        return ownerImage;
+    }
+
+    public void setOwnerImage(String ownerImage) {
+        this.ownerImage = ownerImage;
     }
 
 }
